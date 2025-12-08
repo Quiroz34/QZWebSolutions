@@ -1,11 +1,14 @@
-// script.js - Optimizado para páginas web de profesionales y negocios
+// script.js - QZ Web Solutions - Versión Profesional Mejorada
 'use strict';
 
 // Estado global de la aplicación
 const AppState = {
     isMenuOpen: false,
     isFormSubmitting: false,
-    currentYear: new Date().getFullYear()
+    currentYear: new Date().getFullYear(),
+    whatsappNumber: '527228964383',
+    phoneNumber: '722 896 4383',
+    email: 'info@qzwebsolutions.com'
 };
 
 // Inicialización cuando el DOM está listo
@@ -31,15 +34,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar efectos de scroll
     initScrollEffects();
     
+    // Inicializar efectos visuales
+    initVisualEffects();
+    
     // Console log de bienvenida
     console.log(
-        `%cQZ Web Solutions%c\nPáginas web para profesionales y negocios\nhttps://qzwebsolutions.com`,
-        'color: #2563eb; font-size: 18px; font-weight: bold;',
+        `%cQZ Web Solutions%c\nVersión Profesional Mejorada\nhttps://qzwebsolutions.com\n`,
+        'background: linear-gradient(135deg, #2d5bff, #00c9ff); color: white; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px;',
         'color: #94a3b8; font-size: 14px;'
     );
 });
 
-// Navegación móvil
+// Navegación móvil mejorada
 function initMobileNavigation() {
     const navToggle = document.getElementById('navToggle');
     const siteNav = document.getElementById('siteNav');
@@ -51,6 +57,9 @@ function initMobileNavigation() {
         navToggle.setAttribute('aria-expanded', String(AppState.isMenuOpen));
         siteNav.classList.toggle('active', AppState.isMenuOpen);
         document.body.style.overflow = AppState.isMenuOpen ? 'hidden' : '';
+        
+        // Animar el botón hamburguesa
+        navToggle.classList.toggle('active', AppState.isMenuOpen);
     };
     
     // Evento del botón de menú
@@ -92,7 +101,7 @@ function initMobileNavigation() {
     });
 }
 
-// Scroll suave
+// Scroll suave mejorado
 function initSmoothScroll() {
     // Scroll desde botón del hero
     const btnContact = document.getElementById('btnContact');
@@ -119,7 +128,7 @@ function initSmoothScroll() {
 function scrollToSection(sectionId) {
     const targetElement = document.getElementById(sectionId);
     if (targetElement) {
-        const headerOffset = 80;
+        const headerOffset = document.querySelector('header').offsetHeight;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
@@ -130,7 +139,79 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Formulario de contacto
+// Funciones para WhatsApp (globales para uso en HTML)
+function sendPlanToWhatsApp(planName, price) {
+    const message = `*Solicitud de Información sobre Plan*%0A%0A` +
+                   `*Plan de Interés:* ${encodeURIComponent(planName)}%0A` +
+                   `*Precio:* ${encodeURIComponent(price)}%0A` +
+                   `*Mensaje:* Hola, estoy interesado en el plan ${planName} de ${price}. Me gustaría recibir más información y un presupuesto detallado.%0A%0A` +
+                   `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
+                   `*Origen:* Página Web QZ Web Solutions`;
+
+    const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
+    
+    window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+}
+
+function sendServiceToWhatsApp(serviceName) {
+    const message = `*Solicitud de Información sobre Servicio*%0A%0A` +
+                   `*Servicio de Interés:* ${encodeURIComponent(serviceName)}%0A` +
+                   `*Mensaje:* Hola, estoy interesado en el servicio de ${serviceName}. Me gustaría recibir más información y un presupuesto personalizado.%0A%0A` +
+                   `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
+                   `*Origen:* Página Web QZ Web Solutions`;
+
+    const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
+    
+    window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+}
+
+// Función para enviar a WhatsApp desde formulario
+async function sendToWhatsApp(formData) {
+    return new Promise((resolve, reject) => {
+        try {
+            // Formatear el mensaje para WhatsApp
+            const message = `*Nueva Solicitud de Página Web*%0A%0A` +
+                           `*Nombre:* ${encodeURIComponent(formData.name)}%0A` +
+                           `*Teléfono:* ${encodeURIComponent(formData.phone)}%0A` +
+                           `*Tipo de Negocio:* ${encodeURIComponent(getTipoNegocioName(formData.tipo_negocio))}%0A` +
+                           `*Mensaje:*%0A${encodeURIComponent(formData.message)}%0A%0A` +
+                           `*Fecha:* ${encodeURIComponent(formData.date)}%0A` +
+                           `*Origen:* Formulario Web QZ Web Solutions`;
+
+            const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
+            
+            // Abrir WhatsApp en nueva ventana
+            const newWindow = window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+            
+            // Cerrar ventana después de 5 segundos (opcional)
+            setTimeout(() => {
+                if (newWindow && !newWindow.closed) {
+                    newWindow.close();
+                }
+            }, 5000);
+            
+            resolve({ success: true });
+            
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+function getTipoNegocioName(value) {
+    const tipos = {
+        'tienda': 'Tienda o Comercio',
+        'restaurante': 'Restaurante o Cafetería',
+        'servicio': 'Servicio Técnico',
+        'consultor': 'Consultor o Profesional',
+        'educacion': 'Educación o Capacitación',
+        'salud': 'Salud o Bienestar',
+        'otro': 'Otro tipo de negocio'
+    };
+    return tipos[value] || value;
+}
+
+// Formulario de contacto mejorado
 function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
@@ -138,7 +219,7 @@ function initContactForm() {
     // Elementos del formulario
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
-    const profesionSelect = document.getElementById('profesion');
+    const tipoNegocioSelect = document.getElementById('tipo_negocio');
     const messageInput = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
     const statusElement = document.getElementById('status');
@@ -152,6 +233,7 @@ function initContactForm() {
     if (nameInput) nameInput.addEventListener('input', () => validateName());
     if (phoneInput) phoneInput.addEventListener('input', () => validatePhone());
     if (messageInput) messageInput.addEventListener('input', () => validateMessage());
+    if (tipoNegocioSelect) tipoNegocioSelect.addEventListener('change', () => validateTipoNegocio());
     
     // Envío del formulario
     form.addEventListener('submit', async (e) => {
@@ -163,10 +245,11 @@ function initContactForm() {
         const isNameValid = validateName();
         const isPhoneValid = validatePhone();
         const isMessageValid = validateMessage();
-        const isProfesionValid = validateProfesion();
+        const isTipoNegocioValid = validateTipoNegocio();
         
-        if (!isNameValid || !isPhoneValid || !isMessageValid || !isProfesionValid) {
-            showStatus('Por favor, corrige los errores en el formulario.', 'error');
+        if (!isNameValid || !isPhoneValid || !isMessageValid || !isTipoNegocioValid) {
+            showStatus('Por favor, corrige los errores en el formulario antes de enviar.', 'error');
+            scrollToSection('contacto');
             return;
         }
         
@@ -174,10 +257,10 @@ function initContactForm() {
         const formData = {
             name: nameInput.value.trim(),
             phone: phoneInput.value.trim(),
-            profesion: profesionSelect.value,
+            tipo_negocio: tipoNegocioSelect.value,
             message: messageInput.value.trim(),
             date: new Date().toLocaleString('es-MX'),
-            source: 'Landing Page Profesionales'
+            source: 'Formulario Web QZ Web Solutions'
         };
         
         // Cambiar estado del formulario
@@ -188,7 +271,7 @@ function initContactForm() {
             await sendToWhatsApp(formData);
             
             // Éxito
-            showStatus(`¡Gracias ${formData.name}! Hemos recibido tu solicitud. Te contactaremos por WhatsApp en menos de 24 horas.`, 'success');
+            showStatus(`¡Perfecto ${formData.name}! Tu solicitud ha sido enviada correctamente. Te contactaremos por WhatsApp en menos de 24 horas.`, 'success');
             
             // Resetear formulario
             form.reset();
@@ -196,75 +279,93 @@ function initContactForm() {
             // Guardar en localStorage como backup
             saveToLocalStorage(formData);
             
+            // Mostrar confeti (efecto visual)
+            showConfetti();
+            
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
-            showStatus('No se pudo enviar tu solicitud. Por favor, contáctanos directamente al 722 896 4383', 'error');
+            showStatus('No se pudo enviar tu solicitud. Por favor, contáctanos directamente al ' + AppState.phoneNumber, 'error');
         } finally {
             // Restaurar estado del formulario
             setFormSubmitting(false);
         }
     });
     
-    // Funciones de validación
+    // Funciones de validación mejoradas
     function validateName() {
         const value = nameInput.value.trim();
+        const nameError = document.getElementById('nameError');
+        
         if (!value) {
             nameError.textContent = 'Tu nombre es obligatorio.';
-            nameInput.style.borderColor = '#ef4444';
+            nameInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
         if (value.length < 2) {
             nameError.textContent = 'El nombre debe tener al menos 2 caracteres.';
-            nameInput.style.borderColor = '#ef4444';
+            nameInput.parentElement.style.borderColor = 'var(--error)';
+            return false;
+        }
+        if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
+            nameError.textContent = 'El nombre solo debe contener letras.';
+            nameInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
         nameError.textContent = '';
-        nameInput.style.borderColor = '';
+        nameInput.parentElement.style.borderColor = '';
         return true;
     }
     
     function validatePhone() {
         const value = phoneInput.value.trim();
+        const phoneError = document.getElementById('phoneError');
         const phoneRegex = /^[0-9\s\-\(\)]{10,15}$/;
         
         if (!value) {
             phoneError.textContent = 'Tu teléfono es obligatorio.';
-            phoneInput.style.borderColor = '#ef4444';
+            phoneInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
         
-        if (!phoneRegex.test(value.replace(/\s/g, ''))) {
-            phoneError.textContent = 'Por favor, introduce un teléfono válido (10 dígitos).';
-            phoneInput.style.borderColor = '#ef4444';
+        const cleanValue = value.replace(/\s/g, '');
+        if (!phoneRegex.test(cleanValue) || cleanValue.length !== 10) {
+            phoneError.textContent = 'Por favor, introduce un teléfono válido (10 dígitos). Ej: 7221234567';
+            phoneInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
         
         phoneError.textContent = '';
-        phoneInput.style.borderColor = '';
+        phoneInput.parentElement.style.borderColor = '';
         return true;
     }
     
     function validateMessage() {
         const value = messageInput.value.trim();
+        const messageError = document.getElementById('messageError');
+        
         if (!value) {
             messageError.textContent = 'Por favor, describe lo que necesitas.';
-            messageInput.style.borderColor = '#ef4444';
+            messageInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
         if (value.length < 10) {
             messageError.textContent = 'Describe mejor lo que necesitas (mínimo 10 caracteres).';
-            messageInput.style.borderColor = '#ef4444';
+            messageInput.parentElement.style.borderColor = 'var(--error)';
+            return false;
+        }
+        if (value.length > 1000) {
+            messageError.textContent = 'El mensaje es demasiado largo (máximo 1000 caracteres).';
+            messageInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
         messageError.textContent = '';
-        messageInput.style.borderColor = '';
+        messageInput.parentElement.style.borderColor = '';
         return true;
     }
     
-    function validateProfesion() {
-        const value = profesionSelect.value;
+    function validateTipoNegocio() {
+        const value = tipoNegocioSelect.value;
         if (!value) {
-            // No hay elemento de error para select, mostramos en status
             return false;
         }
         return true;
@@ -277,7 +378,7 @@ function initContactForm() {
         const btnText = submitBtn.querySelector('.btn-text');
         const btnLoading = submitBtn.querySelector('.btn-loading');
         
-        if (btnText) btnText.style.display = isSubmitting ? 'none' : 'inline';
+        if (btnText) btnText.style.display = isSubmitting ? 'none' : 'inline-flex';
         if (btnLoading) btnLoading.style.display = isSubmitting ? 'inline-flex' : 'none';
     }
     
@@ -289,9 +390,14 @@ function initContactForm() {
         
         if (type === 'success') {
             statusElement.classList.add('success');
+            statusElement.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
         } else if (type === 'error') {
             statusElement.classList.add('error');
+            statusElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
         }
+        
+        // Scroll al mensaje
+        statusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
         
         // Auto-ocultar mensaje de éxito después de 8 segundos
         if (type === 'success') {
@@ -302,67 +408,78 @@ function initContactForm() {
         }
     }
     
-    function getProfesionName(value) {
-        const profesiones = {
-            'medico': 'Médico / Doctor',
-            'dentista': 'Dentista / Odontólogo',
-            'terapeuta': 'Terapeuta / Psicólogo',
-            'arquitecto': 'Arquitecto / Ingeniero',
-            'abogado': 'Abogado / Notario',
-            'negocio': 'Negocio Local',
-            'otro': 'Otra Profesión'
-        };
-        return profesiones[value] || value;
-    }
-    
-    async function sendToWhatsApp(data) {
-        return new Promise((resolve, reject) => {
-            try {
-                // Formatear el mensaje para WhatsApp
-                const message = `*Nueva Solicitud de Página Web*%0A%0A` +
-                               `*Nombre:* ${encodeURIComponent(data.name)}%0A` +
-                               `*Teléfono:* ${encodeURIComponent(data.phone)}%0A` +
-                               `*Profesión/Negocio:* ${encodeURIComponent(getProfesionName(data.profesion))}%0A` +
-                               `*Mensaje:*%0A${encodeURIComponent(data.message)}%0A%0A` +
-                               `*Fecha:* ${encodeURIComponent(data.date)}%0A` +
-                               `*Origen:* ${encodeURIComponent(data.source)}`;
-
-                const phoneNumber = '527228964383';
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-                
-                // Abrir WhatsApp en nueva ventana
-                const newWindow = window.open(whatsappURL, '_blank', 'noopener,noreferrer');
-                
-                // Cerrar ventana después de 5 segundos (opcional)
-                setTimeout(() => {
-                    if (newWindow && !newWindow.closed) {
-                        newWindow.close();
-                    }
-                }, 5000);
-                
-                resolve({ success: true });
-                
-            } catch (error) {
-                reject(error);
-            }
-        });
-    }
-    
     function saveToLocalStorage(data) {
         try {
-            const submissions = JSON.parse(localStorage.getItem('webSubmissions') || '[]');
+            const submissions = JSON.parse(localStorage.getItem('qzWebSubmissions') || '[]');
             submissions.push({
                 ...data,
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString(),
+                id: Date.now()
             });
-            localStorage.setItem('webSubmissions', JSON.stringify(submissions));
+            
+            // Mantener solo los últimos 50 envíos
+            if (submissions.length > 50) {
+                submissions.shift();
+            }
+            
+            localStorage.setItem('qzWebSubmissions', JSON.stringify(submissions));
         } catch (error) {
             console.error('Error al guardar en localStorage:', error);
         }
     }
+    
+    function showConfetti() {
+        // Efecto simple de confeti
+        const confetti = document.createElement('div');
+        confetti.style.position = 'fixed';
+        confetti.style.top = '0';
+        confetti.style.left = '0';
+        confetti.style.width = '100%';
+        confetti.style.height = '100%';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.zIndex = '9999';
+        document.body.appendChild(confetti);
+        
+        // Crear partículas de confeti
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '10px';
+            particle.style.height = '10px';
+            particle.style.background = getRandomColor();
+            particle.style.borderRadius = '50%';
+            particle.style.top = '-20px';
+            particle.style.left = `${Math.random() * 100}%`;
+            
+            confetti.appendChild(particle);
+            
+            // Animación
+            const animation = particle.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: 1000 + Math.random() * 1000,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            });
+            
+            animation.onfinish = () => {
+                particle.remove();
+            };
+        }
+        
+        // Remover contenedor después de la animación
+        setTimeout(() => {
+            confetti.remove();
+        }, 2000);
+    }
+    
+    function getRandomColor() {
+        const colors = ['#2d5bff', '#00c9ff', '#00ff9d', '#ff6b6b', '#ffd93d', '#6b5b95'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
 }
 
-// Animaciones
+// Animaciones mejoradas
 function initAnimations() {
     // Observer para elementos animables
     const observerOptions = {
@@ -373,6 +490,7 @@ function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
             }
@@ -381,17 +499,33 @@ function initAnimations() {
     
     // Observar elementos con animación
     const animatableElements = document.querySelectorAll(
-        '.service-card, .project-card, .benefit-item, .pricing-card, .testimonial-card'
+        '.service-card, .portfolio-card, .benefit-item, .pricing-card, .stat'
     );
     
     animatableElements.forEach(element => {
         element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
+        element.style.transform = 'translateY(30px)';
         element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(element);
     });
     
-    // Animación de estadísticas
+    // Animación de estadísticas en círculos
+    const circleProgresses = document.querySelectorAll('.circle-progress');
+    if (circleProgresses.length > 0) {
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const value = entry.target.getAttribute('data-value');
+                    animateCircleProgress(entry.target, value);
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        circleProgresses.forEach(circle => progressObserver.observe(circle));
+    }
+    
+    // Animación de números
     const stats = document.querySelectorAll('.stat-number');
     if (stats.length > 0) {
         const statObserver = new IntersectionObserver((entries) => {
@@ -405,6 +539,30 @@ function initAnimations() {
         
         stats.forEach(stat => statObserver.observe(stat));
     }
+}
+
+function animateCircleProgress(element, value) {
+    const progressValue = element.querySelector('.progress-value');
+    const circumference = 2 * Math.PI * 60; // Radio del círculo
+    
+    // Animar el círculo
+    element.style.background = `conic-gradient(var(--primary) ${value * 3.6}deg, rgba(45, 91, 255, 0.1) 0deg)`;
+    
+    // Animar el número
+    let current = 0;
+    const target = parseInt(value);
+    const duration = 1500;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            progressValue.textContent = target + '%';
+            clearInterval(timer);
+        } else {
+            progressValue.textContent = Math.floor(current) + '%';
+        }
+    }, 16);
 }
 
 function animateCounter(element) {
@@ -431,14 +589,15 @@ function animateCounter(element) {
     }, 16);
 }
 
-// Efectos de scroll
+// Efectos de scroll mejorados
 function initScrollEffects() {
     const header = document.querySelector('header');
     if (!header) return;
     
     let lastScrollY = window.scrollY;
+    let ticking = false;
     
-    window.addEventListener('scroll', () => {
+    const updateHeader = () => {
         // Cambiar fondo del header
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -456,6 +615,14 @@ function initScrollEffects() {
         }
         
         lastScrollY = window.scrollY;
+        ticking = false;
+    };
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
     });
     
     // Efecto parallax en elementos flotantes
@@ -464,9 +631,116 @@ function initScrollEffects() {
         const xPos = (clientX / window.innerWidth - 0.5) * 20;
         const yPos = (clientY / window.innerHeight - 0.5) * 20;
         
-        document.querySelectorAll('.floating-card, .floating-element').forEach((el, index) => {
+        document.querySelectorAll('.floating-card').forEach((el, index) => {
             const speed = 0.5 + (index * 0.1);
             el.style.transform = `translate(${xPos * speed}px, ${yPos * speed}px)`;
         });
     });
 }
+
+// Efectos visuales adicionales
+function initVisualEffects() {
+    // Efecto de partículas en el hero
+    if (window.innerWidth > 768) {
+        createParticles();
+    }
+    
+    // Efecto de hover en tarjetas de precios
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    pricingCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            if (!card.classList.contains('featured')) {
+                card.style.transform = 'translateY(-10px)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            if (!card.classList.contains('featured')) {
+                card.style.transform = 'translateY(0)';
+            }
+        });
+    });
+    
+    // Efecto de carga en imágenes del portafolio
+    const portfolioImages = document.querySelectorAll('.portfolio-image');
+    portfolioImages.forEach(img => {
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.6s ease';
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(img);
+    });
+}
+
+function createParticles() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 4 + 1 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = 'rgba(45, 91, 255, 0.5)';
+        particle.style.borderRadius = '50%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.zIndex = '1';
+        
+        hero.appendChild(particle);
+        
+        // Animación
+        animateParticle(particle);
+    }
+}
+
+function animateParticle(element) {
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    
+    const animation = element.animate([
+        { transform: `translate(${x}%, ${y}%)`, opacity: 0 },
+        { transform: `translate(${x + 10}%, ${y - 10}%)`, opacity: 0.8 },
+        { transform: `translate(${x}%, ${y}%)`, opacity: 0 }
+    ], {
+        duration: 3000 + Math.random() * 2000,
+        iterations: Infinity
+    });
+}
+
+// Mejoras adicionales para SEO y rendimiento
+window.addEventListener('load', () => {
+    // Precargar imágenes importantes
+    const logo = new Image();
+    logo.src = '/img/QZloga3.png';
+    
+    // Establecer tiempo de carga
+    const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+    console.log(`Tiempo de carga de la página: ${loadTime}ms`);
+    
+    // Lazy loading para imágenes fuera del viewport
+    if ('IntersectionObserver' in window) {
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+});

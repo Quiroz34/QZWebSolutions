@@ -285,7 +285,7 @@ header.scrolled {
     min-height: calc(100vh - var(--header-height));
     display: flex;
     align-items: center;
-    padding: 4rem 0;
+    padding: 2.5rem 0;
     position: relative;
     overflow: hidden;
 }
@@ -350,7 +350,7 @@ header.scrolled {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .hero-stats {
@@ -564,13 +564,13 @@ header.scrolled {
 /* =========================================== */
 
 .section {
-    padding: 6rem 0;
+    padding: 3.5rem 0;
     position: relative;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     position: relative;
 }
 
@@ -1033,7 +1033,7 @@ header.scrolled {
 }
 
 .price {
-    font-size: 3.5rem;
+    font-size: 3.0rem;
     font-weight: 800;
     background: var(--gradient);
     -webkit-background-clip: text;
@@ -1106,7 +1106,7 @@ header.scrolled {
 }
 
 .pricing-note {
-    margin-top: 3rem;
+    margin-top: 2rem;
     text-align: center;
     padding: 1.5rem;
     background: rgba(45, 91, 255, 0.1);
@@ -1202,9 +1202,9 @@ header.scrolled {
 }
 
 .contact-cta {
-    margin-top: 3rem;
+    margin-top: 2rem;
     background: rgba(45, 91, 255, 0.1);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--radius-lg);
     text-align: center;
     border: 1px solid rgba(45, 91, 255, 0.2);
@@ -1505,7 +1505,7 @@ header.scrolled {
 /* =========================================== */
 
 footer {
-    padding: 5rem 0 2rem;
+    padding: 3.5rem 0 2rem;
     background: var(--darker);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
@@ -1526,7 +1526,7 @@ footer::before {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .footer-brand .logo {
@@ -1766,7 +1766,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
     /* HERO MÁS COMPACTO Y ATRAVESADO */
     .hero {
         min-height: auto;
-        padding: 2.5rem 0 2rem;
+        padding: 1.5rem 0 1.5rem;
     }
     
     .hero-content {
@@ -1831,7 +1831,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
     
     /* SECCIONES COMPACTAS */
     .section {
-        padding: 3rem 0;
+        padding: 2rem 0;
     }
     
     .section-header {
@@ -2056,7 +2056,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
     
     /* HERO PARA TABLET */
     .hero {
-        padding: 3rem 0;
+        padding: 2rem 0;
         min-height: auto;
     }
     
@@ -2323,7 +2323,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
     }
     
     .section {
-        padding: 2.5rem 0;
+        padding: 2rem 0;
     }
 }
 

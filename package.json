@@ -1,13 +1,20 @@
 {
   "name": "qzwebsolutions",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "QZ Web Solutions - Desarrollo Web Profesional en Toluca",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "web development",
+    "toluca",
+    "mexico",
+    "desarrollo web"
+  ],
+  "author": "QZ Web Solutions",
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0"

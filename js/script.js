@@ -36,13 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicializar efectos visuales
     initVisualEffects();
-
-    // Console log de bienvenida
-    console.log(
-        `%cQZ Web Solutions%c\nVersión Profesional Mejorada\nhttps://qzwebsolutions.com\n`,
-        'background: linear-gradient(135deg, #2d5bff, #00c9ff); color: white; font-size: 18px; font-weight: bold; padding: 10px 20px; border-radius: 5px;',
-        'color: #94a3b8; font-size: 14px;'
-    );
 });
 
 // Navegación móvil mejorada
@@ -722,10 +715,6 @@ window.addEventListener('load', () => {
     // Precargar imágenes importantes
     const logo = new Image();
     logo.src = '/assets/logofv2.jpg';
-
-    // Establecer tiempo de carga
-    const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
-    console.log(`Tiempo de carga de la página: ${loadTime}ms`);
 
     // Lazy loading para imágenes fuera del viewport
     if ('IntersectionObserver' in window) {

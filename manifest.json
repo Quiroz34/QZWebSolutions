@@ -1,0 +1,57 @@
+{
+    "name": "QZ Web Solutions",
+    "short_name": "QZ Web",
+    "description": "Desarrollo Web Profesional en Toluca - Diseño responsive, SEO optimizado",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0f23",
+    "theme_color": "#2d5bff",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/assets/logofv2.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/logofv2.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "business",
+        "productivity"
+    ],
+    "lang": "es-MX",
+    "dir": "ltr",
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Contacto",
+            "short_name": "Contacto",
+            "description": "Contactar a QZ Web Solutions",
+            "url": "/#contacto",
+            "icons": [
+                {
+                    "src": "/assets/logofv2.jpg",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Portafolio",
+            "short_name": "Portafolio",
+            "description": "Ver proyectos realizados",
+            "url": "/#portafolio",
+            "icons": [
+                {
+                    "src": "/assets/logofv2.jpg",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}

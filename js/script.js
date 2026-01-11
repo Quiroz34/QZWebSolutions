@@ -907,3 +907,62 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-XXXXXXXXXX');
 */
+// =========================================
+// PWA & COOKIES
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    initServiceWorker();
+    initCookieBanner();
+});
+
+function initServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registrado exitosamente:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Fallo registro de SW:', error);
+                });
+        });
+    }
+}
+
+function initCookieBanner() {
+    // Verificar si ya aceptó cookies
+    if (localStorage.getItem('qz_cookies_accepted') === 'true') {
+        return;
+    }
+
+    // Crear banner si no existe (aunque idealmente debería estar en HTML)
+    // Pero para asegurar que aparezca aunque el usuario no edite HTML:
+    const existingBanner = document.getElementById('cookieBanner');
+    if (existingBanner) {
+         setTimeout(() => existingBanner.classList.add('show'), 2000);
+         return;
+    }
+
+    // Inserción dinámica si no está en HTML
+    const banner = document.createElement('div');
+    banner.id = 'cookieBanner';
+    banner.className = 'cookie-banner';
+    banner.innerHTML = \`n        <div class='cookie-content'>
+            <div class='cookie-text'>
+                <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href='/privacy'>Política de Privacidad</a>.</p>
+            </div>
+            <button id='acceptCookies' class='cookie-btn'>Aceptar</button>
+        </div>
+    \;
+
+    document.body.appendChild(banner);
+
+    // Event Listeners
+    setTimeout(() => banner.classList.add('show'), 2000);
+
+    document.getElementById('acceptCookies').addEventListener('click', () => {
+        localStorage.setItem('qz_cookies_accepted', 'true');
+        banner.classList.remove('show');
+    });
+}

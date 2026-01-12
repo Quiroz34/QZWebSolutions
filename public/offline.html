@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Conexión | QZ Web Solutions</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+        .offline-container {
+            max-width: 600px;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .icon {
+            font-size: 64px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #0066FF;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0066FF;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0052cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="icon">📡</div>
+        <h1>¡Estás desconectado!</h1>
+        <p>Parece que has perdido tu conexión a internet. No te preocupes, esta página está guardada en tu dispositivo.</p>
+        <p>Verifica tu señal Wi-Fi o datos móviles e intenta recargar.</p>
+        <a href="/" class="btn" onclick="window.location.reload(); return false;">Intentar Recargar</a>
+    </div>
+</body>
+</html>

@@ -26,34 +26,71 @@ body.projects-page {
     background-attachment: fixed;
 }
 
-/* Header "Hero" de la Galería */
+/* Header "Hero" de la Galería - REDISEÑO LUXURY */
 .page-header {
-    padding: 4rem 0 2rem;
-    /* Reduced padding */
+    padding: 0 0 16rem;
+    /* Top padding set to 0 for absolute top position */
+    margin-bottom: 2rem;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    background: radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
 }
 
-.page-header h1 {
-    font-size: 2.5rem;
-    /* Reduced from 3.5rem */
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+.gallery-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gallery-accent);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.gallery-badge::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    width: 15px;
+    height: 1px;
+    background: var(--gallery-accent);
+}
+
+.page-header h1.luxury-title {
+    font-size: clamp(2rem, 7vw, 4rem);
+    /* Slightly reduced to avoid massive overflow */
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    /* Increased for more 'luxury' look */
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to bottom, #ffffff 40%, #94a3b8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1.2;
+    /* Increased slightly to prevent vertical clipping */
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.title-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gallery-accent);
+    margin: 0 auto 2rem;
+    border-radius: 99px;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
 .page-header p {
-    font-size: 1rem;
-    /* Reduced from 1.25rem */
+    font-size: 1.15rem;
     color: #94a3b8;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 /* Contenedor Principal */

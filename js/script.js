@@ -1,7 +1,7 @@
-// script.js - QZ Web Solutions - Versión Profesional Mejorada
+﻿// script.js - QZ Web Solutions - VersiÃ³n Profesional Mejorada
 'use strict';
 
-// Estado global de la aplicación
+// Estado global de la aplicaciÃ³n
 const AppState = {
     isMenuOpen: false,
     isFormSubmitting: false,
@@ -11,15 +11,15 @@ const AppState = {
     email: 'info@qzwebsolutions.com'
 };
 
-// Inicialización cuando el DOM está listo
+// InicializaciÃ³n cuando el DOM estÃ¡ listo
 document.addEventListener('DOMContentLoaded', function () {
-    // Configurar año actual en el footer
+    // Configurar aÃ±o actual en el footer
     const yearElement = document.getElementById('current-year');
     if (yearElement) {
         yearElement.textContent = AppState.currentYear;
     }
 
-    // Inicializar navegación móvil
+    // Inicializar navegaciÃ³n mÃ³vil
     initMobileNavigation();
 
     // Inicializar scroll suave
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initVisualEffects();
 });
 
-// Navegación móvil mejorada
+// NavegaciÃ³n mÃ³vil mejorada
 function initMobileNavigation() {
     const navToggle = document.getElementById('navToggle');
     const siteNav = document.getElementById('siteNav');
@@ -51,17 +51,17 @@ function initMobileNavigation() {
         siteNav.classList.toggle('active', AppState.isMenuOpen);
         document.body.style.overflow = AppState.isMenuOpen ? 'hidden' : '';
 
-        // Animar el botón hamburguesa
+        // Animar el botÃ³n hamburguesa
         navToggle.classList.toggle('active', AppState.isMenuOpen);
     };
 
-    // Evento del botón de menú
+    // Evento del botÃ³n de menÃº
     navToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         toggleMenu();
     });
 
-    // Cerrar menú al hacer clic en enlaces
+    // Cerrar menÃº al hacer clic en enlaces
     document.querySelectorAll('#siteNav a').forEach(link => {
         link.addEventListener('click', () => {
             if (AppState.isMenuOpen) {
@@ -70,7 +70,7 @@ function initMobileNavigation() {
         });
     });
 
-    // Cerrar menú al hacer clic fuera (solo móvil)
+    // Cerrar menÃº al hacer clic fuera (solo mÃ³vil)
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768 && AppState.isMenuOpen) {
             if (!siteNav.contains(e.target) && !navToggle.contains(e.target)) {
@@ -79,14 +79,14 @@ function initMobileNavigation() {
         }
     });
 
-    // Cerrar menú al redimensionar (si se cambia a desktop)
+    // Cerrar menÃº al redimensionar (si se cambia a desktop)
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && AppState.isMenuOpen) {
             toggleMenu();
         }
     });
 
-    // Cerrar menú con Escape
+    // Cerrar menÃº con Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && AppState.isMenuOpen) {
             toggleMenu();
@@ -96,7 +96,7 @@ function initMobileNavigation() {
 
 // Scroll suave mejorado
 function initSmoothScroll() {
-    // Scroll desde botón del hero
+    // Scroll desde botÃ³n del hero
     const btnContact = document.getElementById('btnContact');
     if (btnContact) {
         btnContact.addEventListener('click', (e) => {
@@ -134,12 +134,12 @@ function scrollToSection(sectionId) {
 
 // Funciones para WhatsApp (globales para uso en HTML)
 function sendPlanToWhatsApp(planName, price) {
-    const message = `*Solicitud de Información sobre Plan*%0A%0A` +
-        `*Plan de Interés:* ${encodeURIComponent(planName)}%0A` +
+    const message = `*Solicitud de InformaciÃ³n sobre Plan*%0A%0A` +
+        `*Plan de InterÃ©s:* ${encodeURIComponent(planName)}%0A` +
         `*Precio:* ${encodeURIComponent(price)}%0A` +
-        `*Mensaje:* Hola, estoy interesado en el plan ${planName} de ${price}. Me gustaría recibir más información y un presupuesto detallado.%0A%0A` +
+        `*Mensaje:* Hola, estoy interesado en el plan ${planName} de ${price}. Me gustarÃ­a recibir mÃ¡s informaciÃ³n y un presupuesto detallado.%0A%0A` +
         `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
-        `*Origen:* Página Web QZ Web Solutions`;
+        `*Origen:* PÃ¡gina Web QZ Web Solutions`;
 
     const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
 
@@ -147,25 +147,25 @@ function sendPlanToWhatsApp(planName, price) {
 }
 
 function sendServiceToWhatsApp(serviceName) {
-    const message = `*Solicitud de Información sobre Servicio*%0A%0A` +
-        `*Servicio de Interés:* ${encodeURIComponent(serviceName)}%0A` +
-        `*Mensaje:* Hola, estoy interesado en el servicio de ${serviceName}. Me gustaría recibir más información y un presupuesto personalizado.%0A%0A` +
+    const message = `*Solicitud de InformaciÃ³n sobre Servicio*%0A%0A` +
+        `*Servicio de InterÃ©s:* ${encodeURIComponent(serviceName)}%0A` +
+        `*Mensaje:* Hola, estoy interesado en el servicio de ${serviceName}. Me gustarÃ­a recibir mÃ¡s informaciÃ³n y un presupuesto personalizado.%0A%0A` +
         `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
-        `*Origen:* Página Web QZ Web Solutions`;
+        `*Origen:* PÃ¡gina Web QZ Web Solutions`;
 
     const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
 
     window.open(whatsappURL, '_blank', 'noopener,noreferrer');
 }
 
-// Función para enviar a WhatsApp desde formulario
+// FunciÃ³n para enviar a WhatsApp desde formulario
 async function sendToWhatsApp(formData) {
     return new Promise((resolve, reject) => {
         try {
             // Formatear el mensaje para WhatsApp
-            const message = `*Nueva Solicitud de Página Web*%0A%0A` +
+            const message = `*Nueva Solicitud de PÃ¡gina Web*%0A%0A` +
                 `*Nombre:* ${encodeURIComponent(formData.name)}%0A` +
-                `*Teléfono:* ${encodeURIComponent(formData.phone)}%0A` +
+                `*TelÃ©fono:* ${encodeURIComponent(formData.phone)}%0A` +
                 `*Tipo de Negocio:* ${encodeURIComponent(getTipoNegocioName(formData.tipo_negocio))}%0A` +
                 `*Mensaje:*%0A${encodeURIComponent(formData.message)}%0A%0A` +
                 `*Fecha:* ${encodeURIComponent(formData.date)}%0A` +
@@ -176,7 +176,7 @@ async function sendToWhatsApp(formData) {
             // Abrir WhatsApp en nueva ventana
             const newWindow = window.open(whatsappURL, '_blank', 'noopener,noreferrer');
 
-            // Cerrar ventana después de 5 segundos (opcional)
+            // Cerrar ventana despuÃ©s de 5 segundos (opcional)
             setTimeout(() => {
                 if (newWindow && !newWindow.closed) {
                     newWindow.close();
@@ -194,10 +194,10 @@ async function sendToWhatsApp(formData) {
 function getTipoNegocioName(value) {
     const tipos = {
         'tienda': 'Tienda o Comercio',
-        'restaurante': 'Restaurante o Cafetería',
-        'servicio': 'Servicio Técnico',
+        'restaurante': 'Restaurante o CafeterÃ­a',
+        'servicio': 'Servicio TÃ©cnico',
         'consultor': 'Consultor o Profesional',
-        'educacion': 'Educación o Capacitación',
+        'educacion': 'EducaciÃ³n o CapacitaciÃ³n',
         'salud': 'Salud o Bienestar',
         'otro': 'Otro tipo de negocio'
     };
@@ -222,13 +222,13 @@ function initContactForm() {
     const phoneError = document.getElementById('phoneError');
     const messageError = document.getElementById('messageError');
 
-    // Validación en tiempo real
+    // ValidaciÃ³n en tiempo real
     if (nameInput) nameInput.addEventListener('input', () => validateName());
     if (phoneInput) phoneInput.addEventListener('input', () => validatePhone());
     if (messageInput) messageInput.addEventListener('input', () => validateMessage());
     if (tipoNegocioSelect) tipoNegocioSelect.addEventListener('change', () => validateTipoNegocio());
 
-    // Envío del formulario
+    // EnvÃ­o del formulario
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -263,8 +263,8 @@ function initContactForm() {
             // Enviar a WhatsApp
             await sendToWhatsApp(formData);
 
-            // Éxito
-            showStatus(`¡Perfecto ${formData.name}! Tu solicitud ha sido enviada correctamente. Te contactaremos por WhatsApp en menos de 24 horas.`, 'success');
+            // Ã‰xito
+            showStatus(`Â¡Perfecto ${formData.name}! Tu solicitud ha sido enviada correctamente. Te contactaremos por WhatsApp en menos de 24 horas.`, 'success');
 
             // Resetear formulario
             form.reset();
@@ -277,14 +277,14 @@ function initContactForm() {
 
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
-            showStatus('No se pudo enviar tu solicitud. Por favor, contáctanos directamente al ' + AppState.phoneNumber, 'error');
+            showStatus('No se pudo enviar tu solicitud. Por favor, contÃ¡ctanos directamente al ' + AppState.phoneNumber, 'error');
         } finally {
             // Restaurar estado del formulario
             setFormSubmitting(false);
         }
     });
 
-    // Funciones de validación mejoradas
+    // Funciones de validaciÃ³n mejoradas
     function validateName() {
         const value = nameInput.value.trim();
         const nameError = document.getElementById('nameError');
@@ -299,7 +299,7 @@ function initContactForm() {
             nameInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
-        if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
+        if (!/^[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃÃ‰ÃÃ“ÃšÃ±Ã‘\s]+$/.test(value)) {
             nameError.textContent = 'El nombre solo debe contener letras.';
             nameInput.parentElement.style.borderColor = 'var(--error)';
             return false;
@@ -315,14 +315,14 @@ function initContactForm() {
         const phoneRegex = /^[0-9\s\-\(\)]{10,15}$/;
 
         if (!value) {
-            phoneError.textContent = 'Tu teléfono es obligatorio.';
+            phoneError.textContent = 'Tu telÃ©fono es obligatorio.';
             phoneInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
 
         const cleanValue = value.replace(/\s/g, '');
         if (!phoneRegex.test(cleanValue) || cleanValue.length !== 10) {
-            phoneError.textContent = 'Por favor, introduce un teléfono válido (10 dígitos). Ej: 7221234567';
+            phoneError.textContent = 'Por favor, introduce un telÃ©fono vÃ¡lido (10 dÃ­gitos). Ej: 7221234567';
             phoneInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
@@ -342,12 +342,12 @@ function initContactForm() {
             return false;
         }
         if (value.length < 10) {
-            messageError.textContent = 'Describe mejor lo que necesitas (mínimo 10 caracteres).';
+            messageError.textContent = 'Describe mejor lo que necesitas (mÃ­nimo 10 caracteres).';
             messageInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
         if (value.length > 1000) {
-            messageError.textContent = 'El mensaje es demasiado largo (máximo 1000 caracteres).';
+            messageError.textContent = 'El mensaje es demasiado largo (mÃ¡ximo 1000 caracteres).';
             messageInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
@@ -392,7 +392,7 @@ function initContactForm() {
         // Scroll al mensaje
         statusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Auto-ocultar mensaje de éxito después de 8 segundos
+        // Auto-ocultar mensaje de Ã©xito despuÃ©s de 8 segundos
         if (type === 'success') {
             setTimeout(() => {
                 statusElement.textContent = '';
@@ -410,7 +410,7 @@ function initContactForm() {
                 id: Date.now()
             });
 
-            // Mantener solo los últimos 50 envíos
+            // Mantener solo los Ãºltimos 50 envÃ­os
             if (submissions.length > 50) {
                 submissions.shift();
             }
@@ -433,7 +433,7 @@ function initContactForm() {
         confetti.style.zIndex = '9999';
         document.body.appendChild(confetti);
 
-        // Crear partículas de confeti
+        // Crear partÃ­culas de confeti
         for (let i = 0; i < 50; i++) {
             const particle = document.createElement('div');
             particle.style.position = 'absolute';
@@ -446,7 +446,7 @@ function initContactForm() {
 
             confetti.appendChild(particle);
 
-            // Animación
+            // AnimaciÃ³n
             const animation = particle.animate([
                 { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
                 { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
@@ -460,7 +460,7 @@ function initContactForm() {
             };
         }
 
-        // Remover contenedor después de la animación
+        // Remover contenedor despuÃ©s de la animaciÃ³n
         setTimeout(() => {
             confetti.remove();
         }, 2000);
@@ -490,7 +490,7 @@ function initAnimations() {
         });
     }, observerOptions);
 
-    // Observar elementos con animación
+    // Observar elementos con animaciÃ³n
     const animatableElements = document.querySelectorAll(
         '.service-card, .portfolio-card, .benefit-item, .pricing-card, .stat'
     );
@@ -502,7 +502,7 @@ function initAnimations() {
         observer.observe(element);
     });
 
-    // Animación de estadísticas en círculos
+    // AnimaciÃ³n de estadÃ­sticas en cÃ­rculos
     const circleProgresses = document.querySelectorAll('.circle-progress');
     if (circleProgresses.length > 0) {
         const progressObserver = new IntersectionObserver((entries) => {
@@ -518,7 +518,7 @@ function initAnimations() {
         circleProgresses.forEach(circle => progressObserver.observe(circle));
     }
 
-    // Animación de números
+    // AnimaciÃ³n de nÃºmeros
     const stats = document.querySelectorAll('.stat-number');
     if (stats.length > 0) {
         const statObserver = new IntersectionObserver((entries) => {
@@ -536,12 +536,12 @@ function initAnimations() {
 
 function animateCircleProgress(element, value) {
     const progressValue = element.querySelector('.progress-value');
-    const circumference = 2 * Math.PI * 60; // Radio del círculo
+    const circumference = 2 * Math.PI * 60; // Radio del cÃ­rculo
 
-    // Animar el círculo
+    // Animar el cÃ­rculo
     element.style.background = `conic-gradient(var(--primary) ${value * 3.6}deg, rgba(45, 91, 255, 0.1) 0deg)`;
 
-    // Animar el número
+    // Animar el nÃºmero
     let current = 0;
     const target = parseInt(value);
     const duration = 1500;
@@ -633,7 +633,7 @@ function initScrollEffects() {
 
 // Efectos visuales adicionales
 function initVisualEffects() {
-    // Efecto de partículas en el hero
+    // Efecto de partÃ­culas en el hero
     if (window.innerWidth > 768) {
         createParticles();
     }
@@ -654,7 +654,7 @@ function initVisualEffects() {
         });
     });
 
-    // Efecto de carga en imágenes del portafolio
+    // Efecto de carga en imÃ¡genes del portafolio
     const portfolioImages = document.querySelectorAll('.portfolio-image');
     portfolioImages.forEach(img => {
         img.style.opacity = '0';
@@ -691,7 +691,7 @@ function createParticles() {
 
         hero.appendChild(particle);
 
-        // Animación
+        // AnimaciÃ³n
         animateParticle(particle);
     }
 }
@@ -712,11 +712,11 @@ function animateParticle(element) {
 
 // Mejoras adicionales para SEO y rendimiento
 window.addEventListener('load', () => {
-    // Precargar imágenes importantes
+    // Precargar imÃ¡genes importantes
     const logo = new Image();
     logo.src = '/assets/logofv2.jpg';
 
-    // Lazy loading para imágenes fuera del viewport
+    // Lazy loading para imÃ¡genes fuera del viewport
     if ('IntersectionObserver' in window) {
         const lazyImages = document.querySelectorAll('img[data-src]');
         const imageObserver = new IntersectionObserver((entries) => {
@@ -737,12 +737,12 @@ window.addEventListener('load', () => {
     initScrollToTop();
 });
 
-// Función Scroll To Top
+// FunciÃ³n Scroll To Top
 function initScrollToTop() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     if (!scrollTopBtn) return;
 
-    // Mostrar/ocultar botón al hacer scroll
+    // Mostrar/ocultar botÃ³n al hacer scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             scrollTopBtn.classList.add('visible');
@@ -760,14 +760,14 @@ function initScrollToTop() {
     });
 }
 
-// Formateo automático de teléfono mejorado
+// Formateo automÃ¡tico de telÃ©fono mejorado
 document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, ''); // Solo números
+            let value = e.target.value.replace(/\D/g, ''); // Solo nÃºmeros
 
-            // Limitar a 10 dígitos
+            // Limitar a 10 dÃ­gitos
             if (value.length > 10) {
                 value = value.slice(0, 10);
             }
@@ -799,9 +799,9 @@ function initNewsletter() {
 
         const email = emailInput.value.trim();
 
-        // Validación básica
+        // ValidaciÃ³n bÃ¡sica
         if (!email || !isValidEmail(email)) {
-            showNewsletterStatus('Por favor, introduce un correo válido.', 'error');
+            showNewsletterStatus('Por favor, introduce un correo vÃ¡lido.', 'error');
             return;
         }
 
@@ -809,8 +809,8 @@ function initNewsletter() {
             // Guardar en localStorage
             saveNewsletterEmail(email);
 
-            // Enviar notificación por WhatsApp
-            const message = `*Nueva Suscripción al Newsletter*%0A%0A` +
+            // Enviar notificaciÃ³n por WhatsApp
+            const message = `*Nueva SuscripciÃ³n al Newsletter*%0A%0A` +
                 `*Email:* ${encodeURIComponent(email)}%0A` +
                 `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
                 `*Origen:* Newsletter Footer`;
@@ -818,8 +818,8 @@ function initNewsletter() {
             const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
             window.open(whatsappURL, '_blank', 'noopener,noreferrer');
 
-            // Mostrar mensaje de éxito
-            showNewsletterStatus('¡Gracias por suscribirte! Te enviaremos tips útiles pronto 🎉', 'success');
+            // Mostrar mensaje de Ã©xito
+            showNewsletterStatus('Â¡Gracias por suscribirte! Te enviaremos tips Ãºtiles pronto ðŸŽ‰', 'success');
 
             // Limpiar formulario
             emailInput.value = '';
@@ -836,7 +836,7 @@ function initNewsletter() {
         statusDiv.textContent = message;
         statusDiv.className = `newsletter-status ${type} show`;
 
-        // Auto-ocultar después de 5 segundos
+        // Auto-ocultar despuÃ©s de 5 segundos
         setTimeout(() => {
             statusDiv.classList.remove('show');
         }, 5000);
@@ -862,7 +862,7 @@ function initNewsletter() {
     }
 }
 
-// Inicializar newsletter cuando el DOM esté listo
+// Inicializar newsletter cuando el DOM estÃ© listo
 document.addEventListener('DOMContentLoaded', initNewsletter);
 
 // =========================================
@@ -886,7 +886,7 @@ function initDarkModeToggle() {
         const isLightMode = document.body.classList.contains('light-mode');
         localStorage.setItem('qzDarkMode', isLightMode ? 'light' : 'dark');
 
-        // Animación de feedback
+        // AnimaciÃ³n de feedback
         darkModeToggle.style.transform = 'rotate(360deg)';
         setTimeout(() => {
             darkModeToggle.style.transform = '';
@@ -897,19 +897,7 @@ function initDarkModeToggle() {
 // Inicializar dark mode cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initDarkModeToggle);
 
-// =========================================
-// GOOGLE ANALYTICS PLACEHOLDER
-// =========================================
-// Descomenta y configura con tu ID cuando estés listo
-/*
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
-*/
-// =========================================
-// PWA & COOKIES
-// =========================================
+// Google Analytics inicializado en HTML para mejor rendimiento
 
 document.addEventListener('DOMContentLoaded', () => {
     initServiceWorker();
@@ -931,30 +919,31 @@ function initServiceWorker() {
 }
 
 function initCookieBanner() {
-    // Verificar si ya acept� cookies
+    // Verificar si ya aceptó cookies
     if (localStorage.getItem('qz_cookies_accepted') === 'true') {
         return;
     }
 
-    // Crear banner si no existe (aunque idealmente deber�a estar en HTML)
+    // Crear banner si no existe (aunque idealmente debería estar en HTML)
     // Pero para asegurar que aparezca aunque el usuario no edite HTML:
     const existingBanner = document.getElementById('cookieBanner');
     if (existingBanner) {
-         setTimeout(() => existingBanner.classList.add('show'), 2000);
-         return;
+        setTimeout(() => existingBanner.classList.add('show'), 2000);
+        return;
     }
 
-    // Inserci�n din�mica si no est� en HTML
+    // Inserción dinámica si no está en HTML
     const banner = document.createElement('div');
     banner.id = 'cookieBanner';
     banner.className = 'cookie-banner';
-    banner.innerHTML = \`n        <div class='cookie-content'>
+    banner.innerHTML = `
+        <div class='cookie-content'>
             <div class='cookie-text'>
-                <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href='/privacy'>Pol�tica de Privacidad</a>.</p>
+                <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href='/privacy'>Política de Privacidad</a>.</p>
             </div>
             <button id='acceptCookies' class='cookie-btn'>Aceptar</button>
         </div>
-    \;
+    `;
 
     document.body.appendChild(banner);
 
@@ -964,5 +953,42 @@ function initCookieBanner() {
     document.getElementById('acceptCookies').addEventListener('click', () => {
         localStorage.setItem('qz_cookies_accepted', 'true');
         banner.classList.remove('show');
+    });
+}
+
+// Gallery Header Fade Effect
+
+// Gallery Header Fade Effect
+document.addEventListener('DOMContentLoaded', function () {
+    const headerTitle = document.querySelector('.page-header .container');
+
+    if (headerTitle) {
+        window.addEventListener('scroll', function () {
+            let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Calculate opacity: starts at 1, goes to 0 at 300px scroll
+            let opacity = 1 - (scrollPosition / 300);
+
+            // Ensure opacity stays between 0 and 1
+            if (opacity < 0) opacity = 0;
+            if (opacity > 1) opacity = 1;
+
+            headerTitle.style.opacity = opacity;
+
+            // Optional: Add a slight parallax effect for smoother disappearing
+            headerTitle.style.transform = 'translateY(' + (scrollPosition * 0.4) + 'px)';
+        });
+    }
+});
+
+// Gallery Scrolling for Projects Page
+function scrollGallery(id, direction) {
+    const container = document.getElementById(id);
+    if (!container) return;
+    const scrollAmount = container.clientWidth; // Scroll exact container width
+
+    container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
     });
 }

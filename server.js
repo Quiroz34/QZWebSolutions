@@ -47,6 +47,11 @@ app.get('/terms', (req, res) => {
   res.sendFile(path.join(__dirname, 'html', 'terms.html'));
 });
 
+// Nueva página de proyectos
+app.get('/proyectos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html', 'projects.html'));
+});
+
 
 // Manejo de Error 404
 app.use((req, res) => {

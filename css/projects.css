@@ -1,0 +1,259 @@
+﻿/* =========================================
+   ESTILOS DEDICADOS: GALERÍA DE PROYECTOS (COMPACTO)
+   ========================================= */
+
+/* Variables Locales para Galería */
+:root {
+    --gallery-bg: #0f172a;
+    /* Slate 900 */
+    --gallery-text: #f8fafc;
+    /* Slate 50 */
+    --gallery-accent: #3b82f6;
+    /* Blue 500 */
+    --card-bg: rgba(30, 41, 59, 0.7);
+    /* Slate 800 semi-transparent */
+    --card-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Fondo y Tipografía Base */
+body.projects-page {
+    background-color: var(--gallery-bg);
+    color: var(--gallery-text);
+    font-family: 'Inter', sans-serif;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Header "Hero" de la Galería */
+.page-header {
+    padding: 4rem 0 2rem;
+    /* Reduced padding */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    /* Reduced from 3.5rem */
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-header p {
+    font-size: 1rem;
+    /* Reduced from 1.25rem */
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contenedor Principal */
+.projects-container {
+    padding-bottom: 2rem;
+}
+
+/* Secciones de Proyecto Individual - ULTRA COMPACTADO */
+.individual-project {
+    padding: 2rem 0;
+    /* Reduced drastically from 3.5rem */
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Layout de Tarjeta (Grid/Flex) */
+.individual-project .container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    /* More space for gallery */
+    gap: 2rem;
+    /* Reduced gap */
+    align-items: flex-start;
+    /* Align top to avoid stretched space */
+}
+
+@media (max-width: 992px) {
+    .individual-project .container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Tarjeta de Información (Izquierda) */
+.project-header-info {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    /* Reduced from 2rem */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-header-info:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-category-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border-radius: 6px;
+    /* Less rounded, more tech */
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.project-header-info h2 {
+    font-size: 1.5rem;
+    /* Reduced from 1.85rem */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #f1f5f9;
+    line-height: 1.2;
+}
+
+.project-header-info .project-desc {
+    color: #cbd5e1;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Metadatos (Iconos) */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    margin-top: 0 !important;
+    /* Force remove inline styles if any */
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.project-meta i {
+    color: var(--gallery-accent);
+}
+
+/* Carrusel (Derecha) */
+.project-gallery-carousel {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Limit max height to prevent huge images */
+    max-height: 400px;
+    width: 100%;
+}
+
+.gallery-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    gap: 0;
+    /* Removing gap for perfect snap connection */
+    padding-bottom: 0;
+
+    /* CSS Scroll Snap Magic */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* iOS smooth scroll */
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    min-width: 100%;
+    /* Show one at a time */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background: #000;
+    /* Letterbox fill */
+
+    /* Snap alignment */
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    /* Force stop on each item */
+}
+
+.gallery-item img {
+    /* Contain ensures image fits within max-height without cropping weirdly */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    max-height: 400px;
+}
+
+/* Botones Navegación Carrusel */
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.8);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+    font-size: 0.8rem;
+}
+
+.gallery-btn:hover {
+    background: rgba(59, 130, 246, 1);
+}
+
+.gallery-btn.prev {
+    left: 10px;
+}
+
+.gallery-btn.next {
+    right: 10px;
+}
+
+/* Captions over image (Optional) */
+.img-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* Dividers SVG */
+.wave-divider {
+    display: none;
+    /* Hide waves to save vertical space */
+}

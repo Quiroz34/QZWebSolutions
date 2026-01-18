@@ -3186,6 +3186,57 @@ footer::after {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
+
+    /* FIX: Overlapping floating buttons on mobile */
+    .whatsapp-float {
+        bottom: 85px !important;
+        /* Subir para dejar espacio a otros */
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.3rem !important;
+    }
+
+    .scroll-top-btn {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 45px !important;
+        height: 45px !important;
+        z-index: 1000 !important;
+    }
+
+    .dark-mode-toggle {
+        top: auto !important;
+        bottom: 20px !important;
+        right: 80px !important;
+        width: 45px !important;
+        height: 45px !important;
+        z-index: 1000 !important;
+    }
+
+    /* FIX: Hero media and horizontal overflow */
+    .hero-visual {
+        height: auto !important;
+        margin-top: 2rem;
+    }
+
+    .hero-device {
+        width: 260px !important;
+        height: 350px !important;
+        margin: 0 auto;
+        transform: none !important;
+        /* Desactivar 3D en móvil para evitar overflow */
+    }
+
+    .floating-card {
+        display: none !important;
+        /* Ocultar elementos flotantes que causan overflow en pantallas pequeñas */
+    }
+
+    /* Ensure Cookie Consent is on top */
+    .cookie-consent {
+        z-index: 1000000 !important;
+    }
 }
 
 @media (max-width: 400px) {
@@ -3344,6 +3395,7 @@ body.light-mode .dark-mode-toggle {
         height: 45px;
     }
 }
+
 /* =========================================== */
 /*           COOKIE BANNER                     */
 /* =========================================== */
@@ -3364,7 +3416,7 @@ body.light-mode .dark-mode-toggle {
     align-items: center;
     text-align: center;
     transition: bottom 0.5s ease-in-out;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .cookie-banner.show {
@@ -3415,6 +3467,7 @@ body.light-mode .dark-mode-toggle {
         justify-content: center;
         text-align: left;
     }
+
     .cookie-content {
         flex-direction: row;
         justify-content: space-between;

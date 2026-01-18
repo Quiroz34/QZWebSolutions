@@ -207,12 +207,21 @@
 @media (max-width: 480px) {
     .chat-window {
         width: calc(100vw - 40px);
-        left: -10px;
-        height: 450px;
+        left: 20px;
+        bottom: 90px;
+        height: 400px;
     }
 
     .chat-widget {
         bottom: 20px;
-        right: 20px;
+        left: 20px;
+        z-index: 9999;
+        /* Lower than cookie banner but high enough */
+    }
+
+    .chat-toggle {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
     }
 }

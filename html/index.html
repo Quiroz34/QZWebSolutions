@@ -226,6 +226,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/cookie-consent.css">
+    <link rel="stylesheet" href="/css/chat.css">
 
 
     <!-- Favicon -->
@@ -1010,8 +1011,31 @@
         </div>
     </div>
 
+    <!-- Chat Widget IA -->
+    <div id="ai-chat-widget" class="chat-widget">
+        <button id="chat-toggle" class="chat-toggle" aria-label="Abrir chat de asistencia">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <h3><i class="fas fa-robot"></i> QZ Assistant</h3>
+                <button id="close-chat" aria-label="Cerrar chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message ai">¡Hola! Soy el asistente de QZ Web Solutions. ¿En qué puedo ayudarte?</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Pregúntame algo..." aria-label="Mensaje para la IA">
+                <button id="send-chat" aria-label="Enviar mensaje">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="/js/script.js" defer></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/chat.js"></script>
     <script src="/js/cookie-consent.js" defer></script>
 </body>
 

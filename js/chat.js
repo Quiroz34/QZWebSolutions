@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
         chatWindow.classList.add('hidden');
     });
 
+    // Gestionar Session ID
+    let sessionId = localStorage.getItem('qz_chat_session');
+    if (!sessionId) {
+        sessionId = 'sess-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('qz_chat_session', sessionId);
+    }
+    console.log('Session ID:', sessionId);
+
     // Send Message
     const sendMessage = async () => {
         const message = chatInput.value.trim();
@@ -37,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ message, sessionId })
             });
 
             const data = await response.json();

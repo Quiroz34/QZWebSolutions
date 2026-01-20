@@ -1,14 +1,15 @@
 /* Cookie Consent Banner Styles */
 .cookie-consent {
     position: fixed;
-    bottom: -100%;
-    /* Oculto inicialmente */
+    bottom: -400px;
+    /* Moved off-screen initially */
     left: 0;
     width: 100%;
     background-color: #ffffff;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
     padding: 20px;
-    z-index: 9999;
+    z-index: 9998;
+    /* Below chat widget */
     transition: bottom 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     border-top: 4px solid var(--primary-color, #0066FF);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -25,12 +26,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 15px;
 }
 
 .cookie-text {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .cookie-text h3 {
@@ -290,19 +291,40 @@ input[type="checkbox"]:disabled+.toggle-switch {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .cookie-consent {
+        padding: 15px;
+    }
+
     .cookie-content {
         flex-direction: column;
         align-items: stretch;
         text-align: center;
+        gap: 12px;
+    }
+
+    .cookie-text h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .cookie-text p {
+        font-size: 0.85rem;
     }
 
     .cookie-buttons {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         width: 100%;
+        gap: 8px;
     }
 
     .cookie-btn {
-        width: 100%;
+        width: auto;
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        white-space: nowrap;
     }
 
     .cookie-option {

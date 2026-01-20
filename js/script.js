@@ -474,32 +474,46 @@ function initContactForm() {
 
 // Animaciones mejoradas
 function initAnimations() {
-    // Observer para elementos animables
-    const observerOptions = {
-        threshold: 0.1,
+    // Observer para elementos animables (Reveal System)
+    const revealObserverOptions = {
+        threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('active');
+                // Opcional: dejar de observar si solo queremos que se anime una vez
+                // revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, revealObserverOptions);
 
-    // Observar elementos con animaciÃ³n
-    const animatableElements = document.querySelectorAll(
-        '.service-card, .portfolio-card, .benefit-item, .pricing-card, .stat'
+    // Observar todos los elementos con clase reveal
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Mantener compatibilidad con animaciones antiguas si existen
+    const legacyAnimatable = document.querySelectorAll(
+        '.service-card:not(.reveal), .portfolio-card:not(.reveal), .benefit-item:not(.reveal), .pricing-card:not(.reveal)'
     );
 
-    animatableElements.forEach(element => {
+    legacyAnimatable.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
         element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
+
+        const legacyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, revealObserverOptions);
+
+        legacyObserver.observe(element);
     });
 
     // AnimaciÃ³n de estadÃ­sticas en cÃ­rculos

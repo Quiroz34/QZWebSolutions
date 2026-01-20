@@ -206,17 +206,26 @@
 
 @media (max-width: 480px) {
     .chat-window {
-        width: calc(100vw - 40px);
-        left: 20px;
-        bottom: 90px;
-        height: 400px;
+        position: fixed !important;
+        /* Fixed to viewport to avoid container constraints */
+        width: 90% !important;
+        /* Fallback */
+        width: calc(100vw - 40px) !important;
+        left: 20px !important;
+        right: 20px !important;
+        /* Ensure it stretches if needed */
+        bottom: 90px !important;
+        height: 75vh !important;
+        max-height: 600px !important;
+        min-height: 400px !important;
+        margin: 0 auto !important;
     }
 
     .chat-widget {
         bottom: 20px;
         left: 20px;
         z-index: 9999;
-        /* Lower than cookie banner but high enough */
+        /* Higher than cookie banner (9998) to ensure visibility */
     }
 
     .chat-toggle {

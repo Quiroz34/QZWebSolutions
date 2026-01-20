@@ -75,6 +75,47 @@ body.projects-page {
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Header Navbar Fix */
+.project-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+@media (max-width: 576px) {
+    .project-navbar {
+        flex-direction: row;
+        /* Keep it side by side */
+        justify-content: space-between;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .project-navbar .btn.secondary.small-btn {
+        width: auto;
+        /* Not full width */
+        padding: 6px 10px;
+        /* Much smaller */
+        font-size: 0.75rem;
+        /* Small font */
+        min-height: auto;
+    }
+
+    .project-navbar .logo-img {
+        height: 25px;
+        /* Smaller logo to save space */
+    }
+
+    .project-navbar .logo-main {
+        font-size: 0.9rem;
+    }
+
+    .project-navbar .logo-sub {
+        font-size: 0.6rem;
+    }
+}
+
 .title-divider {
     width: 60px;
     height: 3px;
@@ -167,6 +208,16 @@ body.projects-page {
     line-height: 1.5;
     margin-bottom: 1rem;
     font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+    .project-header-info {
+        padding: 1.25rem;
+    }
+
+    .project-header-info h2 {
+        font-size: 1.3rem;
+    }
 }
 
 /* Metadatos (Iconos) */
@@ -274,6 +325,22 @@ body.projects-page {
 
 .gallery-btn.next {
     right: 10px;
+}
+
+@media (max-width: 576px) {
+    .gallery-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .gallery-btn.prev {
+        left: 5px;
+    }
+
+    .gallery-btn.next {
+        right: 5px;
+    }
 }
 
 /* Captions over image (Optional) */

@@ -3653,3 +3653,211 @@ body.light-mode .dark-mode-toggle {
         height: 45px;
     }
 }
+
+/* =========================================== */
+/*              PROMO SECTION                  */
+/* =========================================== */
+
+.promo-container {
+    background: linear-gradient(135deg, rgba(45, 91, 255, 0.1), rgba(0, 201, 255, 0.1));
+    border: 1px solid rgba(45, 91, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.promo-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(45, 91, 255, 0.1) 0%, transparent 60%);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.promo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ff4757;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+}
+
+.promo-content h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.promo-price {
+    font-size: 2.5rem;
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.promo-price strong {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.promo-text {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.promo-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.promo-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.promo-features i {
+    color: var(--success);
+}
+
+.promo-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.promo-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Visual Mockup */
+.promo-card-visual {
+    width: 300px;
+    height: 220px;
+    background: var(--dark);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(-15deg) rotateX(10deg);
+    transition: var(--transition);
+}
+
+.promo-card-visual:hover {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.05);
+}
+
+.pc-header {
+    height: 30px;
+    background: #1a2036;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.pc-header span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+}
+
+.pc-body {
+    flex: 1;
+    background: #0a0f23;
+    padding: 15px;
+}
+
+.pc-hero {
+    height: 60px;
+    background: linear-gradient(135deg, rgba(45, 91, 255, 0.4), rgba(0, 201, 255, 0.4));
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.pc-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pc-line {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    width: 100%;
+}
+
+.pc-line.short {
+    width: 60%;
+}
+
+.pc-grid {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.pc-grid div {
+    flex: 1;
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+}
+
+@media (max-width: 900px) {
+    .promo-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .promo-features {
+        justify-content: center;
+    }
+    
+    .promo-visual {
+        margin-top: 2rem;
+    }
+}

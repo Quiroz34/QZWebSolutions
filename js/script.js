@@ -928,6 +928,16 @@ function initServiceWorker() {
                 .catch(error => {
                     console.log('Fallo registro de SW:', error);
                 });
+
+            // Detectar cuando un nuevo Service Worker toma el control
+            // Esto sucede porque en el nuevo SW pusimos "clients.claim()"
+            let refreshing;
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (refreshing) return;
+                refreshing = true;
+                console.log("Nueva versión detectada. Recargando...");
+                window.location.reload();
+            });
         });
     }
 }

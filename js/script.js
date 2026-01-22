@@ -879,37 +879,7 @@ function initNewsletter() {
 // Inicializar newsletter cuando el DOM estÃ© listo
 document.addEventListener('DOMContentLoaded', initNewsletter);
 
-// =========================================
-// DARK MODE TOGGLE
-// =========================================
-function initDarkModeToggle() {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    if (!darkModeToggle) return;
 
-    // Verificar preferencia guardada
-    const savedMode = localStorage.getItem('qzDarkMode');
-    if (savedMode === 'light') {
-        document.body.classList.add('light-mode');
-    }
-
-    // Toggle al hacer click
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-
-        // Guardar preferencia
-        const isLightMode = document.body.classList.contains('light-mode');
-        localStorage.setItem('qzDarkMode', isLightMode ? 'light' : 'dark');
-
-        // AnimaciÃ³n de feedback
-        darkModeToggle.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-            darkModeToggle.style.transform = '';
-        }, 300);
-    });
-}
-
-// Inicializar dark mode cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initDarkModeToggle);
 
 // Google Analytics inicializado en HTML para mejor rendimiento
 

@@ -324,39 +324,7 @@ header.scrolled {
     background: rgba(45, 91, 255, 0.2);
 }
 
-/* Dark Mode Toggle Position Fix */
-.dark-mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1100;
-    /* Above header */
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: var(--glass);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--light);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    backdrop-filter: blur(10px);
-}
 
-.dark-mode-toggle:hover {
-    background: rgba(45, 91, 255, 0.2);
-    transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    .dark-mode-toggle {
-        top: 15px;
-        right: 80px;
-        /* Move it away from the hamburger menu */
-    }
-}
 
 .hamburger {
     display: block;
@@ -3598,61 +3566,7 @@ footer::after {
     box-shadow: var(--shadow);
 }
 
-.dark-mode-toggle:hover {
-    transform: rotate(180deg);
-    border-color: var(--primary);
-    box-shadow: var(--shadow-primary);
-}
 
-.dark-mode-toggle i {
-    font-size: 1.2rem;
-    transition: var(--transition);
-}
-
-.dark-mode-toggle .fa-sun {
-    color: #fbbf24;
-    display: none;
-}
-
-.dark-mode-toggle .fa-moon {
-    color: var(--primary);
-    display: block;
-}
-
-/* Light mode (cuando esté activado) */
-body.light-mode {
-    --dark: #ffffff;
-    --darker: #f9fafb;
-    --dark-light: #f3f4f6;
-    --light: #111827;
-    --muted: #6b7280;
-    --card-bg: rgba(255, 255, 255, 0.8);
-    --card-bg-solid: #ffffff;
-    --card-bg-hover: rgba(249, 250, 251, 0.8);
-    --glass: rgba(0, 0, 0, 0.05);
-}
-
-body.light-mode .dark-mode-toggle .fa-sun {
-    display: block;
-}
-
-body.light-mode .dark-mode-toggle .fa-moon {
-    display: none;
-}
-
-body.light-mode .dark-mode-toggle {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .dark-mode-toggle {
-        top: 90px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
-}
 
 /* =========================================== */
 /*              PROMO SECTION                  */
@@ -3685,8 +3599,13 @@ body.light-mode .dark-mode-toggle {
 }
 
 @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .promo-badge {
@@ -3705,9 +3624,17 @@ body.light-mode .dark-mode-toggle {
 }
 
 @keyframes pulse-red {
-    0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+    }
 }
 
 .promo-content h2 {
@@ -3773,8 +3700,8 @@ body.light-mode .dark-mode-toggle {
     height: 220px;
     background: var(--dark);
     border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -3793,14 +3720,14 @@ body.light-mode .dark-mode-toggle {
     align-items: center;
     padding: 0 10px;
     gap: 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .pc-header span {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .pc-body {
@@ -3824,7 +3751,7 @@ body.light-mode .dark-mode-toggle {
 
 .pc-line {
     height: 8px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     width: 100%;
 }
@@ -3842,7 +3769,7 @@ body.light-mode .dark-mode-toggle {
 .pc-grid div {
     flex: 1;
     height: 40px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 6px;
 }
 
@@ -3852,12 +3779,105 @@ body.light-mode .dark-mode-toggle {
         text-align: center;
         padding: 2rem;
     }
-    
+
     .promo-features {
         justify-content: center;
     }
-    
+
     .promo-visual {
         margin-top: 2rem;
+    }
+}
+
+/* =========================================== */
+/*         MEJORAS RESPONSIVE (MÓVIL)          */
+/* =========================================== */
+
+@media (max-width: 900px) {
+    .promo-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .promo-features {
+        justify-content: center;
+    }
+
+    .promo-visual {
+        margin-top: 2rem;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 1;
+    }
+
+    .hero-visual {
+        order: 2;
+        margin-top: 2rem;
+        height: 400px;
+        display: none;
+        /* Ocultar visual en móvil para limpiar la vista si es necesario */
+    }
+
+    /* Mostrar visual solo si hay espacio suficiente o ajustarlo */
+    @media (min-height: 800px) {
+        .hero-visual {
+            display: flex;
+            height: 300px;
+        }
+    }
+
+    .hero-ctas {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo-container {
+        padding: 1.5rem;
+        border-width: 0;
+        /* Más limpio en pantallas muy chicas */
+        background: transparent;
+    }
+
+    .promo-content {
+        background: rgba(10, 15, 35, 0.8);
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        border: 1px solid rgba(45, 91, 255, 0.2);
+    }
+
+    .promo-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .promo-price {
+        font-size: 2rem;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Ajuste de tarjetas de precios */
+    .pricing-card {
+        margin-bottom: 1rem;
     }
 }

@@ -108,6 +108,9 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    width: 100%;
 }
 
 body {
@@ -118,6 +121,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    width: 100%;
+    position: relative;
+    /* Ensure fixed elements align to this if needed */
     min-height: 100vh;
     padding-top: var(--header-height);
     background-image:
@@ -3879,5 +3886,43 @@ footer::after {
     /* Ajuste de tarjetas de precios */
     .pricing-card {
         margin-bottom: 1rem;
+    }
+}
+
+/* =========================================== */
+/*      FIX OVERFLOW & SCROLLBAR ISSUES        */
+/* =========================================== */
+
+/* Ensure fixed elements stay within viewport even if scrollbar appears */
+.nav-toggle,
+.floating-action-btn,
+/* Assuming class name for potential floating buttons */
+#scrollTopBtn,
+.whatsapp-btn
+
+/* Assuming class name */
+    {
+    right: 20px !important;
+    max-width: calc(100vw - 40px);
+    /* Prevent overflow if button is huge */
+}
+
+@media (max-width: 480px) {
+    .nav-toggle {
+        right: 15px !important;
+    }
+
+    /* Ensure container doesn't overflow */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Fix potential hero background overflow */
+    .hero-background {
+        width: 100%;
+        left: 0;
     }
 }

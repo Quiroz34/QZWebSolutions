@@ -148,34 +148,36 @@ document.addEventListener('DOMContentLoaded', function () {
         // Objeto GTM
         window.dataLayer = window.dataLayer || [];
 
-        // 1. Definir estado de consentimiento para GTM (Google Consent Mode)
-        // 'granted' o 'denied'
+        // Función gtag segura
+        function gtag() { dataLayer.push(arguments); }
 
-        function gtmStatus(bool) {
-            return bool ? 'granted' : 'denied';
-        }
+        // 1. Actualizar estado de consentimiento de Google (Consent Mode v2)
+        const statusAnalytics = consent.analytics ? 'granted' : 'denied';
+        const statusMarketing = consent.marketing ? 'granted' : 'denied';
 
-        // Push del evento 'consent_update'
-        window.dataLayer.push({
-            'event': 'consent_update',
-            'consent_necessary': gtmStatus(consent.necessary),
-            'consent_analytics': gtmStatus(consent.analytics),
-            'consent_marketing': gtmStatus(consent.marketing)
+        gtag('consent', 'update', {
+            'analytics_storage': statusAnalytics,
+            'ad_storage': statusMarketing,
+            'ad_user_data': statusMarketing,
+            'ad_personalization': statusMarketing
         });
 
-        // Si analytics está aceptado, disparar un evento específico para cargar scripts
-        if (consent.analytics) {
-            window.dataLayer.push({
-                'event': 'analytics_authorized'
-            });
-            console.log('Scripts de analítica autorizados');
-        }
+        console.log('Consentimiento GTM actualizado:', { analytics: statusAnalytics, marketing: statusMarketing });
 
-        // Si marketing está aceptado
+        // 2. Eventos personalizados para triggers adicionales (compatibilidad)
+        window.dataLayer.push({
+            'event': 'consent_update',
+            'consent_necessary': 'granted',
+            'consent_analytics': statusAnalytics,
+            'consent_marketing': statusMarketing
+        });
+
+        // Eventos específicos para cargar scripts legacy
+        if (consent.analytics) {
+            window.dataLayer.push({ 'event': 'analytics_authorized' });
+        }
         if (consent.marketing) {
-            window.dataLayer.push({
-                'event': 'marketing_authorized'
-            });
+            window.dataLayer.push({ 'event': 'marketing_authorized' });
         }
     }
 });

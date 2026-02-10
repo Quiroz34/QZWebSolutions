@@ -3386,35 +3386,60 @@ footer::after {
 
     .nav-toggle {
         display: flex !important;
-        z-index: 10002;
-        /* Higher than promo banner (1001) */
+        z-index: 10005;
+        /* Higher than ever */
+        position: relative;
     }
 
     .nav-list {
         position: fixed;
-        top: var(--header-height);
+        top: 0;
+        /* Full screen menu from top */
         left: 0;
         width: 100%;
-        height: calc(100vh - var(--header-height));
+        height: 100vh;
         background: rgba(10, 15, 35, 0.98);
         flex-direction: column;
-        padding: 2rem;
-        gap: 1rem;
-        transform: translateX(-100%);
-        transition: transform .3s ease;
-        z-index: 10001;
-        /* Higher than promo banner */
+        padding: 5rem 2rem 2rem;
+        /* Space for close button */
+        gap: 1.5rem;
+        transform: translateX(100%);
+        /* Slide from right */
+        transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10004;
         overflow-y: auto;
+        backdrop-filter: blur(20px);
     }
 
     .nav-list.active {
         transform: translateX(0);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
 
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: 2rem;
+        padding-top: 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-ctas {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+        gap: 1rem;
     }
 
     .services-grid {

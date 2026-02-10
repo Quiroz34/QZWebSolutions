@@ -256,7 +256,13 @@ body {
     }
 
     .promo-text {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        /* Smaller text for mobile */
+        max-width: 200px;
+        /* Prevent text from pushing too wide */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .promo-countdown {
@@ -269,9 +275,10 @@ body {
     }
 
     .whatsapp-float {
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
+        width: 55px;
+        height: 55px;
+        bottom: 90px;
+        /* Raised to avoid conflict with potential bottom bars or other buttons */
         right: 20px;
         font-size: 28px;
     }

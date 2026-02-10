@@ -577,6 +577,10 @@ function animateCircleProgress(element, value) {
 
 function animateCounter(element) {
     const text = element.textContent;
+    
+    // Fix: Don't animate "24/7" or similar non-integer stats
+    if (text.includes('/')) return;
+
     const isPercentage = text.includes('%');
     const isPlus = text.includes('+');
     const target = parseInt(text.replace(/[^0-9]/g, ''));

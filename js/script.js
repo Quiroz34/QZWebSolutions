@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializar formulario de contacto
     initContactForm();
 
+    // Inicializar newsletter
+    initNewsletter();
+
     // Inicializar animaciones
     initAnimations();
 
@@ -986,3 +989,20 @@ function scrollGallery(id, direction) {
         behavior: 'smooth'
     });
 }
+
+// =========================================== 
+//           FAQ ACCORDION FUNCTIONALITY      
+// =========================================== 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle la pregunta actual
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+});

@@ -1,51 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>https://qzwebsolutions.com/</loc>
-  <lastmod>2025-12-26T23:53:00+00:00</lastmod>
-  <priority>1.0</priority>
-</url>
-
-<url>
-  <loc>https://qzwebsolutions.com/#servicios</loc>
-  <lastmod>2025-12-26T23:53:00+00:00</lastmod>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://qzwebsolutions.com/#portafolio</loc>
-  <lastmod>2025-12-26T23:53:00+00:00</lastmod>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://qzwebsolutions.com/#beneficios</loc>
-  <lastmod>2025-12-26T23:53:00+00:00</lastmod>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://qzwebsolutions.com/#precios</loc>
-  <lastmod>2025-12-26T23:53:00+00:00</lastmod>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://qzwebsolutions.com/#contacto</loc>
-  <lastmod>2025-12-26T23:53:00+00:00</lastmod>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://qzwebsolutions.com/proyectos</loc>
-  <lastmod>2026-01-16T23:53:00+00:00</lastmod>
-  <priority>0.8</priority>
-</url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
+    <url>
+        <loc>https://qzwebsolutions.com/</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Main Sections -->
+    <url>
+        <loc>https://qzwebsolutions.com/#servicios</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/#nosotros</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/#portafolio</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/#beneficios</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/#precios</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/#faq</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/#testimonios</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/#contacto</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Additional Pages -->
+    <url>
+        <loc>https://qzwebsolutions.com/proyectos</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog -->
+    <url>
+        <loc>https://qzwebsolutions.com/blog</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Service-Specific Landing Pages -->
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-medicos</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-abogados</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-restaurantes</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-podologos</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-salones-belleza</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-imprentas</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-gimnasios</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-dentistas</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-contadores</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-veterinarias</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-inmobiliarias</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-talleres-mecanicos</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-fotografos</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-psicologos</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-arquitectos</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-spas</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-escuelas</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/diseno-web-panaderias</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://qzwebsolutions.com/privacy</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/terms</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <url>
+        <loc>https://qzwebsolutions.com/projects</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

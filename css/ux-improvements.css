@@ -109,7 +109,8 @@ body {
 
 @media (max-width: 600px) {
     body {
-        padding-top: 100px;
+        padding-top: 60px;
+        /* Reduced to ensure no gap between header and banner */
     }
 }
 
@@ -244,6 +245,8 @@ body {
 @media (max-width: 768px) {
     .promo-banner {
         padding: 8px 0;
+        margin-top: -1px;
+        /* Force connection to header */
     }
 
     .promo-content {
@@ -256,13 +259,13 @@ body {
     }
 
     .promo-text {
-        font-size: 0.75rem;
-        /* Smaller text for mobile */
-        max-width: 200px;
-        /* Prevent text from pushing too wide */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        font-size: 0.8rem;
+        white-space: normal;
+        /* Allow text to wrap */
+        max-width: none;
+        overflow: visible;
+        display: block;
+        /* Ensure it takes width */
     }
 
     .promo-countdown {
@@ -271,7 +274,8 @@ body {
     }
 
     body {
-        padding-top: 110px;
+        padding-top: 60px;
+        /* Reduced to ensure no gap between header and banner */
     }
 
     .whatsapp-float {
@@ -393,7 +397,8 @@ body {
     color: white;
     padding: 10px 0;
     position: relative;
-    z-index: 1001;
+    z-index: 900;
+    /* Lower than header (1000) */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 

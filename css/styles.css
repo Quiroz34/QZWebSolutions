@@ -3400,32 +3400,38 @@ footer::after {
         height: 100vh;
         background: rgba(10, 15, 35, 0.98);
         flex-direction: column;
-        padding: 5rem 2rem 2rem;
+        padding: 5rem 1.5rem 2rem;
         /* Space for close button */
         gap: 1.5rem;
-        transform: translateX(100%);
-        /* Slide from right */
+        transform: translateX(-100%);
+        /* Slide from Left */
         transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 10004;
         overflow-y: auto;
         backdrop-filter: blur(20px);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+        /* Shadow on the right */
     }
 
     .nav-list.active {
         transform: translateX(0);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
     }
 
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
-        padding-top: 1rem;
+        padding-top: 2rem;
+        /* More space from header */
     }
 
     .hero-text h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        /* Smaller font for mobile */
         margin-bottom: 1rem;
+        word-wrap: break-word;
+        /* Prevent overflow */
     }
 
     .hero-description {

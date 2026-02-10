@@ -211,7 +211,10 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: var(--transition-slow);
     will-change: transform, background;
-    height: var(--header-height);
+    min-height: var(--header-height);
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 header.scrolled {

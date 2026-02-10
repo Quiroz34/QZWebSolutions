@@ -1,0 +1,762 @@
+/* =========================================== */
+/*         UX IMPROVEMENTS - FEBRERO 2026      */
+/* =========================================== */
+
+/* Promo Banner */
+.promo-box {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px 40px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    /* Strict Grid Layout for Alignment */
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    /* Content takes remaining space, CTA takes fixed width */
+    gap: 40px;
+    align-items: center;
+}
+
+.promo-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #4f46e5, transparent);
+    opacity: 0.7;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.promo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* Reduced gap */
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.promo-icon {
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.promo-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.promo-text strong {
+    font-weight: 700;
+}
+
+.promo-countdown {
+    color: #a78bfa;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: rgba(79, 70, 229, 0.1);
+    padding: 2px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+/* Adjust body padding for promo banner */
+/* Adjust body padding for promo banner */
+body {
+    padding-top: 130px;
+}
+
+@media (max-width: 900px) {
+    body {
+        padding-top: 110px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 100px;
+    }
+}
+
+/* Navigation Promo Button */
+.nav-promo {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+    color: white !important;
+    border-radius: 8px;
+    padding: 8px 16px !important;
+    font-weight: 600;
+    animation: glow 2s infinite;
+    position: relative;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.8);
+    }
+}
+
+.nav-promo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(124, 58, 237, 1) !important;
+}
+
+/* WhatsApp Floating Button - Enhanced */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+    animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.3);
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* WhatsApp Tooltip */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 75px;
+    background: rgba(10, 15, 35, 0.95);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 8px solid transparent;
+    border-left-color: rgba(10, 15, 35, 0.95);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    right: 80px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .promo-banner {
+        padding: 8px 0;
+    }
+
+    .promo-content {
+        gap: 8px;
+        font-size: 0.85rem;
+    }
+
+    .promo-icon {
+        font-size: 1.2rem;
+    }
+
+    .promo-text {
+        font-size: 0.8rem;
+    }
+
+    .promo-countdown {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+
+    body {
+        padding-top: 110px;
+    }
+
+    .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 28px;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
+    }
+
+    .nav-promo {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .promo-content {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .promo-text {
+        font-size: 0.75rem;
+    }
+
+    body {
+        padding-top: 120px;
+    }
+}
+
+/* Sticky CTA for Mobile */
+@media (max-width: 768px) {
+    .sticky-cta-mobile {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--gradient);
+        padding: 12px 20px;
+        z-index: 997;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+    }
+
+    .sticky-cta-mobile .btn {
+        width: 100%;
+        max-width: 400px;
+        font-size: 16px;
+        padding: 14px 24px;
+    }
+}
+
+/* Promo CTA Button in Hero */
+.promo-cta {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53) !important;
+    position: relative;
+    overflow: hidden;
+    animation: glow-pulse 2s infinite;
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.5), 0 10px 30px rgba(45, 91, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255, 107, 107, 0.8), 0 10px 30px rgba(45, 91, 255, 0.3);
+    }
+}
+
+.promo-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+.promo-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 107, 107, 1), 0 15px 40px rgba(45, 91, 255, 0.4) !important;
+}
+
+/* =========================================
+   DARK UI PROMOTION REDESIGN (Reference Match)
+   ========================================= */
+
+/* Enhanced Top Banner (Matching Dark UI) */
+.promo-banner {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    /* Dark Blue to Deep Purple */
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1001;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.promo-banner .promo-countdown {
+    background: rgba(16, 185, 129, 0.2);
+    /* Green tint */
+    color: #34d399;
+    /* Emerald Green text */
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    font-weight: 700;
+}
+
+.nav-promo {
+    background: #10b981 !important;
+    /* Match Main Promo Green */
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    animation: none;
+    /* Clean look */
+    transition: all 0.3s ease;
+}
+
+.nav-promo:hover {
+    background: #059669 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.5) !important;
+}
+
+/* =========================================
+   DARK UI PROMOTION REDESIGN (Reference Match)
+   ========================================= */
+
+.dark-promo-section {
+    padding: 80px 0;
+    position: relative;
+    background: #060917;
+    /* Dark Base */
+    /* Subtle Grid Pattern */
+    background-image:
+        linear-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+/* Ambient Glow Behind Promo */
+.dark-promo-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+    animation: floatGlow 10s infinite alternate;
+}
+
+.dark-promo-section::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1), transparent 70%);
+    filter: blur(50px);
+    z-index: 0;
+    animation: floatGlow 8s infinite alternate-reverse;
+}
+
+@keyframes floatGlow {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(20px, 20px);
+    }
+}
+
+.dark-promo-box {
+    background: linear-gradient(145deg, #0b1121 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    align-items: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    /* Deeper shadow */
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Subtle Top Glow */
+.dark-promo-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+}
+
+/* Left Content Styles */
+.dark-promo-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.dark-promo-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dark-badge {
+    background: rgba(139, 92, 246, 0.2);
+    /* More transparent */
+    color: #e9d5ff;
+    /* Lighter purple */
+    font-size: 0.9rem;
+    /* Increased size (was 0.75rem) */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    /* Reduced horizontal padding slightly */
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.dark-title {
+    font-size: 2.2rem;
+    /* Increased size (was 1.8rem) */
+    background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 100%);
+    /* Silver Gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1.1;
+    /* Tight line height to not expand card */
+    letter-spacing: -1px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.dark-price {
+    font-size: 2.5rem;
+    color: #8b5cf6;
+    /* Vivid purple */
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Dark Features Grid (Cards) */
+.dark-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 Columns */
+    gap: 15px;
+}
+
+/* Feature Cards with Glow */
+.dark-feature-card {
+    background: rgba(30, 41, 59, 0.4);
+    /* More transparent */
+    backdrop-filter: blur(10px);
+    padding: 14px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.dark-feature-card:hover {
+    transform: translateY(-3px);
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.df-icon {
+    width: 26px;
+    height: 26px;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    /* Gradient Purple */
+    box-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Right Action Panel - Premium */
+.dark-action-panel {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dark-cta-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    /* Gradient Green */
+    color: white;
+    font-weight: 800;
+    font-size: 1.2rem;
+    padding: 18px 40px;
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.dark-timer {
+    background: #1e293b;
+    padding: 8px 16px;
+    border-radius: 50px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.dark-timer strong {
+    color: #cbd5e1;
+}
+
+.dark-trust {
+    color: #64748b;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Quality Polish)
+   ========================================= */
+
+/* Tablet & Compact Laptops (900px and below) */
+@media (max-width: 900px) {
+
+    .promo-section,
+    .dark-promo-section {
+        padding: 40px 0;
+    }
+
+    .dark-promo-box {
+        grid-template-columns: 1fr;
+        /* Stack Content & Action Panel */
+        padding: 40px;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .dark-promo-header {
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Key Polish: Keep 2 columns on tablets to save vertical space */
+    .dark-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        text-align: left;
+        /* Keep feature text readable */
+    }
+
+    /* Center align the Action Panel */
+    .dark-action-panel {
+        width: 100%;
+        max-width: 500px;
+        /* Prevent being too wide */
+        margin: 0 auto;
+    }
+
+    .dark-trust {
+        justify-content: center;
+    }
+}
+
+/* Mobile Phones (600px and below) */
+@media (max-width: 600px) {
+    .dark-promo-box {
+        padding: 30px 20px;
+        /* Tighter padding */
+        border-radius: 16px;
+        gap: 30px;
+    }
+
+    /* Stack features on small screens */
+    .dark-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Typography Scaling */
+    .dark-title {
+        font-size: 1.6rem;
+    }
+
+    .dark-price {
+        font-size: 2rem;
+    }
+
+    .dark-badge {
+        font-size: 0.8rem;
+    }
+
+    /* Top Banner Mobile Polish */
+    .promo-banner {
+        padding: 8px 0;
+    }
+
+    .promo-banner .promo-icon {
+        display: none;
+        /* Hide icon to save space */
+    }
+
+    .promo-banner .promo-text {
+        font-size: 0.85rem;
+    }
+
+    .promo-banner .promo-countdown {
+        display: block;
+        /* Stack timer */
+        margin-top: 6px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dark-feature-card {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+}

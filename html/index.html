@@ -311,6 +311,7 @@
     <link rel="stylesheet" href="/css/cookie-consent.css">
     <link rel="stylesheet" href="/css/chat.css">
     <link rel="stylesheet" href="/css/faq-testimonials.css">
+    <link rel="stylesheet" href="/css/ux-improvements.css">
 
 
     <!-- Favicon -->
@@ -341,9 +342,9 @@
 
 
     <!-- Header Mejorado con Breadcrumb Semántico -->
-    <header role="banner">
+    <header id="header" class="header">
         <div class="container">
-            <nav class="navbar" aria-label="Navegación principal">
+            <nav class="navbar" role="navigation" aria-label="Navegación principal">
                 <div class="logo">
                     <img src="/assets/logofv2.jpg"
                         alt="QZ Web Solutions - Diseño y Desarrollo Web Profesional en Toluca" class="logo-img">
@@ -376,6 +377,18 @@
                 </ul>
             </nav>
         </div>
+
+        <!-- Urgency Banner restored below Menu -->
+        <div class="promo-banner">
+            <div class="container">
+                <div class="promo-content">
+                    <span class="promo-icon">⚡</span>
+                    <span class="promo-text"><strong>OFERTA FEBRERO:</strong> 10% descuento en Plan Premium + Hosting
+                        GRATIS por 5 meses</span>
+                    <span class="promo-countdown">⏰ Termina: <strong>AL FINAL DE FEBRERO 2026</strong></span>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main id="main-content">
@@ -391,12 +404,12 @@
                         <h1 id="hero-title">Creamos Páginas Web que <span class="text-gradient">Generan Clientes</span>
                         </h1>
                         <p class="hero-description">Diseño web profesional para negocios en Toluca y Estado de México.
-                            <strong>Desde $3,300 MXN</strong> con entrega en <strong>10-15 días</strong>.
+                            Entrega rápida en <strong>10-15 días</strong>.
                             Más de 50 negocios confían en nosotros.
                         </p>
                         <div class="hero-ctas">
-                            <a href="#contacto" class="btn primary" id="btnContact">
-                                <i class="fas fa-gift"></i> Solicitar Presupuesto GRATIS
+                            <a href="#precios" class="btn primary promo-cta" id="btnPromo">
+                                <i class="fas fa-fire"></i> 🔥 Ver Oferta Especial
                             </a>
                             <a href="#portafolio" class="btn secondary">
                                 <i class="fas fa-eye"></i> Ver Casos de Éxito
@@ -454,6 +467,64 @@
                                 <div class="card-icon"><i class="fas fa-tools"></i></div>
                                 <h3>Servicios</h3>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Promotion Section -->
+        <!-- Dark UI Promotion Section -->
+        <section id="oferta-feb" class="dark-promo-section">
+            <div class="container">
+                <div class="dark-promo-box">
+                    <!-- Left Content -->
+                    <div class="dark-promo-content">
+                        <div class="dark-promo-header">
+                            <span class="dark-badge">⚡ OFERTA FEBRERO 2026</span>
+                            <h2 class="dark-title">Plan Negocio Completo</h2>
+                            <span class="dark-price">$3,300</span>
+                        </div>
+
+                        <div class="dark-features-grid">
+                            <div class="dark-feature-card">
+                                <div class="df-icon"><i class="fas fa-check"></i></div>
+                                <span>Diseño Profesional</span>
+                            </div>
+                            <div class="dark-feature-card">
+                                <div class="df-icon"><i class="fas fa-check"></i></div>
+                                <span>Dominio .COM gratis</span>
+                            </div>
+                            <div class="dark-feature-card">
+                                <div class="df-icon"><i class="fas fa-check"></i></div>
+                                <span>Hosting</span>
+                            </div>
+                            <div class="dark-feature-card">
+                                <div class="df-icon"><i class="fas fa-check"></i></div>
+                                <span>Correos Corporativos</span>
+                            </div>
+                            <div class="dark-feature-card">
+                                <div class="df-icon"><i class="fas fa-check"></i></div>
+                                <span>SSL (Candado Verde)</span>
+                            </div>
+                            <div class="dark-feature-card">
+                                <div class="df-icon"><i class="fas fa-check"></i></div>
+                                <span>Soporte</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Action Panel -->
+                    <div class="dark-action-panel">
+                        <a href="https://wa.me/527228964383?text=Hola,%20quiero%20el%20Plan%20Negocio%20de%20$3,300"
+                            class="dark-cta-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reclamar Oferta
+                        </a>
+                        <div class="dark-timer">
+                            <span>⏰ Termina: <strong>28 Feb 2026</strong></span>
+                        </div>
+                        <div class="dark-trust">
+                            <i class="fas fa-shield-alt"></i> Garantía 100%
                         </div>
                     </div>
                 </div>
@@ -999,55 +1070,6 @@
             </div>
         </section>
 
-        <!-- Promo Section (Nueva) -->
-        <section id="promo" class="promo section" aria-labelledby="promo-title">
-            <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-badge" aria-hidden="true"><i class="fas fa-bullhorn"></i> Promoción</span>
-                    <h2 id="promo-title">¡Oferta <span class="text-gradient">Especial!</span></h2>
-                </div>
-                <div class="promo-container reveal">
-                    <div class="hero-text">
-                        <span class="hero-badge">
-                            <i class="fas fa-award"></i> +50 Negocios Confían en Nosotros
-                        </span>
-                        <h1>Creamos Páginas Web que <span class="text-gradient">Generan Clientes</span> para tu Negocio
-                        </h1>
-                        <p class="hero-description">No vendemos sitios bonitos que nadie ve. Diseñamos herramientas
-                            digitales que atraen clientes reales las 24 horas. Desde $3,300 MXN con entrega en 10-15
-                            días.</p>
-                        <ul class="promo-features">
-                            <li><i class="fas fa-check-circle"></i> Diseño Responsivo</li>
-                            <li><i class="fas fa-check-circle"></i> Botón de WhatsApp</li>
-                            <li><i class="fas fa-check-circle"></i> Enlaces a Redes Sociales</li>
-                        </ul>
-                        <button class="btn primary promo-btn"
-                            onclick="sendPlanToWhatsApp('Promo Web 3300', '$3,300 MXN')">
-                            <i class="fab fa-whatsapp"></i> Aprovechar Oferta Ahora
-                        </button>
-                    </div>
-                    <div class="promo-visual">
-                        <div class="promo-card-visual">
-                            <div class="pc-header">
-                                <span></span><span></span><span></span>
-                            </div>
-                            <div class="pc-body">
-                                <div class="pc-hero"></div>
-                                <div class="pc-content">
-                                    <div class="pc-line"></div>
-                                    <div class="pc-line short"></div>
-                                    <div class="pc-grid">
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Precios Section Mejorada - SIN PRECIOS NUMÉRICOS -->
         <section id="precios" class="pricing section" aria-labelledby="precios-title">
             <div class="pricing-background"></div>
@@ -1117,8 +1139,8 @@
                             <li><i class="fas fa-check"></i> Hasta 8 secciones/pestañas</li>
                             <li><i class="fas fa-check"></i> SEO avanzado local</li>
                             <li><i class="fas fa-check"></i> Integración con redes sociales</li>
-                            <li><i class="fas fa-check"></i> Hosting por 5 meses</li>
-                            <li><i class="fas fa-check"></i> Soporte por 6 meses</li>
+                            <li><i class="fas fa-check"></i> Hosting por 4 meses</li>
+                            <li><i class="fas fa-check"></i> Soporte por 5 meses</li>
                             <li><i class="fas fa-check"></i> Entrega en 16-20 días</li>
                         </ul>
                         <button class="btn pricing-btn"
@@ -1417,6 +1439,13 @@
             </div>
         </div>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/527228964383?text=Hola,%20quiero%20cotizar%20mi%20página%20web" class="whatsapp-float"
+        target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Tienes dudas? Chatea con nosotros</span>
+    </a>
 
     <!-- Chat Widget IA -->
     <div id="ai-chat-widget" class="chat-widget">

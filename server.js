@@ -58,6 +58,25 @@ app.get('/proyectos', (req, res) => {
   res.sendFile(path.join(__dirname, 'html', 'projects.html'));
 });
 
+// Blog
+app.get('/blog', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html', 'blog.html'));
+});
+
+// Landing Pages Dinámicas (para todas las páginas de diseno-web-*)
+app.get('/diseno-web-:servicio', (req, res) => {
+  const servicio = req.params.servicio; // e.g., "arquitectos"
+  const filePath = path.join(__dirname, 'html', `diseno-web-${servicio}.html`);
+  
+  // Verificar si el archivo existe para evitar errores 500 o fallos silenciosos
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error(`Error enviando archivo ${filePath}:`, err);
+      res.status(404).send('<h1>404 - Página no encontrada</h1><p><a href="/">Volver al inicio</a></p>');
+    }
+  });
+});
+
 // Chat con IA (Endpoint)
 // Almacén de sesiones en memoria (se borra al reiniciar servidor)
 const chatSessions = new Map();

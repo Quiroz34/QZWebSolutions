@@ -98,19 +98,28 @@
 /* Adjust body padding for promo banner */
 /* Adjust body padding for promo banner */
 body {
-    padding-top: 130px;
+    padding-top: 80px;
+    /* Reduced from 130px to match header height */
 }
 
 @media (max-width: 900px) {
     body {
-        padding-top: 110px;
+        padding-top: 80px;
+        /* Match header height */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+        /* Match mobile header height */
     }
 }
 
 @media (max-width: 600px) {
     body {
-        padding-top: 60px;
-        /* Reduced to ensure no gap between header and banner */
+        padding-top: 70px;
+        /* Match mobile header height */
     }
 }
 

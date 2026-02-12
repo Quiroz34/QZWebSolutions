@@ -577,7 +577,7 @@ function animateCircleProgress(element, value) {
 
 function animateCounter(element) {
     const text = element.textContent;
-    
+
     // Fix: Don't animate "24/7" or similar non-integer stats
     if (text.includes('/')) return;
 
@@ -967,17 +967,22 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', function () {
             let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-            // Calculate opacity: starts at 1, goes to 0 at 300px scroll
-            let opacity = 1 - (scrollPosition / 300);
+            if (window.innerWidth > 768) {
+                // Calculate opacity: starts at 1, goes to 0 at 300px scroll
+                let opacity = 1 - (scrollPosition / 300);
 
-            // Ensure opacity stays between 0 and 1
-            if (opacity < 0) opacity = 0;
-            if (opacity > 1) opacity = 1;
+                // Ensure opacity stays between 0 and 1
+                if (opacity < 0) opacity = 0;
+                if (opacity > 1) opacity = 1;
 
-            headerTitle.style.opacity = opacity;
+                headerTitle.style.opacity = opacity;
 
-            // Optional: Add a slight parallax effect for smoother disappearing
-            headerTitle.style.transform = 'translateY(' + (scrollPosition * 0.4) + 'px)';
+                // Optional: Add a slight parallax effect for smoother disappearing
+                headerTitle.style.transform = 'translateY(' + (scrollPosition * 0.4) + 'px)';
+            } else {
+                headerTitle.style.opacity = 1;
+                headerTitle.style.transform = 'none';
+            }
         });
     }
 });
@@ -998,13 +1003,13 @@ function scrollGallery(id, direction) {
 //           FAQ ACCORDION FUNCTIONALITY      
 // =========================================== 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const faqQuestions = document.querySelectorAll('.faq-question');
-    
+
     faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
+        question.addEventListener('click', function () {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            
+
             // Toggle la pregunta actual
             this.setAttribute('aria-expanded', !isExpanded);
         });

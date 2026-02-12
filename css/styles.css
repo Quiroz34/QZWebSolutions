@@ -3264,42 +3264,131 @@ footer::after {
 @media (max-width: 768px) {
     footer {
         padding: 1.5rem 0 1rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        /* Slightly more top padding for visual breathing room */
         text-align: center;
     }
 
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* 1. Brand Section: Compact & Centered */
     .footer-brand .logo {
         justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-brand .logo-img {
+        height: 35px;
+        /* Smaller Logo */
     }
 
     .footer-description {
-        max-width: 100%;
+        display: none;
+        /* Hide description to save space */
     }
 
     .footer-social {
         justify-content: center;
+        gap: 0.8rem;
     }
 
-    .footer-links h3::after,
-    .footer-newsletter h3::after {
-        left: 50%;
-        transform: translateX(-50%);
+    .footer-social a {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
     }
 
+    /* 2. Links Section: Horizontal List */
+    .footer-links h3 {
+        display: none;
+        /* Hide "Navegación" title */
+    }
+
+    .footer-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem 1.2rem;
+        /* Row gap / Column gap */
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin: 0;
+    }
+
+    .footer-links a {
+        background: rgba(255, 255, 255, 0.05);
+        /* Button-like appearance */
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        justify-content: center;
+    }
+
+    .footer-links a::before {
+        display: none;
+        /* remove arrow */
+    }
+
+    .footer-links a:hover {
+        padding-left: 0.8rem;
+        /* prevent shift */
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 3. Newsletter: Compact */
+    .footer-newsletter h3 {
+        display: none;
+        /* Hide title */
+    }
+
+    .footer-newsletter p {
+        display: none;
+        /* Hide description text */
+    }
+
+    .footer-newsletter form {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .input-with-button input {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-newsletter {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* 4. Footer Bottom: Compact Stack */
     .footer-bottom {
+        display: flex;
         flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .footer-location {
+        justify-content: center;
     }
 
     .footer-legal,
     .footer-contact {
-        flex-direction: column;
+        justify-content: center;
         gap: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .footer-legal a,
+    .footer-contact a {
+        font-size: 0.8rem;
     }
 }
 

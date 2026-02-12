@@ -28,12 +28,70 @@ body.projects-page {
 
 /* Header "Hero" de la Galería - REDISEÑO LUXURY */
 .page-header {
-    padding: 0 0 16rem;
-    /* Top padding set to 0 for absolute top position */
-    margin-bottom: 2rem;
+    padding: 2rem 0 1rem;
+    /* Reduced significantly as body already has padding-top */
+    margin-bottom: 0.5rem;
+    /* Reduced margin bottom from 1rem to 0.5rem */
     text-align: center;
     position: relative;
+    z-index: 20;
+    /* Ensure header stays on top of content */
     background: radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding-top: 1rem;
+        /* Adjusted: moved up drastically */
+        padding-bottom: 2rem;
+        margin-bottom: 4rem;
+        /* Kept large separation */
+        z-index: 20;
+    }
+
+    .page-header .container {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        height: auto !important;
+        /* Ensure not collapsed */
+        overflow: visible !important;
+    }
+
+    .page-header h1.luxury-title {
+        background: none !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        -webkit-text-fill-color: #ffffff !important;
+        text-fill-color: #ffffff !important;
+        color: #ffffff !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        text-shadow: none !important;
+        /* Simplify rendering */
+    }
+
+    .page-header .gallery-badge,
+    .page-header .title-divider {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        color: #ffffff !important;
+        /* Ensure fallback color for all text */
+    }
+
+    .page-header p {
+        display: none !important;
+    }
+
+    .animate-text {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
 }
 
 .gallery-badge {
@@ -120,7 +178,8 @@ body.projects-page {
     width: 60px;
     height: 3px;
     background: var(--gallery-accent);
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
+    /* Reduced from 2rem */
     border-radius: 99px;
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }

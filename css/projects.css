@@ -3,49 +3,58 @@
    ========================================= */
 
 /* Variables Locales para Galería */
+/* Variables Locales para Galería (Actualizadas) */
 :root {
-    --gallery-bg: #0f172a;
-    /* Slate 900 */
-    --gallery-text: #f8fafc;
-    /* Slate 50 */
-    --gallery-accent: #3b82f6;
-    /* Blue 500 */
-    --card-bg: rgba(30, 41, 59, 0.7);
-    /* Slate 800 semi-transparent */
+    --gallery-bg: #010912;
+    /* Darkest Navy */
+    --gallery-text: #f0f4f8;
+    /* Alice Blue */
+    --gallery-accent: #009ADE;
+    /* Vivid Cyan */
+    --card-bg: rgba(16, 42, 67, 0.6);
+    /* Navy Glass */
     --card-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Fondo y Tipografía Base */
+/* Fondo y Tipografía Base - PREMIUM MATCH */
 body.projects-page {
-    background-color: var(--gallery-bg);
-    color: var(--gallery-text);
-    font-family: 'Inter', sans-serif;
+    background: #121212;
+    color: #e0e0e0;
+    font-family: var(--font-body);
+    /* Grid Pattern from Index */
     background-image:
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
     background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Ocultar marquesina de tecnologías en móvil (se encima con el título) */
+@media (max-width: 768px) {
+    body.projects-page .header-marquee {
+        display: none;
+    }
 }
 
 /* Header "Hero" de la Galería - REDISEÑO LUXURY */
 .page-header {
-    padding: 2rem 0 1rem;
-    /* Reduced significantly as body already has padding-top */
-    margin-bottom: 0.5rem;
-    /* Reduced margin bottom from 1rem to 0.5rem */
+    padding: 4rem 0 2rem;
+    margin-bottom: 2rem;
     text-align: center;
     position: relative;
     z-index: 20;
-    /* Ensure header stays on top of content */
-    background: radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    /* Remove radial gradient to allow grid to show */
+    background: transparent;
 }
 
 @media (max-width: 768px) {
     .page-header {
-        padding-top: 1rem;
-        /* Adjusted: moved up drastically */
-        padding-bottom: 2rem;
-        margin-bottom: 4rem;
-        /* Kept large separation */
+        padding-top: 1.5rem;
+        /* Espacio para el navbar flotante */
+        padding-bottom: 0.5rem;
+        margin-bottom: 0;
+        /* Sin margen excesivo abajo */
         z-index: 20;
     }
 
@@ -54,24 +63,22 @@ body.projects-page {
         transform: none !important;
         visibility: visible !important;
         height: auto !important;
-        /* Ensure not collapsed */
         overflow: visible !important;
     }
 
     .page-header h1.luxury-title {
-        background: none !important;
-        background-color: transparent !important;
-        background-image: none !important;
-        -webkit-text-fill-color: #ffffff !important;
-        text-fill-color: #ffffff !important;
-        color: #ffffff !important;
-        -webkit-background-clip: initial !important;
-        background-clip: initial !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-        text-shadow: none !important;
-        /* Simplify rendering */
+        font-size: 2rem;
+        word-wrap: break-word;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-header .gallery-badge {
+        margin-bottom: 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .page-header .title-divider {
+        margin-bottom: 0.5rem;
     }
 
     .page-header .gallery-badge,
@@ -80,7 +87,6 @@ body.projects-page {
         visibility: visible !important;
         transform: none !important;
         color: #ffffff !important;
-        /* Ensure fallback color for all text */
     }
 
     .page-header p {
@@ -133,45 +139,9 @@ body.projects-page {
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Header Navbar Fix */
+/* NAVBAR REMOVED IN FAVOR OF FLOATING CAPSULE */
 .project-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-@media (max-width: 576px) {
-    .project-navbar {
-        flex-direction: row;
-        /* Keep it side by side */
-        justify-content: space-between;
-        padding: 10px 0;
-        gap: 10px;
-    }
-
-    .project-navbar .btn.secondary.small-btn {
-        width: auto;
-        /* Not full width */
-        padding: 6px 10px;
-        /* Much smaller */
-        font-size: 0.75rem;
-        /* Small font */
-        min-height: auto;
-    }
-
-    .project-navbar .logo-img {
-        height: 25px;
-        /* Smaller logo to save space */
-    }
-
-    .project-navbar .logo-main {
-        font-size: 0.9rem;
-    }
-
-    .project-navbar .logo-sub {
-        font-size: 0.6rem;
-    }
+    display: none;
 }
 
 .title-divider {
@@ -181,7 +151,7 @@ body.projects-page {
     margin: 0 auto 1rem;
     /* Reduced from 2rem */
     border-radius: 99px;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
 }
 
 .page-header p {
@@ -196,6 +166,34 @@ body.projects-page {
 /* Contenedor Principal */
 .projects-container {
     padding-bottom: 2rem;
+}
+
+/* Header Titulo de Categoria */
+.category-separator {
+    text-align: center;
+    padding: 2rem 0 1rem;
+}
+
+.category-separator h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .category-separator {
+        padding: 3.5rem 0 0.75rem;
+        text-align: center;
+    }
+
+    .category-separator h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(to right, #ffffff, #94a3b8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
 }
 
 /* Secciones de Proyecto Individual - ULTRA COMPACTADO */
@@ -213,8 +211,8 @@ body.projects-page {
     /* More space for gallery */
     gap: 2rem;
     /* Reduced gap */
-    align-items: flex-start;
-    /* Align top to avoid stretched space */
+    align-items: center;
+    /* Center text vertically with the carousel to avoid unbalanced blank spaces */
 }
 
 @media (max-width: 992px) {
@@ -224,33 +222,35 @@ body.projects-page {
     }
 }
 
-/* Tarjeta de Información (Izquierda) */
+/* Tarjeta de Información (Izquierda) - GLASSMORPHISM */
 .project-header-info {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 1.5rem;
-    /* Reduced from 2rem */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
 }
 
 .project-header-info:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    border-color: rgba(0, 154, 222, 0.3);
+    box-shadow: 0 0 50px rgba(0, 154, 222, 0.15);
 }
 
 .project-category-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background: rgba(59, 130, 246, 0.2);
-    color: #60a5fa;
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
     border-radius: 6px;
     /* Less rounded, more tech */
     font-size: 0.7rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.3);
 }
 
 .project-header-info h2 {
@@ -315,11 +315,12 @@ body.projects-page {
 
 .gallery-track {
     display: flex;
-    overflow-x: auto;
+    overflow-x: scroll;
+    /* scroll en lugar de auto para mejor control */
     scroll-behavior: smooth;
     scrollbar-width: none;
     gap: 0;
-    /* Removing gap for perfect snap connection */
+    /* Removed gap: JS scroll calculation strictly assumes 0 gap */
     padding-bottom: 0;
 
     /* CSS Scroll Snap Magic */
@@ -334,6 +335,9 @@ body.projects-page {
 
 .gallery-item {
     min-width: 100%;
+    width: 100%;
+    flex: 0 0 100%;
+    /* CORTEX FIX: Prevent flexbox from shrinking the item */
     /* Show one at a time */
     position: relative;
     display: flex;
@@ -342,7 +346,8 @@ body.projects-page {
     /* Letterbox fill */
 
     /* Snap alignment */
-    scroll-snap-align: center;
+    scroll-snap-align: start;
+    /* start en lugar de center para alinear con scrollBy exacto */
     scroll-snap-stop: always;
     /* Force stop on each item */
 }
@@ -351,9 +356,33 @@ body.projects-page {
     /* Contain ensures image fits within max-height without cropping weirdly */
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
-    max-height: 400px;
+    background: #000;
+}
+
+/* Texto sobre las imágenes del carrusel */
+.img-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 10, 15, 0.85);
+    /* Tono oscuro Premium */
+    color: #f1f5f9;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    /* Previene bloqueos de clics en la imagen */
 }
 
 /* Botones Navegación Carrusel */
@@ -361,62 +390,209 @@ body.projects-page {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     color: white;
-    border: none;
-    width: 32px;
-    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
-    backdrop-filter: blur(4px);
-    transition: background 0.2s;
-    font-size: 0.8rem;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-btn:hover {
-    background: rgba(59, 130, 246, 1);
+    background: var(--ide-primary);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .gallery-btn.prev {
-    left: 10px;
+    left: 15px;
 }
 
 .gallery-btn.next {
-    right: 10px;
+    right: 15px;
 }
 
-@media (max-width: 576px) {
+/* =========================================== */
+/*      MEJORAS RESPONSIVE (PROJECTS)          */
+/* =========================================== */
+
+@media (max-width: 900px) {
+    .individual-project .container {
+        grid-template-columns: 1fr;
+        /* Una columna */
+        gap: 2rem;
+    }
+
+    .project-header-info {
+        order: 2;
+        /* Info abajo de galería opcional, o arriba */
+    }
+
+    .project-gallery-carousel {
+        order: 1;
+        /* Galería primero para impacto visual */
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    body.projects-page {
+        padding-top: 0;
+    }
+
+    .page-header {
+        padding-top: 6rem;
+        /* Adjusted to align better with header */
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Let the first media query handle mobile luxury-title font size logic to avoid conflict */
+    .page-header h1.luxury-title {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+
+    .category-separator {
+        text-align: center;
+        padding: 3rem 0 1.5rem;
+    }
+
+    .category-separator h2 {
+        font-size: 1.8rem;
+        background: linear-gradient(to right, #ffffff, #94a3b8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .individual-project {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .project-header-info {
+        padding: 1.5rem;
+    }
+
+    .project-header-info h2 {
+        font-size: 1.4rem;
+    }
+
+    /* CARRUSEL - CORRECCIONES VISUALES */
+    .project-gallery-carousel {
+        width: 100%;
+        overflow: hidden;
+        /* CLAVE: ocultar todo lo que salga */
+        position: relative;
+        background: #000;
+        border-radius: 12px;
+        height: 300px;
+        /* Altura fija para contenedor */
+        min-height: unset;
+        max-height: unset;
+        display: block;
+        /* No flex, para no desalinear el track */
+    }
+
+    .gallery-track {
+        display: flex;
+        width: 100%;
+        height: 280px;
+        /* Igual que el contenedor padre */
+        overflow-x: scroll;
+        /* scroll en lugar de auto para mejor control */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .gallery-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-item {
+        min-width: 100%;
+        /* Cada item exactamente 100% del track */
+        width: 100%;
+        flex: 0 0 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: start;
+        /* Alinear desde la izquierda para mejor compatibilidad */
+        background: black;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        /* Mostrar imagen completa siempre */
+        display: block;
+    }
+
+    /* Navegación carrusel */
     .gallery-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 0.7rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(4px);
+        margin: 0;
+        /* Asegurar no márgenes extraños */
+        z-index: 5;
     }
 
     .gallery-btn.prev {
-        left: 5px;
+        left: 10px;
     }
 
     .gallery-btn.next {
-        right: 5px;
+        right: 10px;
     }
 }
 
-/* Captions over image (Optional) */
-.img-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.5rem;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 0.75rem;
-    text-align: center;
+@media (max-width: 480px) {
+    .page-header h1.luxury-title {
+        font-size: 1.8rem;
+    }
+
+    .project-meta {
+        flex-direction: column;
+        /* Meta en lista */
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .project-meta span {
+        font-size: 0.85rem;
+        width: 100%;
+        padding: 0.2rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
 }
 
-/* Dividers SVG */
-.wave-divider {
-    display: none;
-    /* Hide waves to save vertical space */
+/* Scrollbar global hide for clean look */
+::-webkit-scrollbar {
+    width: 6px;
+    background: #020204;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
 }

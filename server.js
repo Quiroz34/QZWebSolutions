@@ -33,7 +33,12 @@ app.get('/sw.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'sw.js'));
 });
 
-// Archivos públicos (robots.txt, sitemap.xml, manifest.json)
+// robots.txt desde la raíz del proyecto
+app.get('/robots.txt', (req, res) => {
+  res.sendFile(path.join(__dirname, 'robots.txt'));
+});
+
+// Archivos públicos (sitemap.xml, manifest.json)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta del formulario (Mantiene lógica actual - solo log)
@@ -67,7 +72,7 @@ app.get('/blog', (req, res) => {
 app.get('/diseno-web-:servicio', (req, res) => {
   const servicio = req.params.servicio; // e.g., "arquitectos"
   const filePath = path.join(__dirname, 'html', `diseno-web-${servicio}.html`);
-  
+
   // Verificar si el archivo existe para evitar errores 500 o fallos silenciosos
   res.sendFile(filePath, (err) => {
     if (err) {
@@ -193,7 +198,7 @@ app.post("/api/chat", async (req, res) => {
 
 // Manejo de Error 404
 app.use((req, res) => {
-  res.status(404).send('<h1>404 - Página no encontrada</h1><p><a href="/">Volver al inicio</a></p>');
+  res.status(404).sendFile(path.join(__dirname, 'html', '404.html'));
 });
 
 const PORT = process.env.PORT || 3000;

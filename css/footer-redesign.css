@@ -1,0 +1,409 @@
+/* =========================================== */
+/*      FOOTER REDESIGN - TECH PREMIUM (COMPACT) */
+/* =========================================== */
+
+footer {
+    background-color: #010912;
+    /* Darkest Navy */
+    color: #9fb3c8;
+    /* Cool Grey */
+    padding: 1.5rem 0 1rem;
+    /* Ultra reduced padding */
+    position: relative;
+    border-top: 1px solid rgba(0, 154, 222, 0.2);
+    /* Cyan accent border */
+    overflow: hidden;
+    font-size: 0.85rem;
+    /* Base font smaller */
+}
+
+/* Background Effect (Optional subtle glow) */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 154, 222, 0.5), transparent);
+}
+
+/* IDE Style Footer */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #627d98;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-center {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-right a {
+    color: #627d98;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-right a:hover {
+    color: #009ADE;
+    text-shadow: 0 0 8px rgba(0, 154, 222, 0.4);
+}
+
+/* Hide old complex footer elements if necessary, or repurpose them */
+.footer-links,
+.footer-newsletter,
+.footer-brand,
+.footer-contact-info {
+    display: none;
+    /* Simplification */
+}
+
+/* Brand Section - Compact */
+.footer-brand .logo {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-brand .logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+}
+
+.footer-brand .logo-text {
+    font-size: 1.1rem;
+    /* Smaller logo text */
+}
+
+.footer-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    max-width: 100%;
+}
+
+/* Social Icons Minimal */
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    background: transparent;
+    border: none;
+    color: #627d98;
+    font-size: 1rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #009ADE;
+    transform: translateY(-2px);
+    background: transparent;
+    box-shadow: none;
+    text-shadow: 0 0 10px rgba(0, 154, 222, 0.5);
+}
+
+/* Navigation Links - 2 Columns to save height */
+.footer-links h3,
+.footer-newsletter h3 {
+    color: #f8fafc;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns */
+    gap: 0.5rem 1rem;
+    /* Row gap 0.5, Col gap 1 */
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #48cae4;
+}
+
+/* Newsletter Section - Inline */
+.footer-newsletter p {
+    display: none;
+    /* Hide description to save space */
+}
+
+.newsletter-form .input-with-button {
+    display: flex;
+    position: relative;
+    max-width: 250px;
+}
+
+.newsletter-form input {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    padding-right: 2.5rem;
+    background: rgba(16, 42, 67, 0.6);
+    /* Navy Glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #009ADE;
+    background: rgba(16, 42, 67, 0.8);
+    box-shadow: 0 0 0 3px rgba(0, 154, 222, 0.1);
+}
+
+.newsletter-form .btn-newsletter {
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: #009ADE;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+    font-size: 0.7rem;
+}
+
+.newsletter-form .btn-newsletter:hover {
+    background: #0077b6;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.newsletter-status {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    height: 1.2rem;
+}
+
+.newsletter-status.success {
+    color: #4ade80;
+}
+
+.newsletter-status.error {
+    color: #f87171;
+}
+
+/* Sub-Footer (Bottom) */
+.footer-bottom {
+    padding-top: 1rem;
+    /* Ultra Reduced */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    /* Tighter */
+    font-size: 0.75rem;
+    /* Smallest readable text */
+}
+
+.footer-copyright {
+    flex-direction: row;
+    /* Horizontal copyright */
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer-location i {
+    color: #009ADE;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-legal a {
+    color: #627d98;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+    color: #f8fafc;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-contact a {
+    color: #9fb3c8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+}
+
+.footer-contact a:hover {
+    color: #48cae4;
+}
+
+/* Responsive Footer - Ultra Compact & Clean */
+@media (max-width: 900px) {
+    footer {
+        padding: 1.5rem 0 2rem;
+        /* Adjusted padding */
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        /* Ultra reduced gap */
+        margin-bottom: 1rem;
+    }
+
+    /* Brand & Social - Together on top */
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-brand .logo {
+        margin-bottom: 0;
+        justify-content: center;
+    }
+
+    .footer-description {
+        display: none;
+        /* Hide description on mobile to save massive space */
+    }
+
+    .footer-social {
+        justify-content: center;
+        margin-top: 0.25rem;
+    }
+
+    /* Links: Clean simple text, 3 columns if possible or 2 tight ones */
+    .footer-links {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .footer-links h3 {
+        display: none;
+        /* Hide "NAVEGACIÓN" title to save space */
+    }
+
+    .footer-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1.5rem;
+        /* Horizontal spacing */
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .footer-links a {
+        background: transparent !important;
+        /* Force remove any button bg */
+        padding: 0 !important;
+        font-size: 0.85rem;
+        color: #cbd5e1;
+        /* Lighter for readability */
+        display: inline-block;
+        border: none;
+    }
+
+    /* Newsletter: Very Compact */
+    .footer-newsletter {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-newsletter h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.8;
+    }
+
+    .newsletter-form {
+        width: 100%;
+        max-width: 280px;
+        /* Even smaller */
+    }
+
+    .newsletter-form input {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    /* Bottom: Minimalist */
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-copyright {
+        font-size: 0.7rem;
+        opacity: 0.7;
+    }
+
+    .footer-contact,
+    .footer-legal {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        font-size: 0.75rem;
+    }
+}

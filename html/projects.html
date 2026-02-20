@@ -59,8 +59,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/projects.css">
+    <link rel="stylesheet" href="/css/styles.css?v=2.2">
+    <link rel="stylesheet" href="/css/projects.css?v=2.2">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <link rel="stylesheet" href="/css/chat.css">
+    <link rel="stylesheet" href="/css/ux-improvements.css?v=2.2">
+    <link rel="stylesheet" href="/css/visual-enhancements.css">
 </head>
 
 <body class="projects-page">
@@ -71,23 +75,66 @@
     <!-- Skip link -->
     <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
 
+    <!-- Background Marquee (From Index) -->
+    <div class="header-marquee" aria-hidden="true">
+        <div class="marquee-track-header">
+            <!-- Tech Set 1 -->
+            <span class="marquee-item-header"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="marquee-item-header"><i class="fas fa-desktop"></i> Apps Escritorio</span>
+            <span class="marquee-item-header"><i class="fab fa-react"></i> React</span>
+            <span class="marquee-item-header"><i class="fas fa-database"></i> MongoDB</span>
+            <span class="marquee-item-header"><i class="fas fa-atom"></i> Electron.js</span>
+            <span class="marquee-item-header"><i class="fab fa-android"></i> Android</span>
 
+            <!-- Seamless Loop Duplicate -->
+            <span class="marquee-item-header"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="marquee-item-header"><i class="fas fa-desktop"></i> Apps Escritorio</span>
+            <span class="marquee-item-header"><i class="fab fa-react"></i> React</span>
+            <span class="marquee-item-header"><i class="fas fa-database"></i> MongoDB</span>
+            <span class="marquee-item-header"><i class="fas fa-atom"></i> Electron.js</span>
+            <span class="marquee-item-header"><i class="fab fa-android"></i> Android</span>
 
-    <!-- Header / Navbar (Consistent with index.html) -->
-    <!-- Header / Navbar (Consistent with index.html) -->
-    <header role="banner" style="background: #0f172a;">
-        <div class="container">
-            <nav class="project-navbar" aria-label="Navegación principal">
-                <a href="/" class="logo" style="text-decoration: none;">
-                    <img src="/assets/logofv2.jpg" alt="QZ Web Solutions" class="logo-img">
-                    <div class="logo-text">
-                        <span class="logo-main">QZ Web</span>
-                        <span class="logo-sub">Solutions</span>
-                    </div>
-                </a>
-                <a href="/" class="btn secondary small-btn"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
-            </nav>
+            <!-- Extra Set for Ultra Wide -->
+            <span class="marquee-item-header"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="marquee-item-header"><i class="fas fa-desktop"></i> Apps Escritorio</span>
+            <span class="marquee-item-header"><i class="fab fa-react"></i> React</span>
+            <span class="marquee-item-header"><i class="fas fa-database"></i> MongoDB</span>
+            <span class="marquee-item-header"><i class="fas fa-atom"></i> Electron.js</span>
+            <span class="marquee-item-header"><i class="fab fa-android"></i> Android</span>
         </div>
+    </div>
+
+
+
+    <!-- Header / Navbar (Consistent with index.html) -->
+    <!-- Floating Capsule Navbar (Consistent with index.html but with absolute paths) -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <img src="/assets/logofv2.jpg" alt="Logo QZ" class="logo-img-premium"
+                    style="height: 32px; border-radius: 8px; margin-right: 8px;">
+                <span class="logo-main text-white">QZ</span><span class="blink-cursor">_</span>
+            </a>
+
+            <ul id="siteNav" class="nav-list">
+                <li><a href="/#inicio">Inicio</a></li>
+                <li><a href="/#servicios">Servicios</a></li>
+                <li><a href="/#portafolio">Proyectos</a></li>
+                <li><a href="/#testimonios">Testimonios</a></li>
+                <li><a href="/#precios">Precios</a></li>
+                <li><a href="/#nosotros">Nosotros</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/#contacto" class="nav-cta">Contacto</a></li>
+            </ul>
+
+            <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Menú">
+                <span class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </nav>
     </header>
 
 
@@ -103,6 +150,13 @@
     </header>
 
     <main id="main-content" class="projects-container">
+
+        <!-- SECTION: Páginas Web -->
+        <div class="category-separator">
+            <div class="container">
+                <h2>Páginas Web</h2>
+            </div>
+        </div>
 
         <!-- PROYECTO 1 -->
         <section class="individual-project">
@@ -286,91 +340,287 @@
                             class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
+
+            <!-- Wave Divider Bottom -->
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- SECTION: Aplicaciones de Escritorio -->
+        <div class="category-separator">
+            <div class="container">
+                <h2>Aplicaciones de Escritorio</h2>
+            </div>
+        </div>
+
+        <!-- PROYECTO 4: Aplicación de Escritorio (Próximamente) -->
+        <section class="individual-project alt-bg bg-pattern-dots reveal-on-scroll">
+            <div class="container">
+                <div class="project-header-info">
+                    <span class="project-category-badge coming-soon">Software de Escritorio</span>
+                    <h2>Gestión Administrativa Desktop</h2>
+                    <p class="project-desc">Sistema integral para negocios: control de operaciones, inventarios y
+                        emisión de tickets.
+                        Incluye gestión completa de usuarios (Admin/Multi-usuario) con login seguro y reportes
+                        avanzados.</p>
+
+                    <div class="project-meta" style="margin-top: 25px;">
+                        <span><i class="fab fa-windows"></i> Solo Windows</span>
+                        <span><i class="fas fa-users-cog"></i> Admin / Multi-usuario</span>
+                        <span><i class="fas fa-receipt"></i> Generación de Tickets</span>
+                    </div>
+                </div>
+
+                <div class="project-gallery-carousel">
+                    <!-- Placeholder visual for Coming Soon -->
+                    <div class="gallery-track"
+                        style="justify-content: center; align-items: center; background: rgba(0,0,0,0.3); height: 300px; border-radius: 12px;">
+                        <div style="text-align: center; color: var(--gallery-text);">
+                            <i class="fas fa-tools"
+                                style="font-size: 3rem; margin-bottom: 1rem; color: var(--gallery-accent);"></i>
+                            <h3>Próximamente</h3>
+                            <p>Estamos trabajando en esta demostración</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wave Divider Bottom -->
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- SECTION: Aplicaciones Android -->
+        <div class="category-separator">
+            <div class="container">
+                <h2>Aplicaciones Android</h2>
+            </div>
+        </div>
+
+        <!-- PROYECTO 5: Aplicación Android (Próximamente) -->
+        <section class="individual-project">
+            <div class="container">
+                <div class="project-header-info">
+                    <span class="project-category-badge coming-soon">Aplicación Móvil</span>
+                    <h2>App Android Nativa</h2>
+                    <p class="project-desc">Aplicación móvil diseñada para ofrecer la mejor experiencia de usuario en
+                        dispositivos Android.
+                        Integración con servicios en tiempo real y notificaciones push.</p>
+
+                    <div class="project-meta" style="margin-top: 25px;">
+                        <span><i class="fab fa-android"></i> Android Nativo</span>
+                        <span><i class="fas fa-sync-alt"></i> Sincronización Real-Time</span>
+                    </div>
+                </div>
+
+                <div class="project-gallery-carousel">
+                    <!-- Placeholder visual for Coming Soon -->
+                    <div class="gallery-track"
+                        style="justify-content: center; align-items: center; background: rgba(0,0,0,0.3); height: 300px; border-radius: 12px;">
+                        <div style="text-align: center; color: var(--gallery-text);">
+                            <i class="fas fa-hammer"
+                                style="font-size: 3rem; margin-bottom: 1rem; color: var(--gallery-accent);"></i>
+                            <h3>Próximamente</h3>
+                            <p>En desarrollo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <!-- Footer Identical to index.html -->
-    <footer role="contentinfo">
+    <!-- Footer Premium (Grid Style) -->
+    <footer id="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img src="/assets/logofv2.jpg" alt="QZ Web Solutions" class="logo-img">
-                        <div class="logo-text">
-                            <span class="logo-main">QZ Web</span>
-                            <span class="logo-sub">Solutions</span>
-                        </div>
-                    </div>
-                    <p class="footer-description">Desarrollo web profesional en Toluca</p>
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand footer-col">
+                    <a href="/" class="logo" style="margin-bottom: 1.5rem; display: inline-block;">
+                        <img src="/assets/logofv2.jpg" alt="Logo QZ" class="logo-img-premium"
+                            style="height: 40px; border-radius: 10px; margin-right: 10px;">
+                        <span class="logo-main text-white" style="font-size: 1.5rem;">QZ</span><span
+                            class="blink-cursor" style="font-size: 1.5rem;">_</span>
+                    </a>
+                    <p>Transformamos ideas en experiencias digitales excepcionales. Desarrollo web de alto rendimiento
+                        para negocios que buscan destacar.</p>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/profile.php?id=61585029022834" target="_blank"
-                            rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/qzwebsolutions?igsh=MTFuNHo1ZmI2dTkyMw==" target="_blank"
-                            rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/527228964383" target="_blank" rel="noopener noreferrer"
+                            class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/qzwebsolutions/" target="_blank" class="social-link"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/527228964383" target="_blank" class="social-link"
                             aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
-                <div class="footer-links">
-                    <h3>Navegación</h3>
-                    <ul>
-                        <li><a href="/#inicio">Inicio</a></li>
-                        <li><a href="/#servicios">Servicios</a></li>
-                        <li><a href="/#portafolio">Portafolio</a></li>
-                        <li><a href="/#precios">Precios</a></li>
-                        <li><a href="/#contacto">Contacto</a></li>
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="/#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="/#portafolio"><i class="fas fa-chevron-right"></i> Proyectos</a></li>
+                        <li><a href="/#testimonios"><i class="fas fa-chevron-right"></i> Testimonios</a></li>
+                        <li><a href="/#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-newsletter">
-                    <h3>Newsletter</h3>
-                    <p>Recibe tips digitales</p>
-                    <form id="newsletterForm" class="newsletter-form">
-                        <div class="input-with-button">
-                            <input type="email" id="newsletterEmail" name="email" placeholder="tu@email.com" required
-                                aria-label="Email">
-                            <button type="submit" class="btn-newsletter" aria-label="Suscribirse">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                        <div id="newsletterStatus" class="newsletter-status"></div>
-                    </form>
+                <!-- Legal Links -->
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy.html"><i class="fas fa-shield-alt"></i> Política de Privacidad</a></li>
+                        <li><a href="/terms.html"><i class="fas fa-file-contract"></i> Términos y Condiciones</a></li>
+                        <li>
+                            <a href="#" id="btnCookieSettingsFooter">
+                                <i class="fas fa-cookie-bite"></i> Preferencias de Cookies
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@qzwebsolutions.com"><i class="fas fa-envelope"></i>
+                                info@qzwebsolutions.com</a></li>
+                        <li><a href="tel:+527228964383"><i class="fas fa-phone"></i> +52 722 896 4383</a></li>
+                        <li><span style="color: var(--muted); display: flex; gap: 8px; align-items: center;"><i
+                                    class="fas fa-map-marker-alt"></i> Toluca, Edo. Méx</span></li>
+                    </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>© <span id="current-year">2025</span> QZ Web Solutions</p>
-                    <p class="footer-location"><i class="fas fa-map-marker-alt"></i> Toluca, Méx</p>
+                <div class="copyright">
+                    &copy; 2026 QZ Web Solutions. Todos los derechos reservados.
                 </div>
-
-                <div class="footer-legal">
-                    <a href="/privacy">Privacidad</a>
-                    <a href="/terms">Términos</a>
-                </div>
-
-                <div class="footer-contact">
-                    <a href="tel:+527228964383"><i class="fas fa-phone"></i> 722 896 4383</a>
-                    <a href="mailto:info@qzwebsolutions.com"><i class="fas fa-envelope"></i> Info</a>
+                <div class="made-with">
+                    Hecho con <i class="fas fa-heart"></i> y <i class="fas fa-code"></i> en México
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/527228964383?text=Hola%20QZ%20Web%20Solutions,%20quiero%20información%20sobre%20una%20página%20web%20profesional"
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatea con nosotros por WhatsApp">
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3 id="cookieTitle"><i class="fas fa-cookie-bite"></i> Preferencias de Cookies</h3>
+                <p>Utilizamos cookies propias y de terceros para analítica y marketing. Puedes aceptar todas,
+                    rechazarlas o configurar tus preferencias. <a href="/privacy">Ver Política</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="btnCookieSettings" class="cookie-btn outline">Configurar</button>
+                <button id="btnCookieReject" class="cookie-btn outline">Rechazar</button>
+                <button id="btnCookieAccept" class="cookie-btn accept">Aceptar Todo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookieSettingsModal" class="cookie-modal" aria-hidden="true" role="dialog">
+        <div class="cookie-modal-overlay"></div>
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h3>Configuración de Cookies</h3>
+                <button id="btnCloseModal" class="close-modal" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cookie-modal-body">
+                <p>Aquí puedes configurar qué cookies permites que utilicemos.</p>
+
+                <div class="cookie-option">
+                    <div class="option-info">
+                        <h4>Estrictamente Necesarias</h4>
+                        <p>Esenciales para que el sitio funcione. No se pueden desactivar.</p>
+                    </div>
+                    <div class="option-toggle">
+                        <input type="checkbox" id="cookieNecessary" checked disabled>
+                        <label for="cookieNecessary" class="toggle-switch"></label>
+                        <span class="status-text">Siempre Activo</span>
+                    </div>
+                </div>
+
+                <div class="cookie-option">
+                    <div class="option-info">
+                        <h4>Analíticas (Google)</h4>
+                        <p>Nos ayudan a entender cómo usas el sitio para mejorarlo.</p>
+                    </div>
+                    <div class="option-toggle">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <label for="cookieAnalytics" class="toggle-switch"></label>
+                    </div>
+                </div>
+
+                <div class="cookie-option">
+                    <div class="option-info">
+                        <h4>Marketing</h4>
+                        <p>Utilizadas para mostrar anuncios relevantes para ti.</p>
+                    </div>
+                    <div class="option-toggle">
+                        <input type="checkbox" id="cookieMarketing">
+                        <label for="cookieMarketing" class="toggle-switch"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button id="btnSavePreferences" class="cookie-btn accept">Guardar Preferencias</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/527228964383?text=Hola,%20quiero%20cotizar%20mi%20página%20web" class="whatsapp-float"
+        target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Tienes dudas? Chatea con nosotros</span>
     </a>
+
+    <!-- Chat Widget IA -->
+    <div id="ai-chat-widget" class="chat-widget">
+        <button id="chat-toggle" class="chat-toggle" aria-label="Abrir chat de asistencia">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <h3><i class="fas fa-robot"></i> QZ Assistant</h3>
+                <button id="close-chat" aria-label="Cerrar chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="message ai">¡Hola! Soy el asistente de QZ Web Solutions. ¿En qué puedo ayudarte?</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Pregúntame algo..." aria-label="Mensaje para la IA">
+                <button id="send-chat" aria-label="Enviar mensaje">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scroll To Top Button -->
     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="/js/script.js" defer></script>
+    <!-- Scripts -->
+    <script src="/js/script.js"></script>
+    <script src="/js/chat.js"></script>
+    <script src="/js/cookie-consent.js" defer></script>
 </body>
 
 </html>

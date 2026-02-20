@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página No Encontrada | QZ Web Solutions</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: #050505;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .error-container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-size: 10rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 0;
+            background: linear-gradient(135deg, #009ADE, #00c9ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: #627d98;
+            margin: 1rem 0 2rem;
+        }
+
+        .btn-home {
+            background: #009ADE;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 154, 222, 0.4);
+        }
+
+        .bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: rgba(0, 154, 222, 0.1);
+            filter: blur(100px);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Módulo no encontrado: La página que buscas ha sido movida o no existe.</p>
+        <a href="/" class="btn-home"><i class="fas fa-home"></i> Volver al Inicio</a>
+    </div>
+</body>
+
+</html>

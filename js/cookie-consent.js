@@ -90,16 +90,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Abrir Configuración
+    // Abrir Configuración (Banner)
     if (btnSettings) {
         btnSettings.addEventListener('click', () => {
-            // Cargar estado actual en los checkbox
-            const current = getConsent();
-            if (checkAnalytics) checkAnalytics.checked = current ? current.analytics : false;
-            if (checkMarketing) checkMarketing.checked = current ? current.marketing : false;
-
-            showModal();
+            openCookieSettings();
         });
+    }
+
+    // Abrir Configuración (Footer)
+    const btnSettingsFooter = document.getElementById('btnCookieSettingsFooter');
+    if (btnSettingsFooter) {
+        btnSettingsFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCookieSettings();
+        });
+    }
+
+    function openCookieSettings() {
+        // Cargar estado actual en los checkbox
+        const current = getConsent();
+        if (checkAnalytics) checkAnalytics.checked = current ? current.analytics : false;
+        if (checkMarketing) checkMarketing.checked = current ? current.marketing : false;
+
+        showModal();
     }
 
     // Cerrar Modal

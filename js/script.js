@@ -622,9 +622,12 @@ function initScrollEffects() {
         // Ocultar/mostrar header (solo desktop)
         if (window.innerWidth > 768) {
             if (window.scrollY > lastScrollY && window.scrollY > 200) {
-                header.style.transform = 'translateY(-100%)';
+                // Scroll DOWN: Move Up and Right (User requested "displace right" behavior)
+                // Removing translateX(-50%) causes it to shift right due to left: 50%
+                header.style.transform = 'translateY(-150%)';
             } else {
-                header.style.transform = 'translateY(0)';
+                // Scroll UP: Center the menu
+                header.style.transform = 'translate(-50%, 0)';
             }
         }
 
@@ -695,7 +698,7 @@ function initVisualEffects() {
 }
 
 function createParticles() {
-    const hero = document.querySelector('.hero');
+    const hero = document.querySelector('.hero-section');
     if (!hero) return;
 
     for (let i = 0; i < 20; i++) {
@@ -781,14 +784,14 @@ function initScrollToTop() {
     });
 }
 
-// Formateo automÃ¡tico de telÃ©fono mejorado
+// Formateo automático de teléfono mejorado
 document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, ''); // Solo nÃºmeros
+            let value = e.target.value.replace(/\D/g, ''); // Solo números
 
-            // Limitar a 10 dÃ­gitos
+            // Limitar a 10 dígitos
             if (value.length > 10) {
                 value = value.slice(0, 10);
             }
@@ -819,10 +822,9 @@ function initNewsletter() {
         e.preventDefault();
 
         const email = emailInput.value.trim();
-
-        // ValidaciÃ³n bÃ¡sica
         if (!email || !isValidEmail(email)) {
-            showNewsletterStatus('Por favor, introduce un correo vÃ¡lido.', 'error');
+            statusDiv.textContent = 'Por favor ingresa un email válido.';
+            statusDiv.className = 'newsletter-status error';
             return;
         }
 
@@ -883,16 +885,12 @@ function initNewsletter() {
     }
 }
 
-// Inicializar newsletter cuando el DOM estÃ© listo
-document.addEventListener('DOMContentLoaded', initNewsletter);
-
 
 
 // Google Analytics inicializado en HTML para mejor rendimiento
 
 document.addEventListener('DOMContentLoaded', () => {
     initServiceWorker();
-    initCookieBanner();
 });
 
 function initServiceWorker() {
@@ -919,43 +917,7 @@ function initServiceWorker() {
     }
 }
 
-function initCookieBanner() {
-    // Verificar si ya aceptó cookies
-    if (localStorage.getItem('qz_cookies_accepted') === 'true') {
-        return;
-    }
 
-    // Crear banner si no existe (aunque idealmente debería estar en HTML)
-    // Pero para asegurar que aparezca aunque el usuario no edite HTML:
-    const existingBanner = document.getElementById('cookieBanner');
-    if (existingBanner) {
-        setTimeout(() => existingBanner.classList.add('show'), 2000);
-        return;
-    }
-
-    // Inserción dinámica si no está en HTML
-    const banner = document.createElement('div');
-    banner.id = 'cookieBanner';
-    banner.className = 'cookie-banner';
-    banner.innerHTML = `
-        <div class='cookie-content'>
-            <div class='cookie-text'>
-                <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href='/privacy'>Política de Privacidad</a>.</p>
-            </div>
-            <button id='acceptCookies' class='cookie-btn'>Aceptar</button>
-        </div>
-    `;
-
-    document.body.appendChild(banner);
-
-    // Event Listeners
-    setTimeout(() => banner.classList.add('show'), 2000);
-
-    document.getElementById('acceptCookies').addEventListener('click', () => {
-        localStorage.setItem('qz_cookies_accepted', 'true');
-        banner.classList.remove('show');
-    });
-}
 
 // Gallery Header Fade Effect
 

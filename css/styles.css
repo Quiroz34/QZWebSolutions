@@ -193,7 +193,7 @@ body::after {
 /* Showcase & Mockup Utility */
 .showcase-section {
     background: #060608;
-    padding: 3rem 0;
+    padding: 1.5rem 0 2rem;
     overflow: hidden;
     position: relative;
 }
@@ -221,7 +221,7 @@ body::after {
 .showcase-title-lg {
     font-family: var(--font-heading);
     font-size: 2.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: #ffffff;
     letter-spacing: -1px;
 }
@@ -252,9 +252,9 @@ body::after {
 
 .showcase-desc {
     color: #94a3b8;
-    margin-bottom: 2.5rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
     max-width: 90%;
 }
 
@@ -5234,13 +5234,39 @@ body {
         padding: 1rem;
     }
 
-    /* SHOWCASE 3D - Evitar desbordes */
+    /* SHOWCASE — Nuevo diseño Agenda LP */
     .showcase-grid-layout {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 1.5rem;
         text-align: center;
         overflow: hidden;
-        /* Cortar cualquier cosa que salga */
+    }
+
+    /* En móvil: ocultar las capturas flotantes laterales, solo mostrar ícono */
+    #portfolio-showcase .showcase-visual [style*="position: absolute"] {
+        display: none !important;
+    }
+
+    #portfolio-showcase .showcase-visual {
+        min-height: 200px !important;
+    }
+
+    #portfolio-showcase .showcase-content [style*="display: flex; align-items: center; gap: 1rem"] {
+        justify-content: center;
+    }
+
+    #portfolio-showcase .showcase-content [style*="display: flex; gap: 1.5rem"] {
+        justify-content: center;
+    }
+
+    .showcase-desc {
+        max-width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .btn-showcase {
+        width: auto;
+        justify-content: center;
     }
 
     .phone-mockup-body {

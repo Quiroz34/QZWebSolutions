@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loadingMsg) loadingMsg.remove();
 
             if (response.ok) {
-                appendMessage('ai', data.text || 'Sin respuesta del servidor.');
+                // Si la librería marked está disponible, convertir Markdown a HTML
+                const finalHtml = typeof marked !== 'undefined' ? marked.parse(data.text || '') : (data.text || 'Sin respuesta.');
+                appendMessage('ai', finalHtml, true);
             } else {
                 appendMessage('ai', data.error || 'Lo siento, hubo un error al procesar tu mensaje.');
             }
@@ -67,14 +69,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const appendMessage = (sender, text) => {
+    const appendMessage = (sender, content, isHtml = false) => {
         const msgDiv = document.createElement('div');
         const id = 'msg-' + Date.now();
         msgDiv.id = id;
         msgDiv.className = `message ${sender}`;
-        msgDiv.textContent = text;
+        
+        if (isHtml) {
+            msgDiv.innerHTML = content;
+        } else {
+            msgDiv.textContent = content;
+        }
+
         chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Smooth scroll to bottom
+        chatMessages.scrollTo({
+            top: chatMessages.scrollHeight,
+            behavior: 'smooth'
+        });
+        
         return id;
     };
 

@@ -6,7 +6,6 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-// Usamos un modelo más estándar para evitar errores de versión
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
 
 const app = express();
@@ -113,7 +112,7 @@ PLANES DE PÁGINAS WEB (Cotización Personalizada)
 ═══════════════════════════════════════
 Todos los planes incluyen: diseño responsive (móvil, tablet, PC), dominio .com por 1 año, certificado SSL, formulario de contacto, integración con redes sociales y botón de WhatsApp.
 
-📦 PLAN STARTUP — El más económico
+📦 **PLAN STARTUP** — El más económico
 Ideal para: emprendedores y negocios que están comenzando su presencia digital.
 ✅ Página web de 4 secciones
 ✅ Diseño responsive
@@ -123,7 +122,7 @@ Ideal para: emprendedores y negocios que están comenzando su presencia digital.
 ✅ Dominio .com incluido
 ⏱️ Entrega: 10-13 días
 
-📦 PLAN PROFESIONAL — El más popular ⭐
+📦 **PLAN PROFESIONAL** — El más popular ⭐
 Ideal para: negocios establecidos que quieren crecer online.
 ✅ Todo lo del plan Startup
 ✅ Hasta 6 secciones
@@ -134,7 +133,7 @@ Ideal para: negocios establecidos que quieren crecer online.
 ✅ Soporte técnico por 4 meses
 ⏱️ Entrega: 13-16 días
 
-📦 PLAN PREMIUM — El más completo
+📦 **PLAN PREMIUM** — El más completo
 Ideal para: empresas que buscan destacar y escalar.
 ✅ Todo lo del plan Profesional
 ✅ Diseño completamente personalizado
@@ -144,6 +143,8 @@ Ideal para: empresas que buscan destacar y escalar.
 ✅ Hosting por 4 meses
 ✅ Soporte técnico por 5 meses
 ⏱️ Entrega: 16-20 días
+
+O puedes verlos a detalle aquí: [Ver Tabla de Precios](#precios)
 
 ═══════════════════════════════════════
 OTROS SERVICIOS
@@ -158,11 +159,14 @@ OTROS SERVICIOS
 ═══════════════════════════════════════
 APLICACIÓN DESTACADA: AGENDA LP
 ═══════════════════════════════════════
-- Nombre: Agenda LP (también conocida como Kovil)
-- Disponible en: Google Play https://play.google.com/store/apps/details?id=com.aggas.app
-- Para: Distribuidores de Gas LP
-- Función: Gestión de pedidos diarios/semanales/mensuales, historial de clientes, control de deudas, generación de tickets y reportes.
-- Calificación: 4.8 ⭐ en Google Play
+- **Nombre:** Agenda LP (también conocida como Kovil)
+- **Disponible en:** Google Play (Para Android)
+- **Para:** Distribuidores de Gas LP
+- **Función:** Gestión de pedidos diarios/semanales/mensuales, historial de clientes, control de deudas, generación de tickets y reportes.
+- **Calificación:** 4.8 ⭐ en Google Play
+
+Si quieres ver fotos y descargarlo, entra aquí: [Ver App Agenda LP](#portfolio-showcase)
+También puedes explorar el [Portafolio Completo](#portafolio)
 
 ═══════════════════════════════════════
 PREGUNTAS FRECUENTES Y RESPUESTAS
@@ -195,17 +199,18 @@ MANEJO DE OBJECIONES
 ═══════════════════════════════════════
 REGLAS DE INTERACCIÓN
 ═══════════════════════════════════════
-1. Si el usuario pregunta por precio → explica brevemente los 3 planes y ofrece cotización por WhatsApp.
-2. Si el usuario describe su negocio → recomienda el plan más adecuado y llévalo a WhatsApp.
-3. Si el usuario pregunta algo técnico muy específico → redirígelo al equipo humano por WhatsApp.
-4. NUNCA inventes precios exactos en pesos. Los precios son cotización personalizada.
-5. NUNCA respondas sobre temas ajenos a QZ Web Solutions (política, noticias, etc.).
-6. Si no sabes la respuesta → "Esa es una buena pregunta. Para darte la información más precisa, te recomiendo escribirnos al WhatsApp: wa.me/527228964383"
-7. Termina siempre con una pregunta o llamada a la acción suave para mantener la conversación.
+1. Si el usuario pregunta por precio → explica brevemente los 3 planes y DEBES agregar este enlace: [Ver Tabla de Precios](#precios)
+2. Si el usuario describe su negocio → recomienda el plan más adecuado y añade este botón: [Cotizar por WhatsApp](https://wa.me/527228964383)
+3. Si el usuario pregunta por trabajo previo → menciona Agenda LP y dales el enlace [Ver Portafolio](#portafolio) y [Ver App Agenda LP](#portfolio-showcase).
+4. Usa texto en **negritas** (con asteriscos dobles) para resaltar partes importantes, pero NO exageres.
+5. Utiliza listas (\`- item 1\`) para que todo sea súper fácil de leer.
+6. NUNCA inventes precios exactos en pesos.
+7. NUNCA respondas sobre temas ajenos a QZ Web Solutions.
+8. Termina siempre con una pregunta concisa o un enlace de acción suave.
 `;
 
 
-// Chat con IA (Endpoint Mejorado)
+// Chat con IA (Usando Gemini API con formato mejorado)
 app.post("/api/chat", async (req, res) => {
   try {
     const { message, sessionId } = req.body;
@@ -214,32 +219,21 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Mensaje requerido" });
     }
 
-    // Gestionar ID de sesión
     const currentSessionId = sessionId || 'default-session';
-
-    // Recuperar o iniciar historial
     let chatHistory = chatSessions.get(currentSessionId);
-
     let chat;
+
     if (!chatHistory) {
-      // Nueva sesión
       chat = model.startChat({
         history: [
-          {
-            role: "user",
-            parts: [{ text: "Hola, compórtate según tus instrucciones de sistema." }],
-          },
-          {
-            role: "model",
-            parts: [{ text: "Entendido. Soy el Asistente Virtual de QZ Web Solutions. Estoy listo para ayudar con diseño web, SEO y soluciones digitales en Toluca y alrededores." }],
-          }
+          { role: "user", parts: [{ text: "Hola, compórtate según tus instrucciones de sistema." }] },
+          { role: "model", parts: [{ text: "Entendido. Soy el Asistente Virtual de QZ Web Solutions." }] }
         ],
         systemInstruction: {
           role: "system",
           parts: [{ text: SYSTEM_INSTRUCTION }]
         }
       });
-      // Guardar referencia al chat (Gemini SDK gestiona el historial interno en el objeto chat)
       chatSessions.set(currentSessionId, chat);
     } else {
       chat = chatHistory;
@@ -247,35 +241,15 @@ app.post("/api/chat", async (req, res) => {
 
     console.log(`[Sesión: ${currentSessionId}] Usuario: ${message.substring(0, 50)}...`);
 
-    // Enviar mensaje con instrucción de sistema reforzada si es necesario (Gemini 1.5/2.0 soporta systemInstruction al inicio)
-    // Nota: En la versión actual del SDK de Node, systemInstruction se pasa al crear el modelo o startChat. 
-    // Aquí asumimos que el contexto se mantiene en el objeto 'chat'.
-
-    // Inyectar recordatorio de sistema si es necesario, o simplemente enviar mensaje.
-    // Para simplificar y asegurar consistencia, enviamos el mensaje directo.
-
-    // Pre-prompt invisible para reforzar identidad en cada turno (opcional, pero útil en stateless)
-    // const promptWithContext = `(Recuerda: Eres ventas QZ Web Solutions) ${message}`;
-
     const result = await chat.sendMessage(message);
     const response = await result.response;
-    const text = response.text();
+    const botMessage = response.text();
 
-    res.json({ text });
+    res.json({ text: botMessage });
   } catch (error) {
     console.error("Error en chat IA:", error);
-
-    const isRateLimit = error.status === 429 || (error.message && error.message.includes("429"));
-
-    if (isRateLimit) {
-      return res.status(429).json({
-        error: "Estoy recibiendo muchas consultas. Por favor contáctanos por WhatsApp para atención inmediata.",
-        details: "Rate limit"
-      });
-    }
-
     res.status(500).json({
-      error: "Tuve un pequeño problema técnico. ¿Podrías repetirlo o escribirnos al WhatsApp?",
+      error: "Lo siento, tuve un problema técnico con mi conexión nube. ¿Podrías repetirlo?",
       details: error.message
     });
   }

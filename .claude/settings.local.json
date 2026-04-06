@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python update_footers.py)",
+      "Bash(python update_footers2.py)"
+    ]
+  }
+}

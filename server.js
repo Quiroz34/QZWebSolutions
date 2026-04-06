@@ -67,6 +67,17 @@ app.get('/blog', (req, res) => {
   res.sendFile(path.join(__dirname, 'html', 'blog.html'));
 });
 
+// Blog - Artículos individuales
+app.get('/blog/:slug', (req, res) => {
+  const slug = req.params.slug;
+  const filePath = path.join(__dirname, 'html', 'blog', `${slug}.html`);
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      res.status(404).sendFile(path.join(__dirname, 'html', '404.html'));
+    }
+  });
+});
+
 // Landing Pages Dinámicas (para todas las páginas de diseno-web-*)
 app.get('/diseno-web-:servicio', (req, res) => {
   const servicio = req.params.servicio; // e.g., "arquitectos"

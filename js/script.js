@@ -1,7 +1,7 @@
-﻿// script.js - QZ Web Solutions - VersiÃ³n Profesional Mejorada
+// script.js - QZ Web Solutions - Versión Profesional Mejorada
 'use strict';
 
-// Estado global de la aplicaciÃ³n
+// Estado global de la aplicación
 const AppState = {
     isMenuOpen: false,
     isFormSubmitting: false,
@@ -11,15 +11,15 @@ const AppState = {
     email: 'info@qzwebsolutions.com'
 };
 
-// InicializaciÃ³n cuando el DOM estÃ¡ listo
+// Inicialización cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', function () {
-    // Configurar aÃ±o actual en el footer
+    // Configurar año actual en el footer
     const yearElement = document.getElementById('current-year');
     if (yearElement) {
         yearElement.textContent = AppState.currentYear;
     }
 
-    // Inicializar navegaciÃ³n mÃ³vil
+    // Inicializar navegación móvil
     initMobileNavigation();
 
     // Inicializar scroll suave
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initVisualEffects();
 });
 
-// NavegaciÃ³n mÃ³vil mejorada
+// Navegación móvil mejorada
 function initMobileNavigation() {
     const navToggle = document.getElementById('navToggle');
     const siteNav = document.getElementById('siteNav');
@@ -54,17 +54,17 @@ function initMobileNavigation() {
         siteNav.classList.toggle('active', AppState.isMenuOpen);
         document.body.style.overflow = AppState.isMenuOpen ? 'hidden' : '';
 
-        // Animar el botÃ³n hamburguesa
+        // Animar el botón hamburguesa
         navToggle.classList.toggle('active', AppState.isMenuOpen);
     };
 
-    // Evento del botÃ³n de menÃº
+    // Evento del botón de menú
     navToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         toggleMenu();
     });
 
-    // Cerrar menÃº al hacer clic en enlaces
+    // Cerrar menú al hacer clic en enlaces
     document.querySelectorAll('#siteNav a').forEach(link => {
         link.addEventListener('click', () => {
             if (AppState.isMenuOpen) {
@@ -73,7 +73,7 @@ function initMobileNavigation() {
         });
     });
 
-    // Cerrar menÃº al hacer clic fuera (solo mÃ³vil)
+    // Cerrar menú al hacer clic fuera (solo móvil)
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768 && AppState.isMenuOpen) {
             if (!siteNav.contains(e.target) && !navToggle.contains(e.target)) {
@@ -82,14 +82,14 @@ function initMobileNavigation() {
         }
     });
 
-    // Cerrar menÃº al redimensionar (si se cambia a desktop)
+    // Cerrar menú al redimensionar (si se cambia a desktop)
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && AppState.isMenuOpen) {
             toggleMenu();
         }
     });
 
-    // Cerrar menÃº con Escape
+    // Cerrar menú con Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && AppState.isMenuOpen) {
             toggleMenu();
@@ -99,7 +99,7 @@ function initMobileNavigation() {
 
 // Scroll suave mejorado
 function initSmoothScroll() {
-    // Scroll desde botÃ³n del hero
+    // Scroll desde botón del hero
     const btnContact = document.getElementById('btnContact');
     if (btnContact) {
         btnContact.addEventListener('click', (e) => {
@@ -137,12 +137,12 @@ function scrollToSection(sectionId) {
 
 // Funciones para WhatsApp (globales para uso en HTML)
 function sendPlanToWhatsApp(planName, price) {
-    const message = `*Solicitud de InformaciÃ³n sobre Plan*%0A%0A` +
-        `*Plan de InterÃ©s:* ${encodeURIComponent(planName)}%0A` +
+    const message = `*Solicitud de Información sobre Plan*%0A%0A` +
+        `*Plan de Interés:* ${encodeURIComponent(planName)}%0A` +
         `*Precio:* ${encodeURIComponent(price)}%0A` +
-        `*Mensaje:* Hola, estoy interesado en el plan ${planName} de ${price}. Me gustarÃ­a recibir mÃ¡s informaciÃ³n y un presupuesto detallado.%0A%0A` +
+        `*Mensaje:* Hola, estoy interesado en el plan ${planName} de ${price}. Me gustaría recibir más información y un presupuesto detallado.%0A%0A` +
         `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
-        `*Origen:* PÃ¡gina Web QZ Web Solutions`;
+        `*Origen:* Página Web QZ Web Solutions`;
 
     const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
 
@@ -150,25 +150,25 @@ function sendPlanToWhatsApp(planName, price) {
 }
 
 function sendServiceToWhatsApp(serviceName) {
-    const message = `*Solicitud de InformaciÃ³n sobre Servicio*%0A%0A` +
-        `*Servicio de InterÃ©s:* ${encodeURIComponent(serviceName)}%0A` +
-        `*Mensaje:* Hola, estoy interesado en el servicio de ${serviceName}. Me gustarÃ­a recibir mÃ¡s informaciÃ³n y un presupuesto personalizado.%0A%0A` +
+    const message = `*Solicitud de Información sobre Servicio*%0A%0A` +
+        `*Servicio de Interés:* ${encodeURIComponent(serviceName)}%0A` +
+        `*Mensaje:* Hola, estoy interesado en el servicio de ${serviceName}. Me gustaría recibir más información y un presupuesto personalizado.%0A%0A` +
         `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
-        `*Origen:* PÃ¡gina Web QZ Web Solutions`;
+        `*Origen:* Página Web QZ Web Solutions`;
 
     const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
 
     window.open(whatsappURL, '_blank', 'noopener,noreferrer');
 }
 
-// FunciÃ³n para enviar a WhatsApp desde formulario
+// Función para enviar a WhatsApp desde formulario
 async function sendToWhatsApp(formData) {
     return new Promise((resolve, reject) => {
         try {
             // Formatear el mensaje para WhatsApp
-            const message = `*Nueva Solicitud de PÃ¡gina Web*%0A%0A` +
+            const message = `*Nueva Solicitud de Página Web*%0A%0A` +
                 `*Nombre:* ${encodeURIComponent(formData.name)}%0A` +
-                `*TelÃ©fono:* ${encodeURIComponent(formData.phone)}%0A` +
+                `*Teléfono:* ${encodeURIComponent(formData.phone)}%0A` +
                 `*Tipo de Negocio:* ${encodeURIComponent(getTipoNegocioName(formData.tipo_negocio))}%0A` +
                 `*Mensaje:*%0A${encodeURIComponent(formData.message)}%0A%0A` +
                 `*Fecha:* ${encodeURIComponent(formData.date)}%0A` +
@@ -179,7 +179,7 @@ async function sendToWhatsApp(formData) {
             // Abrir WhatsApp en nueva ventana
             const newWindow = window.open(whatsappURL, '_blank', 'noopener,noreferrer');
 
-            // Cerrar ventana despuÃ©s de 5 segundos (opcional)
+            // Cerrar ventana después de 5 segundos (opcional)
             setTimeout(() => {
                 if (newWindow && !newWindow.closed) {
                     newWindow.close();
@@ -197,10 +197,10 @@ async function sendToWhatsApp(formData) {
 function getTipoNegocioName(value) {
     const tipos = {
         'tienda': 'Tienda o Comercio',
-        'restaurante': 'Restaurante o CafeterÃ­a',
-        'servicio': 'Servicio TÃ©cnico',
+        'restaurante': 'Restaurante o Cafetería',
+        'servicio': 'Servicio Técnico',
         'consultor': 'Consultor o Profesional',
-        'educacion': 'EducaciÃ³n o CapacitaciÃ³n',
+        'educacion': 'Educación o Capacitación',
         'salud': 'Salud o Bienestar',
         'otro': 'Otro tipo de negocio'
     };
@@ -225,13 +225,13 @@ function initContactForm() {
     const phoneError = document.getElementById('phoneError');
     const messageError = document.getElementById('messageError');
 
-    // ValidaciÃ³n en tiempo real
+    // Validación en tiempo real
     if (nameInput) nameInput.addEventListener('input', () => validateName());
     if (phoneInput) phoneInput.addEventListener('input', () => validatePhone());
     if (messageInput) messageInput.addEventListener('input', () => validateMessage());
     if (tipoNegocioSelect) tipoNegocioSelect.addEventListener('change', () => validateTipoNegocio());
 
-    // EnvÃ­o del formulario
+    // Envío del formulario
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -266,8 +266,8 @@ function initContactForm() {
             // Enviar a WhatsApp
             await sendToWhatsApp(formData);
 
-            // Ã‰xito
-            showStatus(`Â¡Perfecto ${formData.name}! Tu solicitud ha sido enviada correctamente. Te contactaremos por WhatsApp en menos de 24 horas.`, 'success');
+            // Éxito
+            showStatus(`¡Perfecto ${formData.name}! Tu solicitud ha sido enviada correctamente. Te contactaremos por WhatsApp en menos de 24 horas.`, 'success');
 
             // Resetear formulario
             form.reset();
@@ -280,14 +280,14 @@ function initContactForm() {
 
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
-            showStatus('No se pudo enviar tu solicitud. Por favor, contÃ¡ctanos directamente al ' + AppState.phoneNumber, 'error');
+            showStatus('No se pudo enviar tu solicitud. Por favor, contáctanos directamente al ' + AppState.phoneNumber, 'error');
         } finally {
             // Restaurar estado del formulario
             setFormSubmitting(false);
         }
     });
 
-    // Funciones de validaciÃ³n mejoradas
+    // Funciones de validación mejoradas
     function validateName() {
         const value = nameInput.value.trim();
         const nameError = document.getElementById('nameError');
@@ -318,14 +318,14 @@ function initContactForm() {
         const phoneRegex = /^[0-9\s\-\(\)]{10,15}$/;
 
         if (!value) {
-            phoneError.textContent = 'Tu telÃ©fono es obligatorio.';
+            phoneError.textContent = 'Tu teléfono es obligatorio.';
             phoneInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
 
         const cleanValue = value.replace(/\s/g, '');
         if (!phoneRegex.test(cleanValue) || cleanValue.length !== 10) {
-            phoneError.textContent = 'Por favor, introduce un telÃ©fono vÃ¡lido (10 dÃ­gitos). Ej: 7221234567';
+            phoneError.textContent = 'Por favor, introduce un teléfono válido (10 dígitos). Ej: 7221234567';
             phoneInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
@@ -345,7 +345,7 @@ function initContactForm() {
             return false;
         }
         if (value.length < 10) {
-            messageError.textContent = 'Describe mejor lo que necesitas (mÃ­nimo 10 caracteres).';
+            messageError.textContent = 'Describe mejor lo que necesitas (mínimo 10 caracteres).';
             messageInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
@@ -395,7 +395,7 @@ function initContactForm() {
         // Scroll al mensaje
         statusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Auto-ocultar mensaje de Ã©xito despuÃ©s de 8 segundos
+        // Auto-ocultar mensaje de éxito después de 8 segundos
         if (type === 'success') {
             setTimeout(() => {
                 statusElement.textContent = '';
@@ -413,7 +413,7 @@ function initContactForm() {
                 id: Date.now()
             });
 
-            // Mantener solo los Ãºltimos 50 envÃ­os
+            // Mantener solo los últimos 50 envíos
             if (submissions.length > 50) {
                 submissions.shift();
             }
@@ -436,7 +436,7 @@ function initContactForm() {
         confetti.style.zIndex = '9999';
         document.body.appendChild(confetti);
 
-        // Crear partÃ­culas de confeti
+        // Crear partículas de confeti
         for (let i = 0; i < 50; i++) {
             const particle = document.createElement('div');
             particle.style.position = 'absolute';
@@ -449,7 +449,7 @@ function initContactForm() {
 
             confetti.appendChild(particle);
 
-            // AnimaciÃ³n
+            // Animación
             const animation = particle.animate([
                 { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
                 { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
@@ -519,7 +519,7 @@ function initAnimations() {
         legacyObserver.observe(element);
     });
 
-    // AnimaciÃ³n de estadÃ­sticas en cÃ­rculos
+    // Animación de estadísticas en círculos
     const circleProgresses = document.querySelectorAll('.circle-progress');
     if (circleProgresses.length > 0) {
         const progressObserver = new IntersectionObserver((entries) => {
@@ -535,7 +535,7 @@ function initAnimations() {
         circleProgresses.forEach(circle => progressObserver.observe(circle));
     }
 
-    // AnimaciÃ³n de nÃºmeros
+    // Animación de números
     const stats = document.querySelectorAll('.stat-number');
     if (stats.length > 0) {
         const statObserver = new IntersectionObserver((entries) => {
@@ -553,12 +553,12 @@ function initAnimations() {
 
 function animateCircleProgress(element, value) {
     const progressValue = element.querySelector('.progress-value');
-    const circumference = 2 * Math.PI * 60; // Radio del cÃ­rculo
+    const circumference = 2 * Math.PI * 60; // Radio del círculo
 
-    // Animar el cÃ­rculo
+    // Animar el círculo
     element.style.background = `conic-gradient(var(--primary) ${value * 3.6}deg, rgba(45, 91, 255, 0.1) 0deg)`;
 
-    // Animar el nÃºmero
+    // Animar el número
     let current = 0;
     const target = parseInt(value);
     const duration = 1500;
@@ -657,7 +657,7 @@ function initScrollEffects() {
 
 // Efectos visuales adicionales
 function initVisualEffects() {
-    // Efecto de partÃ­culas en el hero
+    // Efecto de partículas en el hero
     if (window.innerWidth > 768) {
         createParticles();
     }
@@ -678,7 +678,7 @@ function initVisualEffects() {
         });
     });
 
-    // Efecto de carga en imÃ¡genes del portafolio
+    // Efecto de carga en imágenes del portafolio
     const portfolioImages = document.querySelectorAll('.portfolio-image');
     portfolioImages.forEach(img => {
         img.style.opacity = '0';
@@ -736,11 +736,11 @@ function animateParticle(element) {
 
 // Mejoras adicionales para SEO y rendimiento
 window.addEventListener('load', () => {
-    // Precargar imÃ¡genes importantes
+    // Precargar imágenes importantes
     const logo = new Image();
     logo.src = '/assets/logofv2.jpg';
 
-    // Lazy loading para imÃ¡genes fuera del viewport
+    // Lazy loading para imágenes fuera del viewport
     if ('IntersectionObserver' in window) {
         const lazyImages = document.querySelectorAll('img[data-src]');
         const imageObserver = new IntersectionObserver((entries) => {
@@ -761,12 +761,12 @@ window.addEventListener('load', () => {
     initScrollToTop();
 });
 
-// FunciÃ³n Scroll To Top
+// Función Scroll To Top
 function initScrollToTop() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     if (!scrollTopBtn) return;
 
-    // Mostrar/ocultar botÃ³n al hacer scroll
+    // Mostrar/ocultar botón al hacer scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             scrollTopBtn.classList.add('visible');
@@ -832,8 +832,8 @@ function initNewsletter() {
             // Guardar en localStorage
             saveNewsletterEmail(email);
 
-            // Enviar notificaciÃ³n por WhatsApp
-            const message = `*Nueva SuscripciÃ³n al Newsletter*%0A%0A` +
+            // Enviar notificación por WhatsApp
+            const message = `*Nueva Suscripción al Newsletter*%0A%0A` +
                 `*Email:* ${encodeURIComponent(email)}%0A` +
                 `*Fecha:* ${encodeURIComponent(new Date().toLocaleString('es-MX'))}%0A` +
                 `*Origen:* Newsletter Footer`;
@@ -841,8 +841,8 @@ function initNewsletter() {
             const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${message}`;
             window.open(whatsappURL, '_blank', 'noopener,noreferrer');
 
-            // Mostrar mensaje de Ã©xito
-            showNewsletterStatus('Â¡Gracias por suscribirte! Te enviaremos tips Ãºtiles pronto ðŸŽ‰', 'success');
+            // Mostrar mensaje de éxito
+            showNewsletterStatus('¡Gracias por suscribirte! Te enviaremos tips útiles pronto 🎉', 'success');
 
             // Limpiar formulario
             emailInput.value = '';
@@ -859,7 +859,7 @@ function initNewsletter() {
         statusDiv.textContent = message;
         statusDiv.className = `newsletter-status ${type} show`;
 
-        // Auto-ocultar despuÃ©s de 5 segundos
+        // Auto-ocultar después de 5 segundos
         setTimeout(() => {
             statusDiv.classList.remove('show');
         }, 5000);

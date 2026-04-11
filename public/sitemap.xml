@@ -4,7 +4,7 @@
     <!-- ===== PÁGINA PRINCIPAL ===== -->
     <url>
         <loc>https://qzwebsolutions.com/</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -12,57 +12,69 @@
     <!-- ===== PÁGINAS PRINCIPALES ===== -->
     <url>
         <loc>https://qzwebsolutions.com/blog</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/proyectos</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://qzwebsolutions.com/proceso</loc>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- ===== BLOG - ARTÍCULOS INDIVIDUALES ===== -->
     <url>
+        <loc>https://qzwebsolutions.com/blog/pagina-web-toluca</loc>
+        <lastmod>2026-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
         <loc>https://qzwebsolutions.com/blog/cuanto-cuesta-pagina-web</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/blog/seo-local-negocio-mexico</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/blog/razones-negocio-necesita-pagina-web</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/blog/tendencias-diseno-web-2026</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/blog/diseno-responsive-importancia</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/blog/caso-exito-gas-lp-quiroz</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/blog/guia-precios-pagina-web-profesional</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -70,55 +82,55 @@
     <!-- ===== LANDING PAGES POR CIUDAD ===== -->
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-guadalajara</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-monterrey</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-ciudad-de-mexico</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-queretaro</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-puebla</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-merida</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-cancun</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-tijuana</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-leon</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -126,109 +138,109 @@
     <!-- ===== LANDING PAGES POR NICHO ===== -->
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-medicos</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-abogados</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-dentistas</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-restaurantes</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-psicologos</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-salones-belleza</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-gimnasios</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-inmobiliarias</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-talleres-mecanicos</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-fotografos</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-arquitectos</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-contadores</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-veterinarias</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-imprentas</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-escuelas</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-panaderias</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-spas</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/diseno-web-podologos</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -236,13 +248,13 @@
     <!-- ===== PÁGINAS LEGALES ===== -->
     <url>
         <loc>https://qzwebsolutions.com/privacy</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://qzwebsolutions.com/terms</loc>
-        <lastmod>2026-04-06</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>

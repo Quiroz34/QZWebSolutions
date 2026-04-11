@@ -3,7 +3,36 @@
     "allow": [
       "Bash(python update_footers.py)",
       "Bash(python update_footers2.py)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(wc:*)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "WebFetch(domain:desarrollo.connectincdigital.com)",
+      "Bash(sed 's/\\\\.//')",
+      "Bash(comm -23 /tmp/html_classes.txt /tmp/css_classes.txt)",
+      "Read(//tmp/**)",
+      "Bash(find /c/proyectos/QZWebSolutions/html/blog -name \"*.html\" -exec grep -L \"main\\\\.js\" {} \\\\;)",
+      "WebFetch(domain:play.google.com)",
+      "Bash(curl -s \"https://play.google.com/store/apps/details?id=com.quiroz34.gaslp&hl=es\" -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "Bash(curl -s -o tmp_img1.png \"https://play-lh.googleusercontent.com/4rkEm_eN4F8lAtqf1avrqAQ49_IjMjRduxI5szmftCXmKzSaLsNScjM5DSGQp2qtI5R_fqj8j7aJi_G3dg=w512-rw\")",
+      "Bash(curl -s -o tmp_img2.png \"https://play-lh.googleusercontent.com/aVIl0GWoB-68B6HXwTyQtPouuCkHZ2E8TJQIz2aY_LY3cO0BOz8oQF7qXnzedCtu5YM2BNzgVhtNXxGdMKqLaZ4=w512-rw\")",
+      "Bash(curl -s -o tmp_img3.png \"https://play-lh.googleusercontent.com/aWNKQedLTpw6u6yyMjQObmuoKu67A1czWnIcvID86oAmMT02r5mNdRn6l9ZN2t2MIyH6tNy-01v7ukeQ=w512-rw\")",
+      "Bash(curl -s -o tmp_img4.png \"https://play-lh.googleusercontent.com/c5fJsmDZCeHY1tZmeGXL12sHi8herULd72A_egjaAHylmgM-4gLiw4CuDJSzNnK5q8yxAAy4RyxtkdYzcg=w512-rw\")",
+      "Bash(curl -s -o tmp_img5.png \"https://play-lh.googleusercontent.com/haCjMpwXoqbJeotHYbcTPkZ6oJX-ENIEbGMpgoJRd18DcZBVXaVpqtBOQQobCmzUKRX5oycL8Qw=w512-rw\")",
+      "Bash(curl -s -o tmp_ss1.png \"https://play-lh.googleusercontent.com/g5VLIs5_JyMs-L7aks9B2vKt7rZtlY4pCJ30ObVZDfqvxBs4K2ORRsImCGAmsTNHfNt_-HsWxISehNfUWXJ8=w526-h296-rw\")",
+      "Bash(curl -s -o tmp_ss2.png \"https://play-lh.googleusercontent.com/AbJDCrOVDLYXpsUGRFnl03EMi8DKmrCSPTPRh6xydNQPUYj1bQzvPxuVq-T0eFwLo_MMe4JxFdD0SvwjML8npg=w526-h296-rw\")",
+      "Bash(curl -s -o tmp_ss3.png \"https://play-lh.googleusercontent.com/NFpRHEoPW8hWI8Js0PBbqD0LGaR_dzLjhssq0REl_KZ4i-OTUctowPbRxJwvJb5CS_D8UfORY_irc-_Fxv-LRA=w526-h296-rw\")",
+      "Bash(curl -s -o tmp_ss4.png \"https://play-lh.googleusercontent.com/puTSWXiaEx5-6wZ4ge9F1avP6v2KeluHQu__P-bSlZLCSZ-gjxYZLU5mc00obw4VQq6vEtQYQt3B9xMk93_h=w526-h296-rw\")",
+      "Bash(curl -s -o tmp_new1.png \"https://play-lh.googleusercontent.com/RocC_dyNv89Lro4QAGrUE0Dpl9k-yLPGDpyqsx51x-EgbeB9iAAjEw87e5asZ1Ps0NHOhoGrb8n1ci8hPDwh8g=w512-rw\")",
+      "Bash(curl -s -o tmp_new2.png \"https://play-lh.googleusercontent.com/sdUZVkK_Ax0AW6lJQ34Oz2Y9XeJ6oUnJK_sMmvnuv7bJKlbDozkRRAoSVXiBaXcnCELtqJygYi7HBkZodefMdw=w512-rw\")",
+      "Bash(curl -s -o tmp_new3.png \"https://play-lh.googleusercontent.com/xl04GurQer374yogi24hRkvUcXtMStMOcOo86Sprmrid9j6wQHF0d9xMh73CwUEg57lbsGIwpOXgrJ927Q=w512-rw\")",
+      "Bash(curl -s -o tmp_new4.png \"https://play-lh.googleusercontent.com/ZygxqLx3QcEXbNuWTP_6xMgapI_QDyB92PMzXjMeHpLjiH65bQFkwLzd9dTvITnJYSakFqT7xMC3ApDRV0O84pU=w512-rw\")",
+      "Bash(cp tmp_new2.png gaslpquiroz-icon.png)",
+      "Bash(cp tmp_ss4.png gaslpquiroz-screen1.png)",
+      "Bash(cp tmp_ss2.png gaslpquiroz-screen2.png)",
+      "Bash(cp tmp_ss3.png gaslpquiroz-screen3.png)",
+      "Bash(cp tmp_ss1.png gaslpquiroz-screen4.png)",
+      "Bash(git -C C:/proyectos/QZWebSolutions status --short)"
     ]
   }
 }

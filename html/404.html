@@ -1,93 +1,176 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Página No Encontrada | QZ Web Solutions</title>
+    <title>404 — Página No Encontrada | QZ Web Solutions</title>
+    <meta name="description" content="Página no encontrada. Regresa al inicio de QZ Web Solutions y encuentra lo que buscas.">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Fira+Code:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/assets/logofv2.jpg" type="image/jpeg">
     <style>
         body {
-            background: #050505;
-            color: #fff;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            overflow: hidden;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .error-container {
-            position: relative;
-            z-index: 1;
             padding: 2rem;
+            position: relative;
+            overflow: hidden;
         }
-
-        .error-code {
-            font-size: 10rem;
-            font-weight: 800;
-            line-height: 1;
-            margin: 0;
-            background: linear-gradient(135deg, #009ADE, #00c9ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Fira Code', monospace;
-        }
-
-        .error-message {
-            font-size: 1.5rem;
-            color: #627d98;
-            margin: 1rem 0 2rem;
-        }
-
-        .btn-home {
-            background: #009ADE;
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-
-        .btn-home:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 154, 222, 0.4);
-        }
-
-        .bg-glow {
-            position: absolute;
+        .err-glow {
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            background: rgba(0, 154, 222, 0.1);
-            filter: blur(100px);
-            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 65%);
+            pointer-events: none;
             z-index: 0;
         }
+        .err-container {
+            position: relative;
+            z-index: 1;
+            max-width: 540px;
+        }
+        .err-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--primary);
+            background: rgba(0,212,255,0.07);
+            border: 1px solid rgba(0,212,255,0.2);
+            padding: 0.3rem 0.85rem;
+            border-radius: 4px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .err-code {
+            font-family: var(--font-heading);
+            font-size: clamp(6rem, 18vw, 10rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .err-title {
+            font-size: clamp(1.2rem, 3vw, 1.75rem);
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+        .err-desc {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+        }
+        .err-desc .err-path {
+            color: var(--primary);
+        }
+        .err-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .btn-err-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+        .btn-err-primary:hover { background: #fff; transform: translateY(-2px); }
+        .btn-err-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+        .btn-err-secondary:hover { border-color: var(--border-hover); color: var(--text); transform: translateY(-2px); }
+        .err-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .err-links a {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .err-links a:hover { color: var(--primary); }
     </style>
 </head>
-
 <body>
-    <div class="bg-glow"></div>
-    <div class="error-container">
-        <h1 class="error-code">404</h1>
-        <p class="error-message">Módulo no encontrado: La página que buscas ha sido movida o no existe.</p>
-        <a href="/" class="btn-home"><i class="fas fa-home"></i> Volver al Inicio</a>
-    </div>
-</body>
+    <div class="err-glow"></div>
 
+    <div class="err-container">
+        <div class="err-badge">
+            <i class="fas fa-triangle-exclamation"></i> Error 404
+        </div>
+
+        <div class="err-code">404</div>
+
+        <h1 class="err-title">Módulo no encontrado</h1>
+
+        <div class="err-desc">
+            <span style="color:var(--text-muted)">$ </span><span class="err-path">qz get <span id="err-url"></span></span><br>
+            <span style="color:var(--error)">→ Error: La página solicitada no existe o fue movida.</span>
+        </div>
+
+        <div class="err-actions">
+            <a href="/" class="btn-err-primary">
+                <i class="fas fa-house"></i> Ir al Inicio
+            </a>
+            <a href="/#contacto" class="btn-err-secondary">
+                <i class="fas fa-headset"></i> Contactar Soporte
+            </a>
+        </div>
+
+        <nav class="err-links">
+            <a href="/#servicios"><i class="fas fa-cogs"></i> Servicios</a>
+            <a href="/proyectos"><i class="fas fa-folder-open"></i> Proyectos</a>
+            <a href="/blog"><i class="fas fa-newspaper"></i> Blog</a>
+            <a href="/#precios"><i class="fas fa-tag"></i> Precios</a>
+        </nav>
+    </div>
+
+    <script>
+        // Mostrar la URL que causó el error
+        const pathEl = document.getElementById('err-url');
+        if (pathEl) pathEl.textContent = window.location.pathname;
+    </script>
+</body>
 </html>

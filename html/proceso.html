@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Proceso de Trabajo | QZ Web Solutions — Toluca</title>
+    <meta name="description" content="Conoce el proceso paso a paso de QZ Web Solutions: desde la reunión inicial hasta la entrega y soporte. Así hacemos tu página web en Toluca.">
+    <meta name="keywords" content="proceso diseño web Toluca, cómo hacemos páginas web, metodología QZ Web Solutions, entrega página web México">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://qzwebsolutions.com/proceso">
+
+    <meta property="og:title" content="Nuestro Proceso de Trabajo | QZ Web Solutions">
+    <meta property="og:description" content="Así trabajamos: 5 pasos claros para entregar tu página web a tiempo y con resultados.">
+    <meta property="og:url" content="https://qzwebsolutions.com/proceso">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://qzwebsolutions.com/assets/logofv2.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Nuestro Proceso de Trabajo",
+      "url": "https://qzwebsolutions.com/proceso",
+      "description": "El proceso de desarrollo web de QZ Web Solutions en 5 pasos claros.",
+      "provider": {
+        "@type": "Organization",
+        "name": "QZ Web Solutions",
+        "url": "https://qzwebsolutions.com"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/assets/logofv2.jpg" type="image/jpeg">
+
+    <style>
+        /* === PROCESO PAGE STYLES === */
+        .proceso-hero {
+            padding: calc(62px + 4rem) 0 4rem;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+        .proceso-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -10%;
+            width: 50%; height: 100%;
+            background: radial-gradient(ellipse, rgba(124,58,237,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .proceso-hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--primary);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .proceso-hero h1 {
+            max-width: 680px;
+            margin-bottom: 1.25rem;
+        }
+        .proceso-hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 560px;
+            margin-bottom: 2rem;
+        }
+        .proceso-promise {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .proceso-promise-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .proceso-promise-item i { color: var(--primary); }
+
+        /* === STEPS TIMELINE === */
+        .proceso-steps-section {
+            padding: var(--section-gap) 0;
+        }
+        .steps-timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .steps-timeline::before {
+            content: '';
+            position: absolute;
+            left: 31px;
+            top: 40px;
+            bottom: 40px;
+            width: 1px;
+            background: linear-gradient(180deg, var(--border) 0%, rgba(0,212,255,0.3) 50%, var(--border) 100%);
+        }
+        .step-item {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 2rem;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .step-item:last-child { border-bottom: none; }
+        .step-num {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        .step-item:hover .step-num {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(0,212,255,0.12);
+        }
+        .step-content { padding-top: 0.75rem; }
+        .step-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+        .step-content h2 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 680px;
+            margin-bottom: 1.25rem;
+        }
+        .step-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .step-detail-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            padding: 0.28rem 0.65rem;
+            border-radius: 4px;
+        }
+        .step-detail-tag i { color: var(--primary); font-size: 0.65rem; }
+        .step-timeline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            color: var(--primary);
+            background: rgba(0,212,255,0.07);
+            border: 1px solid rgba(0,212,255,0.18);
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            margin-top: 1rem;
+        }
+
+        /* === GARANTIAS === */
+        .garantias-section {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+        }
+        .garantias-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .garantia-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        .garantia-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+        .garantia-icon {
+            width: 48px; height: 48px;
+            background: rgba(0,212,255,0.08);
+            border-radius: var(--radius);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .garantia-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+        .garantia-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+
+        /* === CTA BOTTOM === */
+        .proceso-cta {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .proceso-cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .proceso-cta h2 { font-size: clamp(1.4rem, 3vw, 2rem); max-width: 500px; }
+        .proceso-cta p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem; }
+        .proceso-cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; flex-shrink: 0; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .proceso-hero { padding: 6.5rem 0 3rem; }
+            .steps-timeline::before { left: 23px; }
+            .step-num { width: 48px; height: 48px; font-size: 0.72rem; }
+            .step-item { grid-template-columns: 48px 1fr; gap: 1rem; padding: 2rem 0; }
+            .step-content h2 { font-size: 1.1rem; }
+            .garantias-grid { grid-template-columns: 1fr; }
+            .proceso-cta-inner { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+    <header id="header">
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <img src="/assets/logofv2.jpg" alt="Logo QZ Web Solutions" class="logo-img-premium">
+                <span class="logo-main">QZ</span><span class="blink-cursor">_</span>
+            </a>
+            <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Menú">
+                <span class="hamburger"><span></span><span></span><span></span></span>
+            </button>
+        </nav>
+    </header>
+
+    <ul id="siteNav" class="nav-list">
+        <li><a href="/#inicio">Inicio</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/proyectos">Proyectos</a></li>
+        <li><a href="/proceso" class="active">Proceso</a></li>
+        <li><a href="/#precios">Precios</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/#contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="proceso-hero">
+            <div class="container">
+                <span class="proceso-hero-label">// Cómo trabajamos</span>
+                <h1>De idea a sitio web en <span class="text-gradient">5 pasos</span> claros</h1>
+                <p class="proceso-hero-desc">
+                    Nada de sorpresas ni retrasos. Nuestro proceso está diseñado para que
+                    siempre sepas en qué etapa va tu proyecto y qué sigue.
+                </p>
+                <div class="proceso-promise">
+                    <div class="proceso-promise-item"><i class="fas fa-check-circle"></i> Entregas puntuales</div>
+                    <div class="proceso-promise-item"><i class="fas fa-check-circle"></i> Comunicación constante</div>
+                    <div class="proceso-promise-item"><i class="fas fa-check-circle"></i> Revisiones incluidas</div>
+                    <div class="proceso-promise-item"><i class="fas fa-check-circle"></i> Soporte post-entrega</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEPS -->
+        <section class="proceso-steps-section">
+            <div class="container">
+                <div class="steps-timeline">
+
+                    <!-- Paso 1 -->
+                    <div class="step-item reveal">
+                        <div class="step-num">01</div>
+                        <div class="step-content">
+                            <div class="step-tag">Día 1</div>
+                            <h2><i class="fas fa-comments" style="color:var(--primary);margin-right:0.5rem;font-size:1rem;"></i>Reunión inicial y diagnóstico</h2>
+                            <p>
+                                Nos contactas por WhatsApp, teléfono o formulario. En esta primera conversación
+                                nos cuentas todo sobre tu negocio: qué ofreces, quiénes son tus clientes y
+                                qué objetivo tiene tu página web. Con esa información preparamos una propuesta
+                                clara con precio fijo y tiempo de entrega.
+                            </p>
+                            <div class="step-details">
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Llamada o WhatsApp</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Sin costo</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Propuesta en 24 hrs</span>
+                            </div>
+                            <div class="step-timeline-badge"><i class="fas fa-clock"></i> Duración: 30–60 minutos</div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="step-item reveal">
+                        <div class="step-num">02</div>
+                        <div class="step-content">
+                            <div class="step-tag">Días 2–3</div>
+                            <h2><i class="fas fa-file-contract" style="color:var(--primary);margin-right:0.5rem;font-size:1rem;"></i>Propuesta y anticipo</h2>
+                            <p>
+                                Te enviamos la propuesta detallada: qué páginas incluye, qué secciones tendrá,
+                                el precio total y el tiempo de entrega. Si estás de acuerdo, firmamos y
+                                recoges el 50% de anticipo para arrancar el proyecto. Sin anticipo, sin inicio.
+                                Así protegemos el trabajo de ambas partes.
+                            </p>
+                            <div class="step-details">
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Contrato digital</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Precio fijo</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> 50% anticipo</span>
+                            </div>
+                            <div class="step-timeline-badge"><i class="fas fa-clock"></i> Duración: 1–2 días</div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="step-item reveal">
+                        <div class="step-num">03</div>
+                        <div class="step-content">
+                            <div class="step-tag">Días 4–12 aprox.</div>
+                            <h2><i class="fas fa-code" style="color:var(--primary);margin-right:0.5rem;font-size:1rem;"></i>Diseño y desarrollo</h2>
+                            <p>
+                                Aquí es donde la magia ocurre. Diseñamos y programamos tu sitio web de forma
+                                responsive (se ve bien en celular, tablet y computadora). Usamos tu paleta de
+                                colores, logo e imágenes — o te ayudamos a conseguirlos. Durante esta etapa
+                                recibes avances para que puedas dar tu opinión antes de la entrega final.
+                            </p>
+                            <div class="step-details">
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Diseño responsive</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> SEO básico incluido</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Avances periódicos</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> 2 rondas de revisión</span>
+                            </div>
+                            <div class="step-timeline-badge"><i class="fas fa-clock"></i> Duración: 8–15 días hábiles</div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="step-item reveal">
+                        <div class="step-num">04</div>
+                        <div class="step-content">
+                            <div class="step-tag">Día de entrega</div>
+                            <h2><i class="fas fa-rocket" style="color:var(--primary);margin-right:0.5rem;font-size:1rem;"></i>Revisión final y publicación</h2>
+                            <p>
+                                Antes de publicar, revisamos juntos el sitio completo. Si hay algún ajuste
+                                menor, lo hacemos en ese momento. Una vez aprobado, configuramos el dominio,
+                                hosting y certificado SSL, y publicamos tu página en internet. Liquidas el
+                                50% restante solo cuando estés 100% satisfecho con el resultado.
+                            </p>
+                            <div class="step-details">
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Revisión final</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Dominio + SSL</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Go-live en el día</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Pago contra entrega</span>
+                            </div>
+                            <div class="step-timeline-badge"><i class="fas fa-clock"></i> Duración: 1 día</div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 5 -->
+                    <div class="step-item reveal">
+                        <div class="step-num">05</div>
+                        <div class="step-content">
+                            <div class="step-tag">Post-entrega</div>
+                            <h2><i class="fas fa-headset" style="color:var(--primary);margin-right:0.5rem;font-size:1rem;"></i>Soporte y capacitación</h2>
+                            <p>
+                                Tu sitio web está publicado — pero aquí no termina nuestro trabajo. Te
+                                capacitamos para que puedas actualizar textos e imágenes por tu cuenta
+                                (si aplica). Además tienes acceso a soporte técnico durante el período incluido
+                                en tu plan: 2 meses (Startup), 4 meses (Profesional) o 5 meses (Premium).
+                            </p>
+                            <div class="step-details">
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Capacitación incluida</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Soporte por WhatsApp</span>
+                                <span class="step-detail-tag"><i class="fas fa-circle"></i> Actualizaciones menores</span>
+                            </div>
+                            <div class="step-timeline-badge"><i class="fas fa-clock"></i> 2–5 meses según plan</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GARANTIAS -->
+        <section class="garantias-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">// Lo que nos diferencia</span>
+                    <h2>Nuestras <span class="text-gradient">garantías</span></h2>
+                </div>
+                <div class="garantias-grid">
+                    <div class="garantia-card reveal delay-100">
+                        <div class="garantia-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h3>Entrega puntual o te regresamos el anticipo</h3>
+                        <p>Si no entregamos en el plazo acordado por causas imputables a nosotros, te devolvemos el 50% de anticipo sin preguntas.</p>
+                    </div>
+                    <div class="garantia-card reveal delay-200">
+                        <div class="garantia-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h3>Precio fijo sin sorpresas</h3>
+                        <p>Lo que cotizamos es lo que pagas. Sin cargos extra ocultos ni cambios de precio a mitad del proyecto.</p>
+                    </div>
+                    <div class="garantia-card reveal delay-300">
+                        <div class="garantia-icon"><i class="fas fa-rotate"></i></div>
+                        <h3>Revisiones incluidas</h3>
+                        <p>Incluimos 2 rondas de revisión antes de la entrega final. Hacemos los ajustes que necesites sin cobro adicional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="proceso-cta">
+            <div class="container">
+                <div class="proceso-cta-inner">
+                    <div>
+                        <h2>¿Listo para empezar tu <span class="text-gradient">proyecto</span>?</h2>
+                        <p>Agenda una llamada gratuita hoy — sin compromiso.</p>
+                    </div>
+                    <div class="proceso-cta-btns">
+                        <a href="https://wa.me/527228964383?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
+                           target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i> Cotizar por WhatsApp
+                        </a>
+                        <a href="/#precios" class="btn btn-outline">Ver Precios</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer mínimo -->
+    <footer style="border-top:1px solid var(--border);padding:1.5rem 0;text-align:center;">
+        <div class="container">
+            <p style="font-size:0.8rem;color:var(--text-muted);">
+                © 2026 QZ Web Solutions · Toluca, Edo. Méx. ·
+                <a href="/" style="color:var(--text-secondary);">Inicio</a> ·
+                <a href="/proyectos" style="color:var(--text-secondary);">Proyectos</a> ·
+                <a href="/blog" style="color:var(--text-secondary);">Blog</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp float -->
+    <a href="https://wa.me/527228964383?text=Hola,%20quiero%20cotizar%20mi%20página%20web"
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Navbar scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        }, { passive: true });
+
+        // Mobile nav
+        const navToggle = document.getElementById('navToggle');
+        const navList = document.getElementById('siteNav');
+        if (navToggle && navList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+            });
+            navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                navList.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }));
+        }
+
+        // Reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        if (revealEls.length) {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+            }, { threshold: 0.1 });
+            revealEls.forEach(el => obs.observe(el));
+        }
+    </script>
+</body>
+</html>

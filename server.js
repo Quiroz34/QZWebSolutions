@@ -5,10 +5,14 @@ const path = require("path");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
 
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+const model = genAI.getGenerativeModel({ model: GEMINI_MODEL });
 
 const app = express();
+const ONE_DAY = 86400000;
+const ONE_WEEK = ONE_DAY * 7;
+const ONE_YEAR = ONE_DAY * 365;
 
 // Seguridad y Optimización
 app.use(helmet({
@@ -16,11 +20,28 @@ app.use(helmet({
 }));
 app.use(compression());
 app.use(express.json());
+app.use((req, res, next) => {
+  res.charset = "utf-8";
+  next();
+});
 
 // Rutas de archivos estáticos
-app.use("/css", express.static(path.join(__dirname, "css")));
-app.use("/js", express.static(path.join(__dirname, "js")));
-app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use("/css", express.static(path.join(__dirname, "css"), { maxAge: ONE_WEEK }));
+app.use("/js", express.static(path.join(__dirname, "js"), { maxAge: ONE_WEEK }));
+app.use("/assets", express.static(path.join(__dirname, "assets"), { maxAge: ONE_YEAR, immutable: true }));
+
+app.get(['/index.html', '/html/index.html'], (req, res) => res.redirect(301, '/'));
+app.get('/html/blog/:slug.html', (req, res) => res.redirect(301, `/blog/${req.params.slug}`));
+app.get('/html/:page.html', (req, res) => {
+  const routeMap = {
+    privacy: '/privacy',
+    terms: '/terms',
+    projects: '/proyectos',
+    proceso: '/proceso',
+    blog: '/blog'
+  };
+  res.redirect(301, routeMap[req.params.page] || `/${req.params.page}`);
+});
 
 // Página principal
 app.get("/", (req, res) => {
@@ -38,7 +59,7 @@ app.get('/robots.txt', (req, res) => {
 });
 
 // Archivos públicos (sitemap.xml, manifest.json)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: ONE_DAY }));
 
 // Ruta del formulario (Mantiene lógica actual - solo log)
 app.post("/contact", (req, res) => {
@@ -60,6 +81,10 @@ app.get('/terms', (req, res) => {
 // Nueva página de proyectos
 app.get('/proyectos', (req, res) => {
   res.sendFile(path.join(__dirname, 'html', 'projects.html'));
+});
+
+app.get('/proceso', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html', 'proceso.html'));
 });
 
 // Blog
@@ -211,7 +236,7 @@ MANEJO DE OBJECIONES
 REGLAS DE INTERACCIÓN
 ═══════════════════════════════════════
 1. Si el usuario pregunta por precio → explica brevemente los 3 planes y DEBES agregar este enlace: [Ver Tabla de Precios](#precios)
-2. Si el usuario describe su negocio → recomienda el plan más adecuado y añade este botón: [Cotizar por WhatsApp](https://wa.me/527228964383)
+2. Si el usuario describe su negocio → recomienda el plan más adecuado y añade este botón: [Cotizar mi página por WhatsApp](https://wa.me/527228964383)
 3. Si el usuario pregunta por trabajo previo → menciona Agenda LP y dales el enlace [Ver Portafolio](#portafolio) y [Ver App Agenda LP](#portfolio-showcase).
 4. Usa texto en **negritas** (con asteriscos dobles) para resaltar partes importantes, pero NO exageres.
 5. Utiliza listas (\`- item 1\`) para que todo sea súper fácil de leer.
@@ -221,13 +246,85 @@ REGLAS DE INTERACCIÓN
 `;
 
 
+const FALLBACK_CHAT_RESPONSES = {
+  prices: `Claro. Estos son los precios actuales:
+
+- **Landing Express:** desde $3,300 MXN
+- **Plan Startup:** $4,800 MXN
+- **Plan Profesional:** $7,800 MXN
+- **Plan Premium:** desde $12,000 MXN
+
+Puedes ver la tabla en [Planes y precios](#precios) o pedir una cotización directa por [WhatsApp](https://wa.me/527228964383).`,
+  promo: `Tenemos la **promoción especial Landing Express** desde **$3,300 MXN**, vigente hasta el **30 de junio de 2026**.
+
+Es una opción de entrada para lanzar tu presencia digital. Puedes pedirla directo por [WhatsApp](https://wa.me/527228964383).`,
+  delivery: `Los tiempos dependen del plan:
+
+- **Startup:** 10-13 dias
+- **Profesional:** 13-16 dias
+- **Premium:** 16-20 dias
+
+Si me escribes por [WhatsApp](https://wa.me/527228964383), te podemos orientar con el plan ideal para tu negocio.`,
+  portfolio: `Si quieres ver trabajo previo, revisa el [portafolio](#portafolio). Tambien puedes ver **Agenda LP**, una app para distribuidores de Gas LP, en [App Agenda LP](#portfolio-showcase).`,
+  contact: `Puedes contactar a QZ Web Solutions por:
+
+- **WhatsApp:** [+52 722 896 4383](https://wa.me/527228964383)
+- **Correo:** qzwebsolutionsinfo@gmail.com
+
+Para cotizar más rápido, cuéntanos qué tipo de negocio tienes y qué necesitas en tu página web.`,
+  default: `Gracias por escribir a QZ Web Solutions. Podemos ayudarte con páginas web profesionales, apps Android y software a medida.
+
+Para orientarte mejor, cuéntanos qué tipo de negocio tienes, qué necesitas en tu página web y si buscas una opción como **Landing Express**, **Startup**, **Profesional** o **Premium**. También puedes escribir directo por [WhatsApp](https://wa.me/527228964383).`
+};
+
+function getFallbackChatResponse(message) {
+  const text = String(message || "").toLowerCase();
+
+  if (/landing|express|promocion|promoci[oó]n|oferta|3300|3,300/.test(text)) {
+    return FALLBACK_CHAT_RESPONSES.promo;
+  }
+
+  if (/precio|precios|costo|costos|cuanto|cu[aá]nto|plan|planes|paquete|paquetes|startup|profesional|premium|4800|7800|12000|12,000/.test(text)) {
+    return FALLBACK_CHAT_RESPONSES.prices;
+  }
+
+  if (/tiempo|tarda|tardan|entrega|dias|d[ií]as|cuando|cu[aá]ndo/.test(text)) {
+    return FALLBACK_CHAT_RESPONSES.delivery;
+  }
+
+  if (/portafolio|proyecto|proyectos|trabajo|trabajos|ejemplo|ejemplos|agenda/.test(text)) {
+    return FALLBACK_CHAT_RESPONSES.portfolio;
+  }
+
+  if (/contacto|whatsapp|tel[eé]fono|telefono|correo|email|mail|llamar/.test(text)) {
+    return FALLBACK_CHAT_RESPONSES.contact;
+  }
+
+  return FALLBACK_CHAT_RESPONSES.default;
+}
+
 // Chat con IA (Usando Gemini API con formato mejorado)
 app.post("/api/chat", async (req, res) => {
   try {
     const { message, sessionId } = req.body;
 
-    if (!message) {
+    if (!message || typeof message !== 'string') {
       return res.status(400).json({ error: "Mensaje requerido" });
+    }
+
+    const cleanMessage = message.trim();
+
+    if (!cleanMessage) {
+      return res.status(400).json({ error: "Mensaje requerido" });
+    }
+
+    if (cleanMessage.length > 1000) {
+      return res.status(400).json({ error: "El mensaje es demasiado largo. Intenta con menos de 1000 caracteres." });
+    }
+
+    if (!process.env.GEMINI_API_KEY) {
+      console.warn("GEMINI_API_KEY no esta configurada. Usando respuesta predeterminada.");
+      return res.json({ text: getFallbackChatResponse(cleanMessage), fallback: true });
     }
 
     const currentSessionId = sessionId || 'default-session';
@@ -250,19 +347,17 @@ app.post("/api/chat", async (req, res) => {
       chat = chatHistory;
     }
 
-    console.log(`[Sesión: ${currentSessionId}] Usuario: ${message.substring(0, 50)}...`);
+    console.log(`[Sesión: ${currentSessionId}] Usuario: ${cleanMessage.substring(0, 50)}...`);
 
-    const result = await chat.sendMessage(message);
+    const result = await chat.sendMessage(cleanMessage);
     const response = await result.response;
     const botMessage = response.text();
 
     res.json({ text: botMessage });
   } catch (error) {
     console.error("Error en chat IA:", error);
-    res.status(500).json({
-      error: "Lo siento, tuve un problema técnico con mi conexión nube. ¿Podrías repetirlo?",
-      details: error.message
-    });
+    const cleanMessage = req.body && typeof req.body.message === 'string' ? req.body.message.trim() : "";
+    res.json({ text: getFallbackChatResponse(cleanMessage), fallback: true });
   }
 });
 

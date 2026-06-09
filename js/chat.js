@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendChat = document.getElementById('send-chat');
     const chatMessages = document.getElementById('chat-messages');
 
+    if (!chatToggle || !chatWindow || !closeChat || !chatInput || !sendChat || !chatMessages) {
+        return;
+    }
+
     // Toggle Chat Window
     chatToggle.addEventListener('click', () => {
         chatWindow.classList.toggle('hidden');
@@ -31,6 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendMessage = async () => {
         const message = chatInput.value.trim();
         if (!message) return;
+        if (message.length > 1000) {
+            appendMessage('ai', 'Tu mensaje es muy largo. Intenta resumirlo en menos de 1000 caracteres.');
+            return;
+        }
 
         // Add user message to UI
         appendMessage('user', message);
@@ -55,8 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loadingMsg) loadingMsg.remove();
 
             if (response.ok) {
-                // Si la librería marked está disponible, convertir Markdown a HTML
-                const finalHtml = typeof marked !== 'undefined' ? marked.parse(data.text || '') : (data.text || 'Sin respuesta.');
+                // Si marked está disponible, convertir Markdown a HTML sin permitir HTML crudo.
+                const finalHtml = typeof marked !== 'undefined'
+                    ? marked.parse(escapeHtml(data.text || ''), { breaks: true })
+                    : (data.text || 'Sin respuesta.');
                 appendMessage('ai', finalHtml, true);
             } else {
                 appendMessage('ai', data.error || 'Lo siento, hubo un error al procesar tu mensaje.');
@@ -65,9 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error in chat:', error);
             const loadingMsg = document.getElementById(loadingId);
             if (loadingMsg) loadingMsg.remove();
-            appendMessage('ai', 'Error de conexión. Inténtalo más tarde.');
+            appendMessage('ai', 'No pude conectar con el asistente en este momento. Puedes escribir directo por WhatsApp al +52 722 896 4383 o por correo a qzwebsolutionsinfo@gmail.com para cotizar tu página web.');
         }
     };
+
+    const escapeHtml = (value) => String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 
     const appendMessage = (sender, content, isHtml = false) => {
         const msgDiv = document.createElement('div');
@@ -77,6 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (isHtml) {
             msgDiv.innerHTML = content;
+            msgDiv.querySelectorAll('a').forEach((link) => {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
         } else {
             msgDiv.textContent = content;
         }
@@ -93,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     sendChat.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', (e) => {
+    chatInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') sendMessage();
     });
 });

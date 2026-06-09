@@ -8,7 +8,7 @@ const AppState = {
     currentYear: new Date().getFullYear(),
     whatsappNumber: '527228964383',
     phoneNumber: '722 896 4383',
-    email: 'info@qzwebsolutions.com'
+    email: 'qzwebsolutionsinfo@gmail.com'
 };
 
 // Inicialización cuando el DOM está listo
@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicializar efectos visuales
     initVisualEffects();
+
+    // Inicializar acordeón de preguntas frecuentes
+    initFaqAccordion();
 });
 
 // Navegación móvil mejorada
@@ -52,6 +55,7 @@ function initMobileNavigation() {
         AppState.isMenuOpen = !AppState.isMenuOpen;
         navToggle.setAttribute('aria-expanded', String(AppState.isMenuOpen));
         siteNav.classList.toggle('active', AppState.isMenuOpen);
+        siteNav.classList.toggle('open', AppState.isMenuOpen);
         document.body.style.overflow = AppState.isMenuOpen ? 'hidden' : '';
 
         // Animar el botón hamburguesa
@@ -302,7 +306,7 @@ function initContactForm() {
             nameInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
-        if (!/^[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃÃ‰ÃÃ“ÃšÃ±Ã‘\s]+$/.test(value)) {
+        if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'.-]+$/.test(value)) {
             nameError.textContent = 'El nombre solo debe contener letras.';
             nameInput.parentElement.style.borderColor = 'var(--error)';
             return false;
@@ -350,7 +354,7 @@ function initContactForm() {
             return false;
         }
         if (value.length > 1000) {
-            messageError.textContent = 'El mensaje es demasiado largo (mÃ¡ximo 1000 caracteres).';
+            messageError.textContent = 'El mensaje es demasiado largo (máximo 1000 caracteres).';
             messageInput.parentElement.style.borderColor = 'var(--error)';
             return false;
         }
@@ -463,7 +467,7 @@ function initContactForm() {
             };
         }
 
-        // Remover contenedor despuÃ©s de la animaciÃ³n
+        // Remover contenedor después de la animación
         setTimeout(() => {
             confetti.remove();
         }, 2000);
@@ -487,6 +491,7 @@ function initAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+                entry.target.classList.add('visible');
                 // Opcional: dejar de observar si solo queremos que se anime una vez
                 // revealObserver.unobserve(entry.target);
             }
@@ -715,7 +720,7 @@ function createParticles() {
 
         hero.appendChild(particle);
 
-        // AnimaciÃ³n
+        // Animación
         animateParticle(particle);
     }
 }
@@ -961,19 +966,31 @@ function scrollGallery(id, direction) {
     });
 }
 
-// =========================================== 
-//           FAQ ACCORDION FUNCTIONALITY      
-// =========================================== 
-
-document.addEventListener('DOMContentLoaded', function () {
+function initFaqAccordion() {
     const faqQuestions = document.querySelectorAll('.faq-question');
+    if (!faqQuestions.length) return;
 
     faqQuestions.forEach(question => {
         question.addEventListener('click', function () {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            const item = this.closest('.faq-item');
+            const answer = item ? item.querySelector('.faq-answer') : null;
+            if (!item || !answer) return;
 
-            // Toggle la pregunta actual
-            this.setAttribute('aria-expanded', !isExpanded);
+            const isActive = item.classList.contains('active');
+
+            document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                if (activeItem === item) return;
+                activeItem.classList.remove('active');
+                const activeAnswer = activeItem.querySelector('.faq-answer');
+                const activeQuestion = activeItem.querySelector('.faq-question');
+                if (activeAnswer) activeAnswer.style.maxHeight = '0';
+                if (activeQuestion) activeQuestion.setAttribute('aria-expanded', 'false');
+            });
+
+            item.classList.toggle('active', !isActive);
+            this.setAttribute('aria-expanded', String(!isActive));
+            answer.style.maxHeight = isActive ? '0' : `${answer.scrollHeight}px`;
         });
     });
-});
+}
+

@@ -147,14 +147,28 @@ document.addEventListener('DOMContentLoaded', function () {
     // 4. Lógica de Negocio
 
     function saveConsent(consentData) {
-        localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consentData));
+        try {
+            localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consentData));
+        } catch (error) {
+            console.warn('No se pudo guardar el consentimiento:', error);
+        }
         applyConsent(consentData);
         console.log('Consentimiento guardado:', consentData);
     }
 
     function getConsent() {
-        const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
-        return stored ? JSON.parse(stored) : null;
+        try {
+            const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
+            return stored ? JSON.parse(stored) : null;
+        } catch (error) {
+            console.warn('Consentimiento invalido, se reiniciara:', error);
+            try {
+                localStorage.removeItem(COOKIE_CONSENT_KEY);
+            } catch (removeError) {
+                console.warn('No se pudo limpiar el consentimiento:', removeError);
+            }
+            return null;
+        }
     }
 
     function applyConsent(consent) {

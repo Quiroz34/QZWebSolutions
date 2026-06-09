@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Sitemap: https://qzwebsolutions.com/sitemap.xml
+Llms-Txt: https://qzwebsolutions.com/llms.txt
 
 Disallow: /admin/
 Disallow: /private/

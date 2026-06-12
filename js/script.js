@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicializar acordeón de preguntas frecuentes
     initFaqAccordion();
+    initPlanFinder();
 });
 
 // Navegación móvil mejorada
@@ -166,6 +167,55 @@ function sendServiceToWhatsApp(serviceName) {
 }
 
 // Función para enviar a WhatsApp desde formulario
+function sendCustomWhatsAppMessage(message) {
+    const cleanMessage = encodeURIComponent(message || 'Hola, quiero cotizar mi página web.');
+    const whatsappURL = `https://wa.me/${AppState.whatsappNumber}?text=${cleanMessage}`;
+    window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+}
+
+function initPlanFinder() {
+    const options = document.querySelectorAll('.plan-option');
+    const recommendedPlan = document.getElementById('recommendedPlan');
+    const recommendedPrice = document.getElementById('recommendedPrice');
+    const whatsappBtn = document.getElementById('recommendedWhatsApp');
+    const formBtn = document.getElementById('recommendedForm');
+    const messageInput = document.getElementById('message');
+
+    if (!options.length || !recommendedPlan || !recommendedPrice) return;
+
+    let selected = options[0];
+
+    function updateSelection(option) {
+        selected = option;
+        options.forEach(item => item.classList.toggle('active', item === option));
+        recommendedPlan.textContent = option.dataset.plan || 'Profesional';
+        recommendedPrice.textContent = option.dataset.price || 'Cotización personalizada';
+    }
+
+    options.forEach(option => {
+        option.addEventListener('click', () => updateSelection(option));
+    });
+
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', () => {
+            const plan = selected.dataset.plan || 'Profesional';
+            const price = selected.dataset.price || 'cotización personalizada';
+            const baseMessage = selected.dataset.message || `Hola, quiero cotizar el plan ${plan}.`;
+            sendCustomWhatsAppMessage(`${baseMessage}\n\nPlan sugerido: ${plan}\nPrecio: ${price}\nOrigen: Recomendador de planes`);
+        });
+    }
+
+    if (formBtn) {
+        formBtn.addEventListener('click', () => {
+            if (messageInput) {
+                messageInput.value = selected.dataset.message || '';
+                messageInput.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            scrollToSection('contacto');
+        });
+    }
+}
+
 async function sendToWhatsApp(formData) {
     return new Promise((resolve, reject) => {
         try {

@@ -7,6 +7,8 @@ const SITE_URL = 'https://qzwebsolutions.com';
 const PHONE = '527228964383';
 
 const cityPages = [
+  ['mexico', 'México', 'todo el país'],
+  ['toluca', 'Toluca', 'Estado de México'],
   ['cancun', 'Cancún', 'Quintana Roo'],
   ['ciudad-de-mexico', 'Ciudad de México', 'CDMX'],
   ['guadalajara', 'Guadalajara', 'Jalisco'],
@@ -65,17 +67,17 @@ const industryPages = [
   slug,
   type: 'industry',
   icon,
-  title: `Diseño Web para ${label} en Toluca | QZ Web Solutions`,
-  description: `Páginas web profesionales para ${audience}. Diseño responsive, SEO local, WhatsApp, formularios y estructura pensada para generar más clientes en Toluca.`,
+  title: `Diseño Web para ${label} en México | QZ Web Solutions`,
+  description: `Páginas web profesionales para ${audience} en México. Diseño responsive, SEO local, WhatsApp, formularios y estructura pensada para generar más clientes.`,
   eyebrow: `Especialistas en ${label}`,
   h1: `Páginas web para ${label} que generan clientes`,
   lead: `Diseñamos sitios modernos para ${audience}, con contenido claro, confianza visual y rutas directas para pedir informes o agendar.`,
   audience,
-  local: 'Toluca, Metepec y todo México',
+  local: 'Todo México',
   whatsapp: `Hola, tengo un negocio de ${label.toLowerCase()} y quiero cotizar mi sitio web`,
   features: [
     ['fa-calendar-check', deliverables[0], `Mostramos tu oferta de forma clara para que el cliente entienda rápido qué haces y cómo contratarte.`],
-    ['fa-ranking-star', 'SEO local', 'Estructura preparada para búsquedas en Toluca, Metepec y zonas cercanas.'],
+    ['fa-ranking-star', 'SEO local', 'Estructura preparada para búsquedas por ciudad, zona y giro comercial en México.'],
     ['fa-comments', 'WhatsApp y formularios', 'Canales de contacto visibles para que cada visita tenga una acción simple.']
   ],
   deliverables: [
@@ -102,7 +104,7 @@ function whatsappUrl(text) {
 }
 
 function relatedPages(currentSlug) {
-  const preferred = ['medicos', 'abogados', 'restaurantes', 'salones-belleza', 'spas', 'veterinarias', 'ciudad-de-mexico', 'guadalajara', 'queretaro', 'monterrey']
+  const preferred = ['mexico', 'toluca', 'medicos', 'abogados', 'restaurantes', 'salones-belleza', 'spas', 'veterinarias', 'ciudad-de-mexico', 'guadalajara', 'queretaro', 'monterrey']
     .filter((slug) => slug !== currentSlug);
   return preferred.slice(0, 6).map((slug) => {
     const page = pages.find((item) => item.slug === slug);
@@ -192,6 +194,7 @@ ${schema(page).split('\n').map((line) => `    ${line}`).join('\n')}
     <ul id="siteNav" class="nav-list">
         <li><a href="/">Inicio</a></li>
         <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/diseno-web-mexico">Diseño web México</a></li>
         <li><a href="/proyectos">Proyectos</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/proceso">Proceso</a></li>
